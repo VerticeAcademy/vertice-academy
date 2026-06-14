@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vértice Academy | Liderança Pessoal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{--preto:#0C0C0F;--dourado:#B8962E;--dourado-claro:#D4B86A;--creme:#F5F0E8;--cinzento:#2A2A30;--branco:#FAFAF8}
+    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:var(--branco);color:var(--preto)}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--preto);display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:72px;border-bottom:1px solid rgba(184,150,46,0.2)}
+    .nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none}
+    .nav-logo-text{display:flex;flex-direction:column}
+    .nav-logo-text span:first-child{font-weight:600;font-size:16px;letter-spacing:3px;color:var(--branco);text-transform:uppercase}
+    .nav-logo-text span:last-child{font-weight:300;font-size:10px;letter-spacing:5px;color:var(--dourado);text-transform:uppercase}
+    .nav-links{display:flex;align-items:center;gap:40px;list-style:none}
+    .nav-links a{text-decoration:none;color:var(--branco);font-size:13px;letter-spacing:1.5px;text-transform:uppercase;font-weight:400;opacity:.85;transition:all .2s}
+    .nav-links a:hover{opacity:1;color:var(--dourado)}
+    .nav-cta{background:transparent;border:1px solid var(--dourado);color:var(--dourado);padding:10px 24px;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:500;cursor:pointer;text-decoration:none;transition:all .3s}
+    .nav-cta:hover{background:var(--dourado);color:var(--preto)}
+    #inicio{min-height:100vh;background:var(--preto);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 5% 80px;position:relative;overflow:hidden}
+    #inicio::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 60% 40%,rgba(184,150,46,.08) 0%,transparent 65%);pointer-events:none}
+    .hero-tag{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--dourado);font-weight:400;margin-bottom:32px;display:flex;align-items:center;gap:12px}
+    .hero-tag::before,.hero-tag::after{content:'';display:block;width:32px;height:1px;background:var(--dourado);opacity:.5}
+    .hero-titulo{font-family:'Cormorant Garamond',serif;font-size:clamp(42px,7vw,88px);font-weight:300;line-height:1.1;color:var(--branco);max-width:900px;margin-bottom:16px}
+    .hero-titulo em{font-style:italic;color:var(--dourado)}
+    .hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,2.5vw,26px);font-weight:300;font-style:italic;color:rgba(250,250,248,.6);margin-bottom:56px;max-width:600px}
+    .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+    .btn-p{background:var(--dourado);color:var(--preto);padding:16px 40px;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;text-decoration:none;transition:all .3s;display:inline-block}
+    .btn-p:hover{background:var(--dourado-claro);transform:translateY(-2px)}
+    .btn-s{background:transparent;color:var(--branco);border:1px solid rgba(250,250,248,.3);padding:16px 40px;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;font-weight:400;text-decoration:none;transition:all .3s;display:inline-block}
+    .btn-s:hover{border-color:var(--dourado);color:var(--dourado)}
+    .numeros{background:var(--cinzento);display:grid;grid-template-columns:repeat(4,1fr)}
+    .num-item{text-align:center;padding:48px 20px;border-right:1px solid rgba(184,150,46,.12)}
+    .num-item:last-child{border-right:none}
+    .num-val{font-family:'Cormorant Garamond',serif;font-size:54px;font-weight:300;color:var(--dourado);line-height:1;margin-bottom:8px}
+    .num-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(250,250,248,.5)}
+    section{padding:100px 5%}
+    .s-tag{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--dourado);font-weight:400;margin-bottom:20px}
+    .s-titulo{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,54px);font-weight:300;line-height:1.2;margin-bottom:20px}
+    .s-sub{font-size:16px;line-height:1.8;opacity:.65;max-width:540px;font-weight:300}
+    #essencia{background:var(--creme)}
+    .e-header{text-align:center;max-width:700px;margin:0 auto 70px}
+    .e-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:1100px;margin:0 auto}
+    .e-card{background:var(--preto);padding:48px 40px;position:relative;overflow:hidden}
+    .e-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--dourado)}
+    .e-num{font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:300;color:rgba(184,150,46,.15);line-height:1;margin-bottom:24px}
+    .e-card-titulo{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--branco);margin-bottom:16px;line-height:1.3}
+    .e-card-texto{font-size:14px;line-height:1.8;color:rgba(250,250,248,.55);font-weight:300}
+    #programas{background:var(--branco)}
+    .p-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:60px;max-width:1100px;margin-left:auto;margin-right:auto;flex-wrap:wrap;gap:24px}
+    .p-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto}
+    .p-card{border:1px solid rgba(12,12,15,.1);padding:48px 36px;transition:all .3s;background:var(--branco)}
+    .p-card:hover{border-color:var(--dourado);transform:translateY(-4px);box-shadow:0 20px 60px rgba(184,150,46,.1)}
+    .p-card.dest{background:var(--preto);border-color:var(--dourado)}
+    .p-tag{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--dourado);font-weight:500;margin-bottom:20px;display:block}
+    .p-titulo{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;line-height:1.3;margin-bottom:16px;color:var(--preto)}
+    .p-card.dest .p-titulo{color:var(--branco)}
+    .p-texto{font-size:14px;line-height:1.8;color:rgba(12,12,15,.6);margin-bottom:32px;font-weight:300}
+    .p-card.dest .p-texto{color:rgba(250,250,248,.6)}
+    .p-cta{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--dourado);font-weight:500;text-decoration:none;display:flex;align-items:center;gap:8px;transition:gap .3s}
+    .p-cta:hover{gap:14px}.p-cta::after{content:'→'}
+    #formacao{background:var(--preto)}
+    .f-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .f-lista{list-style:none;margin:40px 0}
+    .f-lista li{display:flex;align-items:flex-start;gap:16px;padding:20px 0;border-bottom:1px solid rgba(250,250,248,.08);color:rgba(250,250,248,.75);font-size:15px;line-height:1.6}
+    .f-lista li::before{content:'—';color:var(--dourado);flex-shrink:0;margin-top:2px}
+    .f-cards{display:grid;gap:2px}
+    .f-card{background:var(--cinzento);padding:32px 36px;border-left:2px solid transparent;transition:all .3s}
+    .f-card:hover{border-left-color:var(--dourado)}
+    .f-card-titulo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--branco);margin-bottom:8px}
+    .f-card-desc{font-size:13px;color:rgba(250,250,248,.5);line-height:1.6}
+    #sobre{background:var(--creme)}
+    .sb-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:center}
+    .sb-foto{aspect-ratio:3/4;background:var(--cinzento);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:rgba(250,250,248,.3);font-size:13px;letter-spacing:2px;text-transform:uppercase}
+    .sb-foto::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--dourado)}
+    .sb-bio{font-size:16px;line-height:1.9;color:rgba(12,12,15,.7);margin:28px 0;font-weight:300}
+    .sb-creds{display:flex;flex-direction:column;gap:12px;margin:32px 0}
+    .cred{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--preto)}
+    .cred::before{content:'';display:block;width:6px;height:6px;background:var(--dourado);flex-shrink:0}
+    .sb-cit{border-left:2px solid var(--dourado);padding-left:24px;margin-top:32px;font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;font-weight:300;line-height:1.5;color:var(--preto)}
+    #ebook{background:var(--dourado)}
+    .eb-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .eb-badge{font-size:10px;letter-spacing:4px;text-transform:uppercase;background:var(--preto);color:var(--dourado);padding:6px 16px;display:inline-block;margin-bottom:24px;font-weight:500}
+    .eb-titulo{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:300;line-height:1.2;color:var(--preto);margin-bottom:20px}
+    .eb-desc{font-size:16px;line-height:1.8;color:rgba(12,12,15,.75);margin-bottom:36px;font-weight:300}
+    .btn-eb{background:var(--preto);color:var(--dourado);padding:18px 48px;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;text-decoration:none;display:inline-block;transition:all .3s}
+    .btn-eb:hover{background:#1a1a1f;transform:translateY(-2px)}
+    .eb-capa{background:var(--preto);aspect-ratio:2/3;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px;text-align:center;position:relative}
+    .eb-capa::before{content:'';position:absolute;top:12px;right:-12px;bottom:-12px;left:12px;background:rgba(12,12,15,.3);z-index:-1}
+    .eb-capa-titulo{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--branco);line-height:1.3;margin-bottom:16px}
+    .eb-linha{width:40px;height:1px;background:var(--dourado);margin:0 auto 16px}
+    .eb-autor{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--dourado);font-weight:400}
+    #testemunhos{background:var(--branco)}
+    .t-header{text-align:center;max-width:600px;margin:0 auto 60px}
+    .t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto}
+    .t-card{background:var(--creme);padding:40px 32px}
+    .t-texto{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;font-weight:300;line-height:1.6;color:var(--preto);margin-bottom:28px}
+    .t-linha{width:24px;height:1px;background:var(--dourado);margin-bottom:16px}
+    .t-autor{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--preto);font-weight:500}
+    .t-cargo{font-size:12px;color:rgba(12,12,15,.5);margin-top:4px}
+    #contacto{background:var(--preto)}
+    .c-inner{max-width:700px;margin:0 auto;text-align:center}
+    .c-form{display:flex;flex-direction:column;gap:16px;margin-top:48px}
+    .c-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .c-input{background:rgba(250,250,248,.05);border:1px solid rgba(250,250,248,.1);color:var(--branco);padding:16px 20px;font-family:'Inter',sans-serif;font-size:14px;outline:none;transition:border-color .3s;width:100%}
+    .c-input::placeholder{color:rgba(250,250,248,.3)}.c-input:focus{border-color:var(--dourado)}
+    .c-textarea{height:140px;resize:none}
+    .btn-env{background:var(--dourado);color:var(--preto);border:none;padding:18px;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;cursor:pointer;transition:all .3s;font-family:'Inter',sans-serif;width:100%}
+    .btn-env:hover{background:var(--dourado-claro)}
+    footer{background:#06060A;padding:60px 5% 40px}
+    .ft-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:60px;padding-bottom:48px;border-bottom:1px solid rgba(250,250,248,.08)}
+    .ft-nome{font-weight:600;font-size:14px;letter-spacing:3px;color:var(--branco);text-transform:uppercase;margin-bottom:4px}
+    .ft-sub{font-size:10px;letter-spacing:4px;color:var(--dourado);text-transform:uppercase;margin-bottom:20px}
+    .ft-tag{font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:rgba(250,250,248,.4);line-height:1.6}
+    .ft-titulo{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--dourado);margin-bottom:20px;font-weight:500}
+    .ft-links{list-style:none;display:flex;flex-direction:column;gap:12px}
+    .ft-links a{text-decoration:none;color:rgba(250,250,248,.5);font-size:14px;transition:color .2s}
+    .ft-links a:hover{color:var(--branco)}
+    .ft-contact{display:flex;flex-direction:column;gap:12px}
+    .ft-contact-item a{color:rgba(250,250,248,.5);text-decoration:none;font-size:13px;transition:color .2s}
+    .ft-contact-item a:hover{color:var(--dourado)}
+    .ft-bottom{max-width:1100px;margin:32px auto 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+    .ft-copy{font-size:12px;color:rgba(250,250,248,.25)}
+    @media(max-width:900px){
+      .numeros{grid-template-columns:repeat(2,1fr)}
+      .e-grid,.p-grid,.t-grid{grid-template-columns:1fr}
+      .f-inner,.sb-inner,.eb-inner{grid-template-columns:1fr;gap:48px}
+      .ft-inner{grid-template-columns:1fr;gap:40px}
+      .nav-links{display:none}
+      .c-row{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#inicio" class="nav-logo">
+    <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+      <line x1="18" y1="4" x2="18" y2="28" stroke="#FAFAF8" stroke-width="1.5"/>
+      <polyline points="10,12 18,4 26,12" fill="none" stroke="#FAFAF8" stroke-width="1.5"/>
+      <line x1="8" y1="28" x2="28" y2="28" stroke="#FAFAF8" stroke-width="1.5"/>
+      <rect x="15.5" y="26.5" width="5" height="5" fill="#B8962E"/>
+    </svg>
+    <div class="nav-logo-text"><span>Vértice</span><span>Academy</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#programas">Programas</a></li>
+    <li><a href="#formacao">Formação</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#ebook">Ebook</a></li>
+  </ul>
+  <a href="#contacto" class="nav-cta">Fala Comigo</a>
+</nav>
+
+<section id="inicio">
+  <p class="hero-tag">Vértice Academy</p>
+  <h1 class="hero-titulo">O momento em que decides<br><em>responder em vez de reagir</em><br>— esse é o teu vértice.</h1>
+  <p class="hero-sub">Liderança pessoal como ponto de viragem para todas as áreas da tua vida.</p>
+  <div class="hero-ctas">
+    <a href="#programas" class="btn-p">Descobre os Programas</a>
+    <a href="#ebook" class="btn-s">Guia Gratuito</a>
+  </div>
+</section>
+
+<div class="numeros">
+  <div class="num-item"><div class="num-val">29+</div><div class="num-label">Anos de Experiência</div></div>
+  <div class="num-item"><div class="num-val">500+</div><div class="num-label">Pessoas Formadas</div></div>
+  <div class="num-item"><div class="num-val">3</div><div class="num-label">Programas Ativos</div></div>
+  <div class="num-item"><div class="num-val">PT · ES</div><div class="num-label">Mercado Ibérico</div></div>
+</div>
+
+<section id="essencia">
+  <div class="e-header">
+    <p class="s-tag">A Nossa Essência</p>
+    <h2 class="s-titulo">A liderança pessoal<br>como ponto de viragem</h2>
+    <p class="s-sub" style="margin:0 auto">Não é o talento que define quem lidera. É a capacidade de se conhecer, de escolher a resposta em vez de ceder à reação.</p>
+  </div>
+  <div class="e-grid">
+    <div class="e-card"><div class="e-num">01</div><h3 class="e-card-titulo">Liderança Pessoal</h3><p class="e-card-texto">O teu ponto de viragem começa dentro de ti. Antes de liderar equipas, projetos ou negócios, aprende a liderar-te a ti próprio com intenção e clareza.</p></div>
+    <div class="e-card"><div class="e-num">02</div><h3 class="e-card-titulo">Autocuidado como Base</h3><p class="e-card-texto">Não há sustentabilidade sem autocuidado. Aprender a nutrir a tua energia, os teus limites e o teu bem-estar é o alicerce de tudo o resto.</p></div>
+    <div class="e-card"><div class="e-num">03</div><h3 class="e-card-titulo">Ferramentas Reais</h3><p class="e-card-texto">Metodologia comportamental aplicada. Não teoria — ferramentas concretas que transformam a forma como pensas, comunicas e te relacionas.</p></div>
+  </div>
+</section>
+
+<section id="programas">
+  <div class="p-header">
+    <div><p class="s-tag">Programas</p><h2 class="s-titulo">O teu caminho,<br>ao teu ritmo</h2></div>
+    <p class="s-sub">Cada programa foi desenhado para um momento específico da tua jornada.</p>
+  </div>
+  <div class="p-grid">
+    <div class="p-card"><span class="p-tag">Introdução</span><h3 class="p-titulo">Da Reação ao Equilíbrio</h3><p class="p-texto">Um programa de introdução à gestão emocional e à liderança pessoal. Para quem quer começar a responder em vez de reagir.</p><a href="#contacto" class="p-cta">Saber mais</a></div>
+    <div class="p-card dest"><span class="p-tag">Mais Procurado</span><h3 class="p-titulo">Comunicação Assertiva</h3><p class="p-texto">Aprende a comunicar com clareza e integridade. Um programa focado na escuta ativa e na construção de relações profissionais de confiança.</p><a href="#contacto" class="p-cta">Saber mais</a></div>
+    <div class="p-card"><span class="p-tag">Mentoria</span><h3 class="p-titulo">Liderar com Intenção</h3><p class="p-texto">Para profissionais que já lideram e querem fazê-lo com mais clareza, impacto e alinhamento com os seus valores essenciais.</p><a href="#contacto" class="p-cta">Saber mais</a></div>
+  </div>
+</section>
+
+<section id="formacao">
+  <div class="f-inner">
+    <div>
+      <p class="s-tag">Formação</p>
+      <h2 class="s-titulo" style="color:var(--branco)">Para pessoas,<br>equipas e organizações</h2>
+      <p class="s-sub" style="color:rgba(250,250,248,.6)">A mesma metodologia, adaptada ao teu contexto.</p>
+      <ul class="f-lista">
+        <li>Formação in-house para empresas e organizações</li>
+        <li>Programas para equipas de liderança intermédia</li>
+        <li>Formação certificada para treinadores e técnicos desportivos</li>
+        <li>Workshops de curta duração — abertos ao público</li>
+      </ul>
+      <a href="#contacto" class="btn-p">Solicitar Proposta</a>
+    </div>
+    <div class="f-cards">
+      <div class="f-card"><h4 class="f-card-titulo">Empresas &amp; Equipas</h4><p class="f-card-desc">Formação personalizada para contextos corporativos. Metodologia adaptável, resultados mensuráveis.</p></div>
+      <div class="f-card"><h4 class="f-card-titulo">Profissionais do Desporto</h4><p class="f-card-desc">Liderança pessoal aplicada ao contexto desportivo. Para treinadores que querem liderar além do campo.</p></div>
+      <div class="f-card"><h4 class="f-card-titulo">Workshops Abertos</h4><p class="f-card-desc">Formações de curta duração com inscrição individual. Reserva o teu lugar.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="sb-inner">
+    <div class="sb-foto">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="18" r="10" stroke="rgba(250,250,248,0.3)" stroke-width="1.5"/><path d="M6 42c0-9.941 8.059-18 18-18s18 8.059 18 18" stroke="rgba(250,250,248,0.3)" stroke-width="1.5"/></svg>
+      <span>A tua foto aqui</span>
+    </div>
+    <div>
+      <p class="s-tag">Andrea Antunes</p>
+      <h2 class="s-titulo">29 anos a transformar pessoas por dentro</h2>
+      <p class="sb-bio">Assistente Social de formação, especialista em comportamento humano e desenvolvimento pessoal. Ao longo de quase três décadas, trabalhei com pessoas em momentos de viragem — e aprendi que a mudança real começa sempre a partir de dentro.</p>
+      <p class="sb-bio">A Vértice Academy nasceu da convicção de que a liderança pessoal não é um privilégio de alguns — é uma competência que todos podem desenvolver.</p>
+      <div class="sb-creds">
+        <div class="cred">Assistente Social — 29 anos de experiência</div>
+        <div class="cred">Formadora certificada DGERT</div>
+        <div class="cred">Especialista em comportamento humano</div>
+        <div class="cred">Formação certificada IPDJ para treinadores</div>
+      </div>
+      <blockquote class="sb-cit">"O vértice não é o destino — é o momento em que tudo muda de direção."</blockquote>
+    </div>
+  </div>
+</section>
+
+<section id="ebook">
+  <div class="eb-inner">
+    <div>
+      <span class="eb-badge">Guia Digital</span>
+      <h2 class="eb-titulo">O teu primeiro passo para o vértice</h2>
+      <p class="eb-desc">Um guia prático sobre liderança pessoal, autocuidado e as ferramentas essenciais para começares a responder em vez de reagir — na vida pessoal e profissional.</p>
+      <a href="https://gumroad.com" target="_blank" class="btn-eb">Obter o Guia</a>
+    </div>
+    <div class="eb-capa">
+      <div class="eb-capa-titulo">O Momento em que Tudo Muda</div>
+      <div class="eb-linha"></div>
+      <div class="eb-autor">Andrea Antunes</div>
+    </div>
+  </div>
+</section>
+
+<section id="testemunhos">
+  <div class="t-header">
+    <p class="s-tag">Testemunhos</p>
+    <h2 class="s-titulo">O que dizem as pessoas</h2>
+  </div>
+  <div class="t-grid">
+    <div class="t-card"><p class="t-texto">"Foi o programa que me faltava. Aprendi a ouvir-me antes de agir — e isso mudou tudo nas minhas relações profissionais."</p><div class="t-linha"></div><div class="t-autor">M.S.</div><div class="t-cargo">Gestora de equipa</div></div>
+    <div class="t-card"><p class="t-texto">"A Andrea tem uma capacidade única de chegar às pessoas. A formação foi transformadora — não só para mim, mas para toda a equipa."</p><div class="t-linha"></div><div class="t-autor">R.F.</div><div class="t-cargo">Diretor de RH</div></div>
+    <div class="t-card"><p class="t-texto">"Como treinador, aprendi que liderar jogadores começa por liderar-me a mim. Esta formação deu-me ferramentas que a academia nunca me deu."</p><div class="t-linha"></div><div class="t-autor">J.M.</div><div class="t-cargo">Treinador de futebol</div></div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="c-inner">
+    <p class="s-tag">Contacto</p>
+    <h2 class="s-titulo" style="color:var(--branco)">Pronto para descobrir<br>o teu vértice?</h2>
+    <p class="s-sub" style="color:rgba(250,250,248,.55);margin:0 auto">Fala comigo. Respondo a todas as mensagens pessoalmente.</p>
+    <form class="c-form" onsubmit="return false">
+      <div class="c-row">
+        <input class="c-input" type="text" placeholder="Nome">
+        <input class="c-input" type="email" placeholder="Email">
+      </div>
+      <input class="c-input" type="text" placeholder="Assunto">
+      <textarea class="c-input c-textarea" placeholder="A tua mensagem..."></textarea>
+      <button class="btn-env" type="submit">Enviar Mensagem</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-inner">
+    <div>
+      <div class="ft-nome">Vértice</div>
+      <div class="ft-sub">Academy</div>
+      <p class="ft-tag">"O momento em que decides responder em vez de reagir — esse é o teu vértice."</p>
+    </div>
+    <div>
+      <div class="ft-titulo">Navegação</div>
+      <ul class="ft-links">
+        <li><a href="#programas">Programas</a></li>
+        <li><a href="#formacao">Formação</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#ebook">Ebook</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="ft-titulo">Contacto</div>
+      <div class="ft-contact">
+        <div class="ft-contact-item"><a href="mailto:andrea@verticeacademy.eu">andrea@verticeacademy.eu</a></div>
+        <div class="ft-contact-item"><a href="mailto:formacao@verticeacademy.eu">formacao@verticeacademy.eu</a></div>
+        <div class="ft-contact-item"><a href="https://linkedin.com" target="_blank">LinkedIn</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <div class="ft-copy">© 2026 Vértice Academy · Andrea Antunes · ENI</div>
+    <div class="ft-copy">Política de Privacidade · Termos e Condições</div>
+  </div>
+</footer>
+
+</body>
+</html>
