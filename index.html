@@ -126,13 +126,42 @@
     .ft-copy{font-size:12px;color:rgba(250,250,248,.25)}
     @media(max-width:900px){
       .numeros{grid-template-columns:repeat(2,1fr)}
-      .e-grid,.p-grid,.t-grid{grid-template-columns:1fr}
+      .e-grid,.p-grid,.t-grid,.cursos-grid{grid-template-columns:1fr}
       .f-inner,.sb-inner,.eb-inner{grid-template-columns:1fr;gap:48px}
       .ft-inner{grid-template-columns:1fr;gap:40px}
       .nav-links{display:none}
+      .p-header{flex-direction:column;align-items:flex-start}
       .c-row{grid-template-columns:1fr}
+      .hero-ctas{flex-direction:column;align-items:center}
+      section{padding:70px 5%}
+      .eb-capa{display:none}
     }
-  </style>
+    @media(max-width:600px){
+      .numeros{grid-template-columns:1fr}
+      .num-item{border-right:none;border-bottom:1px solid rgba(184,150,46,.12);padding:32px 20px}
+      .num-item:last-child{border-bottom:none}
+      nav{padding:0 4%;height:64px}
+      .nav-logo-text span:first-child{font-size:14px}
+      section{padding:56px 4%}
+      .e-card{padding:36px 28px}
+      .p-card{padding:36px 24px}
+      .t-card{padding:32px 24px}
+      .ft-inner{padding-bottom:40px}
+      .sb-foto{aspect-ratio:4/3}
+    }
+    
+    /* Scroll animations */
+    .fade-in{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+    .fade-in.visible{opacity:1;transform:translateY(0)}
+    .fade-in-left{opacity:0;transform:translateX(-40px);transition:opacity .7s ease,transform .7s ease}
+    .fade-in-left.visible{opacity:1;transform:translateX(0)}
+    .fade-in-right{opacity:0;transform:translateX(40px);transition:opacity .7s ease,transform .7s ease}
+    .fade-in-right.visible{opacity:1;transform:translateX(0)}
+    .stagger-1{transition-delay:.1s}
+    .stagger-2{transition-delay:.2s}
+    .stagger-3{transition-delay:.3s}
+    .stagger-4{transition-delay:.4s}
+</style>
 </head>
 <body>
 
@@ -174,15 +203,15 @@
 </div>
 
 <section id="essencia">
-  <div class="e-header">
+  <div class="e-header fade-in">
     <p class="s-tag">A Nossa Essência</p>
     <h2 class="s-titulo">A liderança pessoal<br>como ponto de viragem</h2>
     <p class="s-sub" style="margin:0 auto">Não é o talento que define quem lidera. É a capacidade de se conhecer, de escolher a resposta em vez de ceder à reação.</p>
   </div>
   <div class="e-grid">
-    <div class="e-card"><div class="e-num">01</div><h3 class="e-card-titulo">Liderança Pessoal</h3><p class="e-card-texto">O teu ponto de viragem começa dentro de ti. Antes de liderar equipas, projetos ou negócios, aprende a liderar-te a ti próprio com intenção e clareza.</p></div>
-    <div class="e-card"><div class="e-num">02</div><h3 class="e-card-titulo">Autocuidado como Base</h3><p class="e-card-texto">Não há sustentabilidade sem autocuidado. Aprender a nutrir a tua energia, os teus limites e o teu bem-estar é o alicerce de tudo o resto.</p></div>
-    <div class="e-card"><div class="e-num">03</div><h3 class="e-card-titulo">Ferramentas Reais</h3><p class="e-card-texto">Metodologia comportamental aplicada. Não teoria — ferramentas concretas que transformam a forma como pensas, comunicas e te relacionas.</p></div>
+    <div class="e-card fade-in stagger-1"><div class="e-num">01</div><h3 class="e-card-titulo">Liderança Pessoal</h3><p class="e-card-texto">O teu ponto de viragem começa dentro de ti. Antes de liderar equipas, projetos ou negócios, aprende a liderar-te a ti próprio com intenção e clareza.</p></div>
+    <div class="e-card fade-in stagger-2"><div class="e-num">02</div><h3 class="e-card-titulo">Autocuidado como Base</h3><p class="e-card-texto">Não há sustentabilidade sem autocuidado. Aprender a nutrir a tua energia, os teus limites e o teu bem-estar é o alicerce de tudo o resto.</p></div>
+    <div class="e-card fade-in stagger-3"><div class="e-num">03</div><h3 class="e-card-titulo">Ferramentas Reais</h3><p class="e-card-texto">Metodologia comportamental aplicada. Não teoria — ferramentas concretas que transformam a forma como pensas, comunicas e te relacionas.</p></div>
   </div>
 </section>
 
@@ -192,9 +221,9 @@
     <p class="s-sub">Cada programa foi desenhado para um momento específico da tua jornada.</p>
   </div>
   <div class="p-grid">
-    <div class="p-card"><span class="p-tag">Introdução</span><h3 class="p-titulo">Da Reação ao Equilíbrio</h3><p class="p-texto">Um programa de introdução à gestão emocional e à liderança pessoal. Para quem quer começar a responder em vez de reagir.</p><a href="#contacto" class="p-cta">Saber mais</a></div>
-    <div class="p-card dest"><span class="p-tag">Mais Procurado</span><h3 class="p-titulo">Comunicação Assertiva</h3><p class="p-texto">Aprende a comunicar com clareza e integridade. Um programa focado na escuta ativa e na construção de relações profissionais de confiança.</p><a href="#contacto" class="p-cta">Saber mais</a></div>
-    <div class="p-card"><span class="p-tag">Mentoria</span><h3 class="p-titulo">Liderar com Intenção</h3><p class="p-texto">Para profissionais que já lideram e querem fazê-lo com mais clareza, impacto e alinhamento com os seus valores essenciais.</p><a href="#contacto" class="p-cta">Saber mais</a></div>
+    <div class="p-card fade-in stagger-1"><span class="p-tag">Introdução</span><h3 class="p-titulo">Da Reação ao Equilíbrio</h3><p class="p-texto">Um programa de introdução à gestão emocional e à liderança pessoal. Para quem quer começar a responder em vez de reagir.</p><a href="#contacto" class="p-cta">Saber mais</a></div>
+    <div class="p-card dest fade-in stagger-2"><span class="p-tag">Mais Procurado</span><h3 class="p-titulo">Comunicação Assertiva</h3><p class="p-texto">Aprende a comunicar com clareza e integridade. Um programa focado na escuta ativa e na construção de relações profissionais de confiança.</p><a href="#contacto" class="p-cta">Saber mais</a></div>
+    <div class="p-card fade-in stagger-3"><span class="p-tag">Mentoria</span><h3 class="p-titulo">Liderar com Intenção</h3><p class="p-texto">Para profissionais que já lideram e querem fazê-lo com mais clareza, impacto e alinhamento com os seus valores essenciais.</p><a href="#contacto" class="p-cta">Saber mais</a></div>
   </div>
 </section>
 
@@ -258,22 +287,22 @@
 </section>
 
 <section id="cursos">
-  <div class="cursos-inner">
+  <div class="cursos-inner fade-in">
     <p class="s-tag">Plataforma de Aprendizagem</p>
     <h2 class="s-titulo" style="color:var(--branco)">Aprende ao teu ritmo,<br>onde quiseres</h2>
     <p class="s-sub" style="color:rgba(250,250,248,.6);margin:0 auto 48px">Acede aos materiais, programas e cursos online na plataforma Vértice Academy.</p>
     <div class="cursos-grid">
-      <div class="cursos-card">
+      <div class="cursos-card fade-in stagger-1">
         <div class="cursos-icon">01</div>
         <h3 class="cursos-titulo">Cursos Online</h3>
         <p class="cursos-desc">Programas completos em formato digital, disponíveis a qualquer hora e em qualquer lugar.</p>
       </div>
-      <div class="cursos-card">
+      <div class="cursos-card fade-in stagger-2">
         <div class="cursos-icon">02</div>
         <h3 class="cursos-titulo">Materiais de Apoio</h3>
         <p class="cursos-desc">Fichas de trabalho, guias práticos e recursos para aprofundar a tua aprendizagem.</p>
       </div>
-      <div class="cursos-card">
+      <div class="cursos-card fade-in stagger-3">
         <div class="cursos-icon">03</div>
         <h3 class="cursos-titulo">Acompanhamento</h3>
         <p class="cursos-desc">Acesso a fóruns, sessões ao vivo e suporte direto durante o percurso formativo.</p>
@@ -284,14 +313,14 @@
 </section>
 
 <section id="testemunhos">
-  <div class="t-header">
+  <div class="t-header fade-in">
     <p class="s-tag">Testemunhos</p>
     <h2 class="s-titulo">O que dizem as pessoas</h2>
   </div>
   <div class="t-grid">
-    <div class="t-card"><p class="t-texto">"Foi o programa que me faltava. Aprendi a ouvir-me antes de agir — e isso mudou tudo nas minhas relações profissionais."</p><div class="t-linha"></div><div class="t-autor">M.S.</div><div class="t-cargo">Gestora de equipa</div></div>
-    <div class="t-card"><p class="t-texto">"A Andrea tem uma capacidade única de chegar às pessoas. A formação foi transformadora — não só para mim, mas para toda a equipa."</p><div class="t-linha"></div><div class="t-autor">R.F.</div><div class="t-cargo">Diretor de RH</div></div>
-    <div class="t-card"><p class="t-texto">"Como treinador, aprendi que liderar jogadores começa por liderar-me a mim. Esta formação deu-me ferramentas que a academia nunca me deu."</p><div class="t-linha"></div><div class="t-autor">J.M.</div><div class="t-cargo">Treinador de futebol</div></div>
+    <div class="t-card fade-in stagger-1"><p class="t-texto">"Foi o programa que me faltava. Aprendi a ouvir-me antes de agir — e isso mudou tudo nas minhas relações profissionais."</p><div class="t-linha"></div><div class="t-autor">M.S.</div><div class="t-cargo">Gestora de equipa</div></div>
+    <div class="t-card fade-in stagger-2"><p class="t-texto">"A Andrea tem uma capacidade única de chegar às pessoas. A formação foi transformadora — não só para mim, mas para toda a equipa."</p><div class="t-linha"></div><div class="t-autor">R.F.</div><div class="t-cargo">Diretor de RH</div></div>
+    <div class="t-card fade-in stagger-3"><p class="t-texto">"Como treinador, aprendi que liderar jogadores começa por liderar-me a mim. Esta formação deu-me ferramentas que a academia nunca me deu."</p><div class="t-linha"></div><div class="t-autor">J.M.</div><div class="t-cargo">Treinador de futebol</div></div>
   </div>
   <div style="text-align:center;margin-top:60px;padding-bottom:20px">
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1yDe---TcVeGOLYGdFUyYVNVXYYo5emLC4X9dalb7-EpeCQ/viewform" target="_blank" rel="noopener" style="display:inline-block;background:transparent;color:var(--dourado);border:1px solid var(--dourado);padding:16px 40px;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;transition:all .3s">Deixa o teu testemunho</a>
@@ -299,17 +328,17 @@
 </section>
 
 <section id="contacto">
-  <div class="c-inner">
+  <div class="c-inner fade-in">
     <p class="s-tag">Contacto</p>
     <h2 class="s-titulo" style="color:var(--branco)">Pronto para descobrir<br>o teu vértice?</h2>
     <p class="s-sub" style="color:rgba(250,250,248,.55);margin:0 auto">Fala comigo. Respondo a todas as mensagens pessoalmente.</p>
-    <form class="c-form" onsubmit="return false">
+    <form class="c-form" action="https://formspree.io/f/xvgajkbj" method="POST">
       <div class="c-row">
-        <input class="c-input" type="text" placeholder="Nome">
-        <input class="c-input" type="email" placeholder="Email">
+        <input class="c-input" type="text" name="nome" placeholder="Nome" required>
+        <input class="c-input" type="email" name="email" placeholder="Email" required>
       </div>
-      <input class="c-input" type="text" placeholder="Assunto">
-      <textarea class="c-input c-textarea" placeholder="A tua mensagem..."></textarea>
+      <input class="c-input" type="text" name="assunto" placeholder="Assunto">
+      <textarea class="c-input c-textarea" name="mensagem" placeholder="A tua mensagem..." required></textarea>
       <button class="btn-env" type="submit">Enviar Mensagem</button>
     </form>
   </div>
@@ -329,6 +358,7 @@
         <li><a href="#formacao">Formação</a></li>
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#ebook">Ebook</a></li>
+        <li><a href="#cursos">Cursos</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </div>
@@ -347,5 +377,12 @@
   </div>
 </footer>
 
+
+<script>
+const _obs = new IntersectionObserver((entries) => {
+  entries.forEach(el => { if(el.isIntersecting){ el.target.classList.add("visible"); } });
+}, {threshold: 0.1});
+document.querySelectorAll(".fade-in,.fade-in-left,.fade-in-right").forEach(el => _obs.observe(el));
+</script>
 </body>
 </html>
