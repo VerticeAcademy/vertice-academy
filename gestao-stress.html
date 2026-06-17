@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+  <html lang="pt">
+  <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gestão de Stress | Vértice Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--preto:#0C0C0F;--dourado:#B8962E;--dourado-claro:#D4B86A;--creme:#F5F0E8;--cinzento:#2A2A30;--branco:#FAFAF8}
+  *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;background:var(--preto);color:var(--branco)}
+a{text-decoration:none}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--preto);display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:72px;border-bottom:1px solid rgba(184,150,46,.2)}
+.nav-logo{display:flex;flex-direction:column}
+.nav-logo span:first-child{font-weight:600;font-size:16px;letter-spacing:3px;color:var(--branco);text-transform:uppercase}
+.nav-logo span:last-child{font-weight:300;font-size:10px;letter-spacing:5px;color:var(--dourado);text-transform:uppercase}
+.nav-back{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--branco);opacity:.85;transition:.3s}
+.nav-back:hover{opacity:1;color:var(--dourado)}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 5% 90px;position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 30%,rgba(184,150,46,.10) 0%,transparent 65%);pointer-events:none}
+  .hero-tag{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--dourado);margin-bottom:28px;display:flex;align-items:center;gap:12px}
+.hero-tag::before,.hero-tag::after{content:'';width:32px;height:1px;background:var(--dourado);opacity:.5}
+  .hero-titulo{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8vw,92px);font-weight:300;line-height:1.05;margin-bottom:20px}
+.hero-titulo em{display:block;font-style:italic;color:var(--dourado)}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,2.5vw,26px);font-style:italic;color:rgba(250,250,248,.7);margin-bottom:40px;max-width:560px}
+.hero-meta{display:flex;gap:32px;flex-wrap:wrap;justify-content:center;margin-bottom:48px}
+.hero-meta span{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(250,250,248,.55)}
+.hero-meta span::before{content:'';display:inline-block;width:5px;height:5px;background:var(--dourado);border-radius:50%;margin-right:10px;vertical-align:middle}
+  section{padding:100px 5%}
+.s-tag{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--dourado);margin-bottom:18px;text-align:center}
+.s-titulo{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,48px);font-weight:300;line-height:1.2;text-align:center;margin-bottom:24px}
+.wrap{max-width:900px;margin:0 auto}
+.obj{background:var(--cinzento);padding:48px;border-left:2px solid var(--dourado);font-size:18px;line-height:1.8;color:rgba(250,250,248,.8);font-weight:300}
+#modulos{background:#08080B}
+.mod{display:flex;gap:28px;align-items:flex-start;padding:36px 0;border-bottom:1px solid rgba(250,250,248,.08)}
+.mod:last-child{border-bottom:none}
+.mod-num{font-family:'Cormorant Garamond',serif;font-size:54px;font-weight:300;color:rgba(184,150,46,.4);line-height:1;flex-shrink:0;min-width:80px}
+.mod-titulo{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--branco);margin-bottom:8px}
+.mod-desc{font-size:14px;line-height:1.7;color:rgba(250,250,248,.55);font-weight:300}
+#formadora{background:var(--creme);color:var(--preto)}
+  .fm{max-width:780px;margin:0 auto;text-align:center}
+.fm-nome{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:400;margin-bottom:8px}
+.fm-role{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--dourado);margin-bottom:24px}
+.fm-bio{font-size:17px;line-height:1.9;color:rgba(12,12,15,.7);font-weight:300}
+#cta{background:var(--dourado);color:var(--preto);text-align:center}
+  .cta-badge{font-size:10px;letter-spacing:4px;text-transform:uppercase;background:var(--preto);color:var(--dourado);padding:6px 16px;display:inline-block;margin-bottom:24px;font-weight:500}
+.cta-titulo{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:300;line-height:1.2;margin-bottom:20px;max-width:700px;margin-left:auto;margin-right:auto}
+.cta-desc{font-size:17px;line-height:1.7;color:rgba(12,12,15,.75);font-weight:300;max-width:560px;margin:0 auto 40px}
+.btn-cta{background:var(--preto);color:var(--dourado);padding:18px 48px;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;display:inline-block;transition:.3s}
+.btn-cta:hover{background:#1a1a1f;transform:translateY(-2px)}
+footer{background:#06060A;padding:48px 5%;text-align:center}
+.ft-nome{font-weight:600;font-size:14px;letter-spacing:3px;color:var(--branco);text-transform:uppercase}
+.ft-sub{font-size:10px;letter-spacing:4px;color:var(--dourado);text-transform:uppercase;margin-top:4px}
+</style>
+  </head>
+  <body>
+  <nav>
+  <a href="index.html" class="nav-logo"><span>Vértice</span><span>Academy</span></a>
+  <a href="index.html#cursos" class="nav-back">← Voltar</a>
+  </nav>
+  <header class="hero">
+  <p class="hero-tag">Formação 02</p>
+<h1 class="hero-titulo">Gestão<em>de Stress</em></h1>
+<p class="hero-sub">Ferramentas para Viver com Mais Equilíbrio</p>
+<div class="hero-meta">
+<span>Online · Assíncrona</span>
+<span>5 Módulos</span>
+<span>15 Horas</span>
+</div>
+</header>
+<section id="objetivo">
+<p class="s-tag">O Propósito</p>
+<h2 class="s-titulo">Para que serve esta formação</h2>
+  <div class="wrap">
+  <div class="obj">Desenvolver competências práticas e sustentáveis para identificar stressores, regular a resposta fisiológica ao stress e construir um estilo de vida resiliente. Vídeos, leituras e exercícios práticos individuais, com metodologia baseada em evidência e aplicação imediata.</div>
+  </div>
+  </section>
+  <section id="modulos">
+  <p class="s-tag">O Programa</p>
+  <h2 class="s-titulo">5 Módulos · 15 Horas</h2>
+<div class="wrap">
+<div class="mod"><div class="mod-num">01</div><div><h3 class="mod-titulo">Compreender o Stress</h3><p class="mod-desc">Fisiologia · tipos · stressores · Escala PSS-10.</p></div></div>
+  <div class="mod"><div class="mod-num">02</div><div><h3 class="mod-titulo">Regulação pelo Corpo</h3><p class="mod-desc">Sistema nervoso · coerência cardíaca · relaxamento · sono.</p></div></div>
+  <div class="mod"><div class="mod-num">03</div><div><h3 class="mod-titulo">Mindfulness e Atenção Plena</h3><p class="mod-desc">MBSR · meditação · presença · piloto automático.</p></div></div>
+  <div class="mod"><div class="mod-num">04</div><div><h3 class="mod-titulo">Gestão Cognitiva do Stress</h3><p class="mod-desc">Distorções cognitivas · Modelo ABC (Ellis) · reestruturação.</p></div></div>
+<div class="mod"><div class="mod-num">05</div><div><h3 class="mod-titulo">Resiliência e Plano Anti-Stress</h3><p class="mod-desc">Pilares da resiliência · burnout · limites · plano de 90 dias.</p></div></div>
+</div>
+</section>
+<section id="formadora">
+<div class="fm">
+<p class="s-tag">A Formadora</p>
+  <h2 class="fm-nome">Andrea Antunes</h2>
+  <p class="fm-role">Formadora Certificada IEFP · 29 Anos de Experiência</p>
+<p class="fm-bio">Fundadora da Vértice Academy, dedica-se a ajudar pessoas e equipas a liderarem-se a si próprias — começando pela forma como reconhecem e gerem as suas emoções.</p>
+</div>
+</section>
+<section id="cta">
+<span class="cta-badge">Primeiro Passo</span>
+<h2 class="cta-titulo">O teu stress é fisiológico ou está na tua cabeça?</h2>
+<p class="cta-desc">Descarrega o guia gratuito de Gestão de Stress e dá o primeiro passo antes da formação.</p>
+  <a href="#" target="_blank" rel="noopener" class="btn-cta">Quero o guia gratuito</a>
+  <a href="mailto:formacao@verticeacademy.eu?subject=Quero%20saber%20mais%20sobre%20a%20forma%C3%A7%C3%A3o%20de%20Gest%C3%A3o%20de%20Stress" class="btn-cta" style="margin-top:16px;background:transparent;color:var(--preto);border:1.5px solid var(--preto);">Saber mais sobre a formação</a>
+  </section>
+  <footer>
+  <div class="ft-nome">Vértice</div>
+  <div class="ft-sub">Academy</div>
+  </footer>
+  </body>
+  </html>
