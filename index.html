@@ -19,6 +19,8 @@
     .nav-links a:hover{opacity:1;color:var(--dourado)}
     .nav-cta{background:transparent;border:1px solid var(--dourado);color:var(--dourado);padding:10px 24px;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:500;cursor:pointer;text-decoration:none;transition:all .3s}
     .nav-cta:hover{background:var(--dourado);color:var(--preto)}
+    .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;background:none;border:none;cursor:pointer;padding:8px}
+    .nav-toggle span{display:block;width:24px;height:2px;background:var(--branco);transition:all .3s}
     #inicio{min-height:100vh;background:var(--preto);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 5% 80px;position:relative;overflow:hidden}
     #inicio::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 60% 40%,rgba(184,150,46,.08) 0%,transparent 65%);pointer-events:none}
     .hero-tag{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--dourado);font-weight:400;margin-bottom:32px;display:flex;align-items:center;gap:12px}
@@ -129,7 +131,10 @@
       .e-grid,.p-grid,.t-grid,.cursos-grid{grid-template-columns:1fr}
       .f-inner,.sb-inner,.eb-inner{grid-template-columns:1fr;gap:48px}
       .ft-inner{grid-template-columns:1fr;gap:40px}
-      .nav-links{display:none}
+      .nav-toggle{display:flex}
+      .nav-links{position:fixed;top:72px;left:0;right:0;background:var(--preto);flex-direction:column;gap:0;padding:0;display:none;border-bottom:1px solid rgba(184,150,46,.2)}
+      .nav-links.open{display:flex}
+      .nav-links li{width:100%;text-align:center;padding:18px 0;border-top:1px solid rgba(250,250,248,.06)}
       .p-header{flex-direction:column;align-items:flex-start}
       .c-row{grid-template-columns:1fr}
       .hero-ctas{flex-direction:column;align-items:center}
@@ -175,12 +180,14 @@
     </svg>
     <div class="nav-logo-text"><span>Vértice</span><span>Academy</span></div>
   </a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#cursos">Cursos Online</a></li>
     <li><a href="#sobre">Sobre</a></li>
     <li><a href="#programas">Programas</a></li>
-    <li><a href="#cursos">Cursos Online</a></li>
+    <li><a href="#contacto">Contacto</a></li>
   </ul>
   <a href="#contacto" class="nav-cta">Fala Comigo</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
 <section id="inicio">
@@ -188,15 +195,15 @@
   <h1 class="hero-titulo">O momento em que decides<br><em>responder em vez de reagir</em><br>— esse é o teu vértice.</h1>
   <p class="hero-sub">Liderança pessoal como ponto de viragem para todas as áreas da tua vida.</p>
   <div class="hero-ctas">
-    <a href="#programas" class="btn-p">Descobre os Programas</a>
-    <a href="#ebook" class="btn-s">Guia Gratuito</a>
+    <a href="#cursos" class="btn-p">Cursos &amp; Guias Gratuitos</a>
+    <a href="#contacto" class="btn-s">Fala Comigo</a>
   </div>
 </section>
 
 <div class="numeros">
   <div class="num-item"><div class="num-val">29+</div><div class="num-label">Anos de Experiência</div></div>
   <div class="num-item"><div class="num-val">500+</div><div class="num-label">Pessoas Formadas</div></div>
-  <div class="num-item"><div class="num-val">3</div><div class="num-label">Programas Ativos</div></div>
+  <div class="num-item"><div class="num-val">5</div><div class="num-label">Cursos Online</div></div>
   <div class="num-item"><div class="num-val">PT · ES</div><div class="num-label">Mercado Ibérico</div></div>
 </div>
 
@@ -213,69 +220,11 @@
   </div>
 </section>
 
-<section id="sobre">
-  <div class="sb-inner">
-    <div class="sb-foto">
-      <img src="andrea.jpg" alt="Andrea Antunes" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-    </div>
-    <div>
-      <p class="s-tag">Andrea Antunes</p>
-      <h2 class="s-titulo">29 anos a impactar vidas e transformar pessoas</h2>
-      <p class="sb-cit" style="margin-top:24px;margin-bottom:0;font-size:20px">“O maior projeto de cada ser humano é ele próprio.”</p>
-      <p class="sb-bio">Ao longo de quase três décadas, trabalhei com pessoas em momentos de viragem. Aprendi que a mudança real começa dentro de cada um de nós.</p>
-      <p class="sb-bio">A Vértice Academy nasceu da convicção de que a liderança pessoal não é um privilégio de alguns, é uma competência que todos podem desenvolver.</p>
-      <div class="sb-creds">
-        <div class="cred">Licenciatura em Serviço Social</div>
-        <div class="cred">Pós-graduação em Recursos Humanos</div>
-        <div class="cred">Curso de Counselling — Abordagem Centrada na Pessoa (Carl Rogers)</div>
-        <div class="cred">Expert em Bem-estar, Inteligência Emocional e Psicologia Positiva</div>
-        <div class="cred">Formadora certificada IEFP — 25 anos de experiência</div>
-        <div class="cred">Especialista em liderança pessoal e comportamento humano</div>
-      </div>
-      <blockquote class="sb-cit">"O vértice não é o destino, é o momento em que tudo muda de direção."</blockquote>
-    </div>
-  </div>
-</section>
-
-<section id="programas">
-  <div class="p-header">
-    <div><p class="s-tag">Programas</p><h2 class="s-titulo">O teu caminho,<br>ao teu ritmo</h2></div>
-    <p class="s-sub">Cada programa foi desenhado para um momento específico da tua jornada.</p>
-  </div>
-  <div class="p-grid">
-    <div class="p-card fade-in stagger-1"><span class="p-tag">Introdução</span><h3 class="p-titulo">Da Reação ao Equilíbrio</h3><p class="p-texto">Um programa de introdução à gestão emocional e à liderança pessoal. Para quem quer começar a responder em vez de reagir.</p><a href="#contacto" class="p-cta">Saber mais</a></div>
-    <div class="p-card dest fade-in stagger-2"><span class="p-tag">Mais Procurado</span><h3 class="p-titulo">Comunicação Assertiva</h3><p class="p-texto">Aprende a comunicar com clareza e integridade. Um programa focado na escuta ativa e na construção de relações profissionais de confiança.</p><a href="#contacto" class="p-cta">Saber mais</a></div>
-    <div class="p-card fade-in stagger-3"><span class="p-tag">Mentoria</span><h3 class="p-titulo">Liderar com Intenção</h3><p class="p-texto">Para profissionais que já lideram e querem fazê-lo com mais clareza, impacto e alinhamento com os seus valores essenciais.</p><a href="#contacto" class="p-cta">Saber mais</a></div>
-  </div>
-</section>
-
-<section id="formacao">
-  <div class="f-inner">
-    <div>
-      <p class="s-tag">Formação</p>
-      <h2 class="s-titulo" style="color:var(--branco)">Para pessoas,<br>equipas e organizações</h2>
-      <p class="s-sub" style="color:rgba(250,250,248,.6)">A mesma metodologia, adaptada ao teu contexto.</p>
-      <ul class="f-lista">
-        <li>Formação in-house para empresas e organizações</li>
-        <li>Programas para equipas de liderança intermédia</li>
-        <li>Formação certificada para treinadores e técnicos desportivos</li>
-        <li>Workshops de curta duração — abertos ao público</li>
-      </ul>
-      <a href="#contacto" class="btn-p">Solicitar Proposta</a>
-    </div>
-    <div class="f-cards">
-      <div class="f-card"><h4 class="f-card-titulo">Empresas &amp; Equipas</h4><p class="f-card-desc">Formação personalizada para contextos corporativos. Metodologia adaptável, resultados mensuráveis.</p></div>
-      <div class="f-card"><h4 class="f-card-titulo">Profissionais do Desporto</h4><p class="f-card-desc">Liderança pessoal aplicada ao contexto desportivo. Para treinadores que querem liderar além do campo.</p></div>
-      <div class="f-card"><h4 class="f-card-titulo">Workshops Abertos</h4><p class="f-card-desc">Formações de curta duração com inscrição individual. Reserva o teu lugar.</p></div>
-    </div>
-  </div>
-</section>
-
 <section id="cursos">
   <div class="cursos-inner fade-in">
-    <p class="s-tag">Plataforma de Aprendizagem</p>
+    <p class="s-tag">Cursos Online</p>
     <h2 class="s-titulo" style="color:var(--branco)">Aprende ao teu ritmo,<br>onde quiseres</h2>
-    <p class="s-sub" style="color:rgba(250,250,248,.6);margin:0 auto 48px">Acede aos materiais, programas e cursos online na plataforma Vértice Academy.</p>
+    <p class="s-sub" style="color:rgba(250,250,248,.6);margin:0 auto 48px">Cinco cursos assíncronos de liderança pessoal. Cada um começa com um guia gratuito — o teu primeiro passo antes da formação.</p>
     <div class="cursos-grid">
       <div class="cursos-card fade-in stagger-1">
         <div class="cursos-icon">01</div>
@@ -312,12 +261,70 @@
   </div>
 </section>
 
+<section id="sobre">
+  <div class="sb-inner">
+    <div class="sb-foto">
+      <img src="andrea.jpg" alt="Andrea Antunes" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+    </div>
+    <div>
+      <p class="s-tag">Andrea Antunes</p>
+      <h2 class="s-titulo">29 anos a impactar vidas e transformar pessoas</h2>
+      <p class="sb-cit" style="margin-top:24px;margin-bottom:0;font-size:20px">“O maior projeto de cada ser humano é ele próprio.”</p>
+      <p class="sb-bio">Ao longo de quase três décadas, trabalhei com pessoas em momentos de viragem. Aprendi que a mudança real começa dentro de cada um de nós.</p>
+      <p class="sb-bio">A Vértice Academy nasceu da convicção de que a liderança pessoal não é um privilégio de alguns, é uma competência que todos podem desenvolver.</p>
+      <div class="sb-creds">
+        <div class="cred">Licenciatura em Serviço Social</div>
+        <div class="cred">Pós-graduação em Recursos Humanos</div>
+        <div class="cred">Curso de Counselling — Abordagem Centrada na Pessoa (Carl Rogers)</div>
+        <div class="cred">Expert em Bem-estar, Inteligência Emocional e Psicologia Positiva</div>
+        <div class="cred">Formadora certificada IEFP — 25 anos de experiência</div>
+        <div class="cred">Especialista em liderança pessoal e comportamento humano</div>
+      </div>
+      <blockquote class="sb-cit">"O vértice não é o destino, é o momento em que tudo muda de direção."</blockquote>
+    </div>
+  </div>
+</section>
+
+<section id="programas">
+  <div class="p-header">
+    <div><p class="s-tag">Programas &amp; Mentoria</p><h2 class="s-titulo">Acompanhamento<br>à tua medida</h2></div>
+    <p class="s-sub">Percursos guiados — presenciais ou em mentoria — para um momento específico da tua jornada. Para falar comigo diretamente.</p>
+  </div>
+  <div class="p-grid">
+    <div class="p-card fade-in stagger-1"><span class="p-tag">Introdução</span><h3 class="p-titulo">Da Reação ao Equilíbrio</h3><p class="p-texto">Um programa de introdução à gestão emocional e à liderança pessoal. Para quem quer começar a responder em vez de reagir.</p><a href="#contacto" class="p-cta">Saber mais</a></div>
+    <div class="p-card dest fade-in stagger-2"><span class="p-tag">Mais Procurado</span><h3 class="p-titulo">Comunicação Assertiva</h3><p class="p-texto">Aprende a comunicar com clareza e integridade. Um programa focado na escuta ativa e na construção de relações profissionais de confiança.</p><a href="#contacto" class="p-cta">Saber mais</a></div>
+    <div class="p-card fade-in stagger-3"><span class="p-tag">Mentoria</span><h3 class="p-titulo">Liderar com Intenção</h3><p class="p-texto">Para profissionais que já lideram e querem fazê-lo com mais clareza, impacto e alinhamento com os seus valores essenciais.</p><a href="#contacto" class="p-cta">Saber mais</a></div>
+  </div>
+</section>
+
+<section id="formacao">
+  <div class="f-inner">
+    <div>
+      <p class="s-tag">Formação</p>
+      <h2 class="s-titulo" style="color:var(--branco)">Para pessoas,<br>equipas e organizações</h2>
+      <p class="s-sub" style="color:rgba(250,250,248,.6)">A mesma metodologia, adaptada ao teu contexto.</p>
+      <ul class="f-lista">
+        <li>Formação in-house para empresas e organizações</li>
+        <li>Programas para equipas de liderança intermédia</li>
+        <li>Formação certificada para treinadores e técnicos desportivos</li>
+        <li>Workshops de curta duração — abertos ao público</li>
+      </ul>
+      <a href="#contacto" class="btn-p">Solicitar Proposta</a>
+    </div>
+    <div class="f-cards">
+      <div class="f-card"><h4 class="f-card-titulo">Empresas &amp; Equipas</h4><p class="f-card-desc">Formação personalizada para contextos corporativos. Metodologia adaptável, resultados mensuráveis.</p></div>
+      <div class="f-card"><h4 class="f-card-titulo">Profissionais do Desporto</h4><p class="f-card-desc">Liderança pessoal aplicada ao contexto desportivo. Para treinadores que querem liderar além do campo.</p></div>
+      <div class="f-card"><h4 class="f-card-titulo">Workshops Abertos</h4><p class="f-card-desc">Formações de curta duração com inscrição individual. Reserva o teu lugar.</p></div>
+    </div>
+  </div>
+</section>
+
 <section id="ebook">
   <div class="eb-inner">
     <div>
-      <span class="eb-badge">Guia Digital</span>
-      <h2 class="eb-titulo">O teu primeiro passo para o vértice</h2>
-      <p class="eb-desc">Um guia prático sobre liderança pessoal, autocuidado e as ferramentas essenciais para começares a responder em vez de reagir — na vida pessoal e profissional.</p>
+      <span class="eb-badge">Guia Gratuito</span>
+      <h2 class="eb-titulo">Ainda não sabes por onde começar?</h2>
+      <p class="eb-desc">Começa por aqui. Um guia prático de liderança pessoal e autocuidado — as ferramentas essenciais para responderes em vez de reagires, na vida pessoal e profissional.</p>
       <a href="https://vertice-academy-qs5sph.subscribepage.io" target="_blank" rel="noopener" class="btn-eb">Obter o Guia</a>
     </div>
     <div class="eb-capa">
@@ -337,6 +344,9 @@
     <div class="t-card fade-in stagger-1"><p class="t-texto">"A Andrea Antunes inspira líderes a serem melhores líderes — o que é um desafio consideravelmente mais exigente."</p><div class="t-linha"></div><div class="t-autor">Paulo Martins</div><div class="t-cargo">Formação · Liderar com Intenção</div></div>
     <div class="t-card fade-in stagger-2"><p class="t-texto">"Alterei completamente o modo como falava aos atletas."</p><div class="t-linha"></div><div class="t-autor">Rui Gabriel Dias da Costa</div><div class="t-cargo">Formação · Comunicação Assertiva</div></div>
     <div class="t-card fade-in stagger-3"><p class="t-texto">"De todas as formações saio sempre inspirada e com mais confiança. Por mais formadores neste mundo como a Andrea."</p><div class="t-linha"></div><div class="t-autor">Diana Guerra</div><div class="t-cargo">Formação / Workshop</div></div>
+    <div class="t-card fade-in stagger-1"><p class="t-texto">"A minha experiência nas formações foi um verdadeiro ponto de viragem. Voltei a confiar nas minhas capacidades."</p><div class="t-linha"></div><div class="t-autor">Hugo Santos</div><div class="t-cargo">Formação · Empregabilidade</div></div>
+    <div class="t-card fade-in stagger-2"><p class="t-texto">"Deixei de ser alguém que apenas absorve conhecimento para passar a moldar ativamente a minha identidade e o meu trabalho."</p><div class="t-linha"></div><div class="t-autor">Catarina Cristóvão</div><div class="t-cargo">Escritora · Formação</div></div>
+    <div class="t-card fade-in stagger-3"><p class="t-texto">"Ter formação com a Andrea foi inspirador — foi a minha alavanca para hoje ser formadora também."</p><div class="t-linha"></div><div class="t-autor">Nelma Alexandra Dias Pereira</div><div class="t-cargo">Formação</div></div>
   </div>
   <div style="text-align:center;margin-top:60px;padding-bottom:20px">
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1yDe---TcVeGOLYGdFUyYVNVXYYo5emLC4X9dalb7-EpeCQ/viewform" target="_blank" rel="noopener" style="display:inline-block;background:transparent;color:var(--dourado);border:1px solid var(--dourado);padding:16px 40px;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;transition:all .3s">Deixa o teu testemunho</a>
@@ -370,9 +380,9 @@
     <div>
       <div class="ft-titulo">Navegação</div>
       <ul class="ft-links">
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#programas">Programas</a></li>
         <li><a href="#cursos">Cursos Online</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#programas">Programas &amp; Mentoria</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </div>
@@ -381,7 +391,6 @@
       <div class="ft-contact">
         <div class="ft-contact-item"><a href="mailto:andrea@verticeacademy.eu">andrea@verticeacademy.eu</a></div>
         <div class="ft-contact-item"><a href="mailto:formacao@verticeacademy.eu">formacao@verticeacademy.eu</a></div>
-        <div class="ft-contact-item"><a href="https://linkedin.com" target="_blank">LinkedIn</a></div>
       </div>
     </div>
   </div>
@@ -397,6 +406,14 @@ const _obs = new IntersectionObserver((entries) => {
   entries.forEach(el => { if(el.isIntersecting){ el.target.classList.add("visible"); } });
 }, {threshold: 0.1});
 document.querySelectorAll(".fade-in,.fade-in-left,.fade-in-right").forEach(el => _obs.observe(el));
+
+// Menu mobile
+const _navToggle = document.getElementById("navToggle");
+const _navLinks = document.getElementById("navLinks");
+if(_navToggle && _navLinks){
+  _navToggle.addEventListener("click", () => _navLinks.classList.toggle("open"));
+  _navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => _navLinks.classList.remove("open")));
+}
 </script>
 </body>
 </html>
