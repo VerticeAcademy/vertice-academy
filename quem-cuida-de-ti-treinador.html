@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Quem Cuida de Ti, Treinador? | Vértice Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--preto:#0C0C0F;--dourado:#B8962E;--dourado-claro:#D4B86A;--creme:#F5F0E8;--cinzento:#2A2A30;--branco:#FAFAF8}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--preto);color:var(--branco)}
+a{text-decoration:none}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--preto);display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:72px;border-bottom:1px solid rgba(184,150,46,.2)}
+.nav-logo{display:flex;flex-direction:column}
+.nav-logo span:first-child{font-weight:600;font-size:16px;letter-spacing:3px;color:var(--branco);text-transform:uppercase}
+.nav-logo span:last-child{font-weight:300;font-size:10px;letter-spacing:5px;color:var(--dourado);text-transform:uppercase}
+.nav-back{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--branco);opacity:.85;transition:.3s}
+.nav-back:hover{opacity:1;color:var(--dourado)}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 5% 90px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 30%,rgba(184,150,46,.10)0%,transparent 65%);pointer-events:none}
+.hero-tag{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--dourado);margin-bottom:28px;display:flex;align-items:center;gap:12px}
+.hero-tag::before,.hero-tag::after{content:'';width:32px;height:1px;background:var(--dourado);opacity:.5}
+.hero-cert{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--preto);background:var(--dourado);padding:6px 16px;border-radius:2px;margin-bottom:24px;font-weight:600}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,7vw,84px);font-weight:300;line-height:1.05;margin-bottom:20px}
+.hero-title em{display:block;font-style:italic;color:var(--dourado)}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,2.5vw,26px);font-style:italic;color:rgba(250,250,248,.7);margin-bottom:40px;max-width:600px}
+.hero-meta{display:flex;gap:32px;flex-wrap:wrap;justify-content:center;margin-bottom:44px}
+.hero-meta span{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(250,250,248,.55)}
+.hero-meta span::before{content:'';display:inline-block;width:5px;height:5px;background:var(--dourado);border-radius:50%;margin-right:10px;vertical-align:middle}
+.btn-cta{background:var(--dourado);color:var(--preto);padding:18px 48px;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;display:inline-block;transition:.3s}
+.btn-cta:hover{background:var(--dourado-claro);transform:translateY(-2px)}
+section{padding:100px 5%}
+.s-tag{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--dourado);margin-bottom:18px;text-align:center}
+.s-title{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,48px);font-weight:300;line-height:1.2;text-align:center;margin-bottom:24px}
+.wrap{max-width:900px;margin:0 auto}
+.obj{background:var(--cinzento);padding:48px;border-left:2px solid var(--dourado);font-size:18px;line-height:1.8;color:rgba(250,250,248,.8);font-weight:300}
+.obj-stat{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,6vw,72px);color:var(--dourado);font-weight:300;display:block;line-height:1;margin-bottom:14px}
+.obj-list{list-style:none;margin-top:28px}
+.obj-list li{padding:12px 0 12px 28px;position:relative;font-size:16px;line-height:1.7;color:rgba(250,250,248,.8);font-weight:300;border-bottom:1px solid rgba(250,250,248,.08)}
+.obj-list li:last-child{border-bottom:none}
+.obj-list li::before{content:'';position:absolute;left:0;top:20px;width:8px;height:8px;background:var(--dourado);border-radius:50%}
+#modulos{background:#08080B}
+.mod{display:flex;gap:28px;align-items:flex-start;padding:32px 0;border-bottom:1px solid rgba(250,250,248,.08)}
+.mod:last-child{border-bottom:none}
+.mod-num{font-family:'Cormorant Garamond',serif;font-size:54px;font-weight:300;color:var(--dourado-claro);line-height:1;flex-shrink:0;min-width:80px}
+.mod-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--branco);margin-bottom:8px}
+.mod-title small{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:2px;color:var(--dourado);margin-left:10px;vertical-align:middle}
+.mod-desc{font-size:14px;line-height:1.7;color:rgba(250,250,248,.55);font-weight:300}
+#cronograma{background:var(--preto)}
+.cron{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+.cron-item{display:flex;align-items:center;justify-content:space-between;background:var(--cinzento);border-left:3px solid var(--dourado);padding:22px 28px}
+.cron-item.fim{background:var(--dourado);border-left-color:var(--preto)}
+.cron-item.fim *{color:var(--preto)!important}
+.cron-l{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--dourado);margin-bottom:4px}
+.cron-h{font-size:20px;font-weight:500;color:var(--branco)}
+.cron-d{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;color:var(--branco);text-align:right}
+.cron-d small{display:block;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:1px;color:rgba(250,250,248,.5);text-transform:uppercase}
+#detalhes{background:var(--creme);color:var(--preto)}
+.det-grid{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:32px 24px}
+.det-item{text-align:center}
+.det-l{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--dourado);margin-bottom:8px}
+.det-v{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500;color:var(--preto);line-height:1.2}
+.det-v small{display:block;font-family:'Inter',sans-serif;font-size:11px;color:rgba(12,12,15,.55);letter-spacing:1px;margin-top:4px;text-transform:uppercase;font-weight:400}
+#cta{background:var(--dourado);color:var(--preto);text-align:center}
+.cta-badge{font-size:10px;letter-spacing:4px;text-transform:uppercase;background:var(--preto);color:var(--dourado);padding:6px 16px;display:inline-block;margin-bottom:24px;font-weight:500}
+.cta-titulo{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:300;line-height:1.2;margin-bottom:20px;max-width:700px;margin-left:auto;margin-right:auto}
+.cta-desc{font-size:17px;line-height:1.7;color:rgba(12,12,15,.75);font-weight:300;max-width:560px;margin:0 auto 40px}
+.btn-cta-d{background:var(--preto);color:var(--dourado);padding:18px 48px;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;display:inline-block;transition:.3s}
+.btn-cta-d:hover{background:#1a1a1f;transform:translateY(-2px)}
+.cta-fine{font-size:12px;color:rgba(12,12,15,.6);margin-top:24px;letter-spacing:.5px}
+.fm{max-width:780px;margin:0 auto;text-align:center}
+.fm-name{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:400;margin-bottom:8px}
+.fm-role{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--dourado);margin-bottom:24px}
+.fm-bio{font-size:17px;line-height:1.9;color:rgba(250,250,248,.7);font-weight:300}
+footer{background:#06060A;padding:48px 5%;text-align:center}
+.ft-name{font-weight:600;font-size:14px;letter-spacing:3px;color:var(--branco);text-transform:uppercase}
+.ft-sub{font-size:10px;letter-spacing:4px;color:var(--dourado);text-transform:uppercase;margin-top:4px}
+.ft-cit{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:rgba(250,250,248,.55);max-width:520px;margin:24px auto 0}
+@media(max-width:600px){.cron-item{flex-direction:column;align-items:flex-start;gap:10px}.cron-d{text-align:left}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo"><span>Vértice</span><span>Academy</span></a>
+  <a href="index.html#cursos" class="nav-back">&larr; Voltar</a>
+</nav>
+
+<header class="hero">
+  <span class="hero-cert">Certificação IPDJ &middot; 3 UC's TPTD / TEF-DT</span>
+  <h1 class="hero-title">Quem Cuida de Ti,<em>Treinador?</em></h1>
+  <p class="hero-sub">O programa online para treinadores que dão tudo pelos outros.</p>
+  <div class="hero-meta">
+    <span>100% Online</span>
+    <span>30 Horas &middot; 5 Módulos</span>
+    <span>Início 1 Julho</span>
+  </div>
+  <a href="https://forms.gle/Cm89TkosoC9eVJrX8" target="_blank" rel="noopener" class="btn-cta">Inscrever Agora</a>
+</header>
+
+<section id="objetivo">
+  <p class="s-tag">Porquê esta formação</p>
+  <h2 class="s-title">Quem lidera atletas precisa,<br>antes de tudo, de se liderar a si</h2>
+  <div class="wrap">
+    <div class="obj">
+      <span class="obj-stat">30&ndash;40%</span>
+      dos treinadores reportam sintomas de esgotamento profissional ao longo da carreira — e muitos abandonam antes de atingir o seu potencial máximo. Esta formação é o teu ponto de viragem: aprende a gerir a tua própria energia e a construir uma carreira sustentável.
+      <ul class="obj-list">
+        <li>Identificar sinais precoces de burnout e desgaste na carreira de treinador</li>
+        <li>Aplicar ferramentas práticas de gestão da energia física, mental e emocional</li>
+        <li>Construir rotinas de recuperação e bem-estar compatíveis com o calendário desportivo</li>
+        <li>Desenvolver uma identidade profissional robusta e resiliente</li>
+        <li>Planear a carreira de treinador de forma intencional e sustentável</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="modulos">
+  <p class="s-tag">O Programa</p>
+  <h2 class="s-title">5 Módulos &middot; 30 Horas</h2>
+  <div class="wrap">
+    <div class="mod"><div class="mod-num">01</div><div><h3 class="mod-title">O Treinador <small>6H</small></h3><p class="mod-desc">Autoconhecimento &middot; identidade &middot; valores.</p></div></div>
+    <div class="mod"><div class="mod-num">02</div><div><h3 class="mod-title">Burnout no Desporto <small>6H</small></h3><p class="mod-desc">Sinais de alerta &middot; autodiagnóstico.</p></div></div>
+    <div class="mod"><div class="mod-num">03</div><div><h3 class="mod-title">Gestão da Energia <small>6H</small></h3><p class="mod-desc">Sono &middot; recuperação &middot; rituais.</p></div></div>
+    <div class="mod"><div class="mod-num">04</div><div><h3 class="mod-title">Regulação Emocional Avançada <small>6H</small></h3><p class="mod-desc">Mindfulness &middot; assertividade.</p></div></div>
+    <div class="mod"><div class="mod-num">05</div><div><h3 class="mod-title">Carreira Sustentável <small>6H</small></h3><p class="mod-desc">Mentoria &middot; plano a 1&ndash;3 anos.</p></div></div>
+  </div>
+</section>
+
+<section id="cronograma">
+  <p class="s-tag">Cronograma &middot; Sessões Síncronas</p>
+  <h2 class="s-title">As sessões ao vivo decorrem<br>às sextas, das 14h às 16h</h2>
+  <div class="cron">
+    <div class="cron-item"><div><div class="cron-l">Sessão Síncrona 1</div><div class="cron-h">14h &mdash; 16h</div></div><div class="cron-d">4 Julho<small>Sexta-feira</small></div></div>
+    <div class="cron-item"><div><div class="cron-l">Sessão Síncrona 2</div><div class="cron-h">14h &mdash; 16h</div></div><div class="cron-d">11 Julho<small>Sexta-feira</small></div></div>
+    <div class="cron-item"><div><div class="cron-l">Sessão Síncrona 3</div><div class="cron-h">14h &mdash; 16h</div></div><div class="cron-d">18 Julho<small>Sexta-feira</small></div></div>
+    <div class="cron-item fim"><div><div class="cron-l">Encerramento</div><div class="cron-h">14h &mdash; 16h</div></div><div class="cron-d">1 Agosto<small>Sábado</small></div></div>
+  </div>
+  <p style="text-align:center;max-width:620px;margin:36px auto 0;font-size:14px;line-height:1.7;color:rgba(250,250,248,.5);font-weight:300">Os módulos assíncronos ficam disponíveis na plataforma no início do programa. O acesso ao conteúdo gravado mantém-se ativo após o encerramento.</p>
+</section>
+
+<section id="detalhes">
+  <p class="s-tag">Detalhes Práticos</p>
+  <h2 class="s-title">Tudo o que precisas de saber</h2>
+  <div class="det-grid">
+    <div class="det-item"><div class="det-l">Formato</div><div class="det-v">100% Online<small>Moodle / Teams</small></div></div>
+    <div class="det-item"><div class="det-l">Duração</div><div class="det-v">30 Horas<small>E-learning</small></div></div>
+    <div class="det-item"><div class="det-l">Início</div><div class="det-v">1 Julho<small>2026</small></div></div>
+    <div class="det-item"><div class="det-l">Certificação</div><div class="det-v">IPDJ<small>3 UC's TPTD / TEF-DT</small></div></div>
+    <div class="det-item"><div class="det-l">Investimento</div><div class="det-v">150&euro;<small>Pagamento MB Way / Transf.</small></div></div>
+  </div>
+</section>
+
+<section id="cta">
+  <span class="cta-badge">Inscrições Abertas</span>
+  <h2 class="cta-titulo">Este ano, cuida também de quem cuida de todos.</h2>
+  <p class="cta-desc">As inscrições estão abertas e os lugares são limitados. Preenche o formulário e garante o teu lugar antes de 4 de julho.</p>
+  <a href="https://forms.gle/Cm89TkosoC9eVJrX8" target="_blank" rel="noopener" class="btn-cta-d">Quero Inscrever-me</a>
+  <p class="cta-fine">Certificação IPDJ &middot; Entidade promotora: Sementimpulsiva &middot; Dúvidas: formacao@sementimpulsiva.pt</p>
+</section>
+
+<section id="formadora" style="background:var(--preto)">
+  <div class="fm">
+    <p class="s-tag">A Formadora</p>
+    <h2 class="fm-name" style="color:var(--branco)">Andrea Antunes</h2>
+    <p class="fm-role">Formadora Certificada IEFP &middot; 29 Anos de Experiência</p>
+    <p class="fm-bio">Assistente social e formadora há quase três décadas, dedica-se a ajudar pessoas e equipas a liderarem-se a si próprias. Traz para o desporto a mesma metodologia comportamental que transformou centenas de profissionais — começando pela forma como cuidam de si.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-name">Vértice</div>
+  <div class="ft-sub">Academy</div>
+  <p class="ft-cit">"O momento em que decides responder em vez de reagir — esse é o teu vértice."</p>
+</footer>
+</body>
+</html>
