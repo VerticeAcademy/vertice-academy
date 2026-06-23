@@ -360,7 +360,7 @@
     <p class="s-tag">Contacto</p>
     <h2 class="s-titulo" style="color:var(--branco)">Pronto para descobrir<br>o teu vértice?</h2>
     <p class="s-sub" style="color:rgba(250,250,248,.55);margin:0 auto">Fala comigo. Respondo a todas as mensagens pessoalmente.</p>
-    <form class="c-form" action="https://formspree.io/f/xvgajkbj" method="POST">
+    <form class="c-form" id="contactForm">
       <div class="c-row">
         <input class="c-input" type="text" name="nome" placeholder="Nome" required>
         <input class="c-input" type="email" name="email" placeholder="Email" required>
@@ -415,6 +415,21 @@ const _navLinks = document.getElementById("navLinks");
 if(_navToggle && _navLinks){
   _navToggle.addEventListener("click", () => _navLinks.classList.toggle("open"));
   _navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => _navLinks.classList.remove("open")));
+}
+
+// Formulário de contacto -> email direto
+const _cf = document.getElementById("contactForm");
+if(_cf){
+  _cf.addEventListener("submit", function(e){
+    e.preventDefault();
+    const nome = (this.nome.value||"").trim();
+    const email = (this.email.value||"").trim();
+    const assunto = (this.assunto.value||"").trim() || "Contacto pelo site";
+    const mensagem = (this.mensagem.value||"").trim();
+    const subject = encodeURIComponent("[Site] " + assunto + " - " + nome);
+    const body = encodeURIComponent("Nome: " + nome + "\nEmail: " + email + "\n\n" + mensagem);
+    window.location.href = "mailto:andrea@verticeacademy.eu?subject=" + subject + "&body=" + body;
+  });
 }
 </script>
 </body>
