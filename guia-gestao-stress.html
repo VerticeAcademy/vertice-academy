@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Guia Grátis de Diagnóstico de Stress | Vértice Academy</title>
+<meta name="description" content="Guia gratuito de diagnóstico de stress — descobre se o teu stress é fisiológico ou cognitivo e a técnica de 5 minutos que muda o teu dia. Por Andrea Antunes, Vértice Academy."/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--preto:#0C0C0F;--dourado:#B8962E;--dourado-claro:#D4B86A;--creme:#F5F0E8;--cinzento:#2A2A30;--branco:#FAFAF8}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--preto);color:var(--branco)}
+a{color:inherit}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(12,12,15,.92);display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:68px;border-bottom:1px solid rgba(184,150,46,.2);backdrop-filter:blur(6px)}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo-text{display:flex;flex-direction:column}
+.nav-logo-text span:first-child{font-weight:600;font-size:15px;letter-spacing:3px;color:var(--branco);text-transform:uppercase}
+.nav-logo-text span:last-child{font-weight:300;font-size:9px;letter-spacing:5px;color:var(--dourado);text-transform:uppercase}
+.nav-back{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--branco);opacity:.8;text-decoration:none;transition:.2s}
+.nav-back:hover{color:var(--dourado);opacity:1}
+.hero{min-height:100vh;display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center;padding:120px 5% 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,rgba(184,150,46,.10) 0%,transparent 62%);pointer-events:none}
+.hero-tag{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--dourado);font-weight:500;margin-bottom:24px;display:inline-flex;align-items:center;gap:12px}
+.hero-tag::before{content:'';width:30px;height:1px;background:var(--dourado);opacity:.6}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,62px);font-weight:300;line-height:1.12;color:var(--branco);margin-bottom:24px}
+.hero h1 em{font-style:italic;color:var(--dourado)}
+.hero-sub{font-size:16px;line-height:1.8;color:rgba(250,250,248,.65);font-weight:300;max-width:480px}
+.hero-list{list-style:none;margin:28px 0 0}
+.hero-list li{display:flex;gap:12px;align-items:flex-start;padding:7px 0;font-size:14.5px;color:rgba(250,250,248,.78)}
+.hero-list li::before{content:'—';color:var(--dourado)}
+.form-card{background:rgba(250,250,248,.04);border:1px solid rgba(184,150,46,.28);padding:40px 36px;border-radius:4px}
+.form-card h2{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--branco);margin-bottom:6px}
+.form-card p.fc-sub{font-size:13.5px;color:rgba(250,250,248,.55);margin-bottom:24px;line-height:1.6}
+.g-form{display:flex;flex-direction:column;gap:14px}
+.g-input{background:rgba(250,250,248,.05);border:1px solid rgba(250,250,248,.14);color:var(--branco);padding:15px 18px;font-family:'Inter',sans-serif;font-size:14px;outline:none;transition:border-color .3s;width:100%}
+.g-input::placeholder{color:rgba(250,250,248,.35)}.g-input:focus{border-color:var(--dourado)}
+.g-btn{background:var(--dourado);color:var(--preto);border:none;padding:16px;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;cursor:pointer;transition:.3s;font-family:'Inter',sans-serif}
+.g-btn:hover{background:var(--dourado-claro)}
+.g-btn:disabled{opacity:.8;cursor:default}
+.g-nota{font-size:10.5px;color:rgba(250,250,248,.35);margin-top:4px;line-height:1.5}
+.g-ok{display:none;text-align:center}
+.g-ok .check{font-size:34px;color:var(--dourado)}
+.g-ok h3{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;margin:8px 0 6px}
+.g-ok p{font-size:13.5px;color:rgba(250,250,248,.6);line-height:1.6;margin-bottom:20px}
+.g-download{display:inline-block;background:var(--dourado);color:var(--preto);padding:15px 34px;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;text-decoration:none;transition:.3s}
+.g-download:hover{background:var(--dourado-claro)}
+section.learn{background:var(--creme);color:var(--preto);padding:96px 5%}
+.learn-inner{max-width:1080px;margin:0 auto;text-align:center}
+.s-tag{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--dourado);font-weight:500;margin-bottom:18px}
+.s-titulo{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,46px);font-weight:300;line-height:1.2;margin-bottom:14px;color:var(--preto)}
+.s-sub{font-size:15.5px;line-height:1.8;color:rgba(12,12,15,.6);max-width:560px;margin:0 auto 52px;font-weight:300}
+.learn-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;max-width:920px;margin:0 auto;text-align:left}
+.learn-card{background:var(--preto);padding:34px 30px;position:relative}
+.learn-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--dourado)}
+.learn-num{font-family:'Cormorant Garamond',serif;font-size:40px;color:var(--dourado);line-height:1;margin-bottom:14px}
+.learn-card h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--branco);margin-bottom:8px}
+.learn-card p{font-size:13.5px;line-height:1.7;color:rgba(250,250,248,.6);font-weight:300}
+section.sobre{background:var(--preto);padding:90px 5%;text-align:center}
+.sobre-inner{max-width:680px;margin:0 auto}
+.sobre-q{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3vw,30px);font-style:italic;font-weight:300;line-height:1.5;color:var(--branco);margin-bottom:24px}
+.sobre-p{font-size:15px;line-height:1.85;color:rgba(250,250,248,.6);font-weight:300;margin-bottom:10px}
+.sobre-name{margin-top:22px;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--dourado);font-weight:500}
+footer{background:#06060A;padding:48px 5%;text-align:center;border-top:1px solid rgba(250,250,248,.08)}
+.ft-tag{font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:rgba(250,250,248,.4);line-height:1.6;max-width:520px;margin:0 auto 16px}
+.ft-links{font-size:13px;color:rgba(250,250,248,.5)}
+.ft-links a{color:var(--dourado);text-decoration:none}
+.ft-copy{font-size:11px;color:rgba(250,250,248,.25);margin-top:14px}
+@media(max-width:880px){
+.hero{grid-template-columns:1fr;gap:40px;padding:104px 6% 64px}
+.learn-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+<a href="https://verticeacademy.eu" class="nav-logo">
+<svg width="32" height="32" viewBox="0 0 36 36" fill="none">
+<line x1="18" y1="4" x2="18" y2="28" stroke="#FAFAF8" stroke-width="1.5"/>
+<polyline points="10,12 18,4 26,12" fill="none" stroke="#FAFAF8" stroke-width="1.5"/>
+<line x1="8" y1="28" x2="28" y2="28" stroke="#FAFAF8" stroke-width="1.5"/>
+<rect x="15.5" y="26.5" width="5" height="5" fill="#B8962E"/>
+</svg>
+<div class="nav-logo-text"><span>Vértice</span><span>Academy</span></div>
+</a>
+<a href="https://verticeacademy.eu" class="nav-back">← Voltar ao site</a>
+</nav>
+
+<section class="hero">
+<div>
+<span class="hero-tag">Primeiro Passo · Grátis</span>
+<h1>O teu stress é <em>fisiológico</em> — ou está na tua cabeça?</h1>
+<p class="hero-sub">Um guia prático e gratuito de diagnóstico de stress — para quem funciona por fora mas tem, por dentro, um motor que não desliga. Descobre o teu tipo de stress e o que funciona mesmo para ti.</p>
+<ul class="hero-list">
+<li>Um diagnóstico de 5 perguntas para te conheceres</li>
+<li>A diferença entre stress fisiológico e cognitivo</li>
+<li>A Coerência Cardíaca — 5 minutos que mudam o dia</li>
+</ul>
+</div>
+<div class="form-card">
+<h2>Recebe o teu guia gratuito</h2>
+<p class="fc-sub">Deixa o teu nome e email. O download abre logo a seguir.</p>
+<form class="g-form" id="guiaForm" action="https://assets.mailerlite.com/jsonp/2447628/forms/191467249552328550/subscribe" method="post" target="ml_guia_iframe">
+<input class="g-input" type="text" name="fields[name]" placeholder="O teu nome" required>
+<input class="g-input" type="email" name="fields[email]" placeholder="O teu melhor email" required>
+<input type="hidden" name="fields[guia]" value="Gestão de Stress">
+<input type="hidden" name="ml-submit" value="1">
+<input type="hidden" name="anticsrf" value="true">
+<div style="position:absolute;left:-5000px" aria-hidden="true"><input type="text" name="b_2447628_191467249552328550" tabindex="-1" value="" autocomplete="off"></div>
+<button class="g-btn" type="submit" id="guiaBtn">Quero o guia gratuito</button>
+<p class="g-nota">Ao enviar aceitas receber o guia e comunicações da Vértice Academy. Sem spam — podes sair quando quiseres.</p>
+</form>
+<div class="g-ok" id="guiaOk">
+<div class="check">✦</div>
+<h3>O teu guia está pronto</h3>
+<p>Clica para descarregar. Enviámos-te também um email para confirmares a subscrição.</p>
+<a class="g-download" href="https://storage.googleapis.com/mailerlite-uploads-prod/t2447628/dXpwi3IXSvjRwswUOi5fDxp4CEUiBFWwhLDoY1m2.pdf" target="_blank" rel="noopener">Descarregar o guia</a>
+</div>
+</div>
+</section>
+<iframe name="ml_guia_iframe" style="display:none" tabindex="-1" title="MailerLite"></iframe>
+
+<section class="learn">
+<div class="learn-inner">
+<p class="s-tag">O que vais encontrar</p>
+<h2 class="s-titulo">Do diagnóstico à calma que dura</h2>
+<p class="s-sub">Nada de teoria. Um diagnóstico honesto e uma técnica concreta para regulares o stress já hoje.</p>
+<div class="learn-grid">
+<div class="learn-card"><div class="learn-num">01</div><h3>Diagnóstico em 5 perguntas</h3><p>Responde com honestidade e percebe onde estás — porque ver o padrão é o primeiro passo para o mudar.</p></div>
+<div class="learn-card"><div class="learn-num">02</div><h3>Fisiológico ou cognitivo?</h3><p>Stress no corpo e stress na cabeça têm origens diferentes — e precisam de respostas diferentes. Descobre o teu.</p></div>
+<div class="learn-card"><div class="learn-num">03</div><h3>A Coerência Cardíaca</h3><p>Cinco minutos de respiração que ativam o teu travão natural — o sistema nervoso parassimpático.</p></div>
+<div class="learn-card"><div class="learn-num">04</div><h3>O primeiro passo do teu plano</h3><p>As bases para construíres um plano anti-stress que se aguenta no tempo — não só dois dias.</p></div>
+</div>
+</div>
+</section>
+
+<section class="sobre">
+<div class="sobre-inner">
+<p class="s-tag" style="color:var(--dourado)">Quem te guia</p>
+<p class="sobre-q">"O stress não é o que nos acontece — é a forma como respondemos ao que acontece."</p>
+<p class="sobre-p">Andrea Antunes, fundadora da Vértice Academy, tem 29 anos de experiência a impactar vidas e a transformar pessoas. Assistente social e formadora certificada IEFP, ajuda pessoas e equipas a liderarem-se com intenção.</p>
+<p class="sobre-name">Andrea Antunes · Vértice Academy</p>
+</div>
+</section>
+
+<footer>
+<p class="ft-tag">"O momento em que decides responder em vez de reagir — esse é o teu vértice."</p>
+<p class="ft-links"><a href="https://verticeacademy.eu">verticeacademy.eu</a> · <a href="mailto:andrea@verticeacademy.eu">andrea@verticeacademy.eu</a></p>
+<p class="ft-copy">© 2026 Vértice Academy · Andrea Antunes · ENI</p>
+</footer>
+
+<script>
+var _gf = document.getElementById("guiaForm");
+if(_gf){
+_gf.addEventListener("submit", function(e){
+  var hp = _gf.querySelector('input[name^="b_"]');
+  if(hp && hp.value){ e.preventDefault(); return; }
+  var btn = document.getElementById("guiaBtn");
+  if(btn){ btn.textContent = "A preparar..."; btn.disabled = true; }
+  setTimeout(function(){
+    var form = document.getElementById("guiaForm");
+    var ok = document.getElementById("guiaOk");
+    if(form) form.style.display = "none";
+    if(ok) ok.style.display = "block";
+  }, 800);
+});
+}
+</script>
+</body>
+</html>
