@@ -1,456 +1,464 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Vértice Academy | Liderança Pessoal</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root{--preto:#0C0C0F;--dourado:#B8962E;--dourado-claro:#D4B86A;--creme:#F5F0E8;--cinzento:#2A2A30;--branco:#FAFAF8}
-    *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-    body{font-family:'Inter',sans-serif;background:var(--branco);color:var(--preto)}
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--preto);display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:72px;border-bottom:1px solid rgba(184,150,46,0.2)}
-    .nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none}
-    .nav-logo-text{display:flex;flex-direction:column}
-    .nav-logo-text span:first-child{font-weight:600;font-size:16px;letter-spacing:3px;color:var(--branco);text-transform:uppercase}
-    .nav-logo-text span:last-child{font-weight:300;font-size:10px;letter-spacing:5px;color:var(--dourado);text-transform:uppercase}
-    .nav-links{display:flex;align-items:center;gap:40px;list-style:none}
-    .nav-links a{text-decoration:none;color:var(--branco);font-size:13px;letter-spacing:1.5px;text-transform:uppercase;font-weight:400;opacity:.85;transition:all .2s}
-    .nav-links a:hover{opacity:1;color:var(--dourado)}
-    .nav-cta{background:transparent;border:1px solid var(--dourado);color:var(--dourado);padding:10px 24px;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:500;cursor:pointer;text-decoration:none;transition:all .3s}
-    .nav-cta:hover{background:var(--dourado);color:var(--preto)}
-    .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;background:none;border:none;cursor:pointer;padding:8px}
-    .nav-toggle span{display:block;width:24px;height:2px;background:var(--branco);transition:all .3s}
-    #inicio{min-height:100vh;background:var(--preto);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 5% 80px;position:relative;overflow:hidden}
-    #inicio::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 60% 40%,rgba(184,150,46,.08) 0%,transparent 65%);pointer-events:none}
-    .hero-tag{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--dourado);font-weight:400;margin-bottom:32px;display:flex;align-items:center;gap:12px}
-    .hero-tag::before,.hero-tag::after{content:'';display:block;width:32px;height:1px;background:var(--dourado);opacity:.5}
-    .hero-titulo{font-family:'Cormorant Garamond',serif;font-size:clamp(42px,7vw,88px);font-weight:300;line-height:1.1;color:var(--branco);max-width:900px;margin-bottom:16px}
-    .hero-titulo em{font-style:italic;color:var(--dourado)}
-    .hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,2.5vw,26px);font-weight:300;font-style:italic;color:rgba(250,250,248,.6);margin-bottom:56px;max-width:600px}
-    .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
-    .btn-p{background:var(--dourado);color:var(--preto);padding:16px 40px;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;text-decoration:none;transition:all .3s;display:inline-block}
-    .btn-p:hover{background:var(--dourado-claro);transform:translateY(-2px)}
-    .btn-s{background:transparent;color:var(--branco);border:1px solid rgba(250,250,248,.3);padding:16px 40px;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;font-weight:400;text-decoration:none;transition:all .3s;display:inline-block}
-    .btn-s:hover{border-color:var(--dourado);color:var(--dourado)}
-    .numeros{background:var(--cinzento);display:grid;grid-template-columns:repeat(4,1fr)}
-    .num-item{text-align:center;padding:48px 20px;border-right:1px solid rgba(184,150,46,.12)}
-    .num-item:last-child{border-right:none}
-    .num-val{font-family:'Cormorant Garamond',serif;font-size:58px;font-weight:600;color:var(--dourado);line-height:1;margin-bottom:8px}
-    .num-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(250,250,248,.5)}
-    section{padding:100px 5%}
-    .s-tag{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--dourado);font-weight:400;margin-bottom:20px}
-    .s-titulo{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,54px);font-weight:300;line-height:1.2;margin-bottom:20px}
-    .s-sub{font-size:16px;line-height:1.8;opacity:.65;max-width:540px;font-weight:300}
-    #essencia{background:var(--creme)}
-    .e-header{text-align:center;max-width:700px;margin:0 auto 70px}
-    .e-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:1100px;margin:0 auto}
-    .e-card{background:var(--preto);padding:48px 40px;position:relative;overflow:hidden}
-    .e-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--dourado)}
-    .e-num{font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:300;color:var(--dourado);line-height:1;margin-bottom:24px}
-    .e-card-titulo{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--branco);margin-bottom:16px;line-height:1.3}
-    .e-card-texto{font-size:14px;line-height:1.8;color:rgba(250,250,248,.55);font-weight:300}
-    #programas{background:var(--branco)}
-    .p-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:60px;max-width:1100px;margin-left:auto;margin-right:auto;flex-wrap:wrap;gap:24px}
-    .p-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto}
-    .p-card{border:1px solid rgba(12,12,15,.1);padding:48px 36px;transition:all .3s;background:var(--branco)}
-    .p-card:hover{border-color:var(--dourado);transform:translateY(-4px);box-shadow:0 20px 60px rgba(184,150,46,.1)}
-    .p-card.dest{background:var(--preto);border-color:var(--dourado)}
-    .p-tag{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--dourado);font-weight:500;margin-bottom:20px;display:block}
-    .p-titulo{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;line-height:1.3;margin-bottom:16px;color:var(--preto)}
-    .p-card.dest .p-titulo{color:var(--branco)}
-    .p-texto{font-size:14px;line-height:1.8;color:rgba(12,12,15,.6);margin-bottom:32px;font-weight:300}
-    .p-card.dest .p-texto{color:rgba(250,250,248,.6)}
-    .p-cta{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--dourado);font-weight:500;text-decoration:none;display:flex;align-items:center;gap:8px;transition:gap .3s}
-    .p-cta:hover{gap:14px}.p-cta::after{content:'→'}
-    #formacao{background:var(--preto)}
-    .f-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-    .f-lista{list-style:none;margin:40px 0}
-    .f-lista li{display:flex;align-items:flex-start;gap:16px;padding:20px 0;border-bottom:1px solid rgba(250,250,248,.08);color:rgba(250,250,248,.75);font-size:15px;line-height:1.6}
-    .f-lista li::before{content:'—';color:var(--dourado);flex-shrink:0;margin-top:2px}
-    .f-lista li a{color:inherit;text-decoration:none;transition:color .2s}
-    .f-lista li a:hover{color:var(--dourado)}
-    .f-cards{display:grid;gap:2px}
-    .f-card{background:var(--cinzento);padding:32px 36px;border-left:2px solid transparent;transition:all .3s}
-    .f-card:hover{border-left-color:var(--dourado)}
-    .f-card-titulo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--branco);margin-bottom:8px}
-    .f-card-titulo em{font-style:normal;color:var(--dourado);font-weight:600}
-    .f-card-desc{font-size:13px;color:rgba(250,250,248,.5);line-height:1.6}
-    #sobre{background:var(--creme)}
-    .sb-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:center}
-    .sb-foto{aspect-ratio:3/4;background:var(--cinzento);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:rgba(250,250,248,.3);font-size:13px;letter-spacing:2px;text-transform:uppercase}
-    .sb-foto::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--dourado)}
-    .sb-bio{font-size:16px;line-height:1.9;color:rgba(12,12,15,.7);margin:28px 0;font-weight:300}
-    .sb-creds{display:flex;flex-direction:column;gap:12px;margin:32px 0}
-    .cred{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--preto)}
-    .cred::before{content:'';display:block;width:6px;height:6px;background:var(--dourado);flex-shrink:0}
-    .sb-cit{border-left:2px solid var(--dourado);padding-left:24px;margin-top:32px;font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;font-weight:300;line-height:1.5;color:var(--preto)}
-    #ebook{background:var(--dourado)}
-    .eb-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-    .eb-badge{font-size:10px;letter-spacing:4px;text-transform:uppercase;background:var(--preto);color:var(--dourado);padding:6px 16px;display:inline-block;margin-bottom:24px;font-weight:500}
-    .eb-titulo{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:300;line-height:1.2;color:var(--preto);margin-bottom:20px}
-    .eb-desc{font-size:16px;line-height:1.8;color:rgba(12,12,15,.75);margin-bottom:36px;font-weight:300}
-    .btn-eb{background:var(--preto);color:var(--dourado);padding:18px 48px;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;text-decoration:none;display:inline-block;transition:all .3s}
-    .btn-eb:hover{background:#1a1a1f;transform:translateY(-2px)}
-    .eb-capa{background:var(--preto);aspect-ratio:2/3;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px;text-align:center;position:relative}
-    .eb-capa::before{content:'';position:absolute;top:12px;right:-12px;bottom:-12px;left:12px;background:rgba(12,12,15,.3);z-index:-1}
-    .eb-capa-titulo{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--branco);line-height:1.3;margin-bottom:16px}
-    .eb-linha{width:40px;height:1px;background:var(--dourado);margin:0 auto 16px}
-    .eb-autor{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--dourado);font-weight:400}
-    #livro{background:var(--branco)}
-    .lv-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:center}
-    .lv-capa-wrap{display:flex;justify-content:center}
-    .lv-capa{position:relative;width:300px;max-width:100%;aspect-ratio:2/3;background:linear-gradient(165deg,#17171e 0%,#0C0C0F 100%);box-shadow:0 34px 64px rgba(12,12,15,.38);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:44px 34px;text-align:center;border-left:3px solid var(--dourado)}
-    .lv-capa::before{content:'';position:absolute;top:18px;left:18px;right:18px;bottom:18px;border:1px solid rgba(184,150,46,.22);pointer-events:none}
-    .lv-capa-autor{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(212,184,106,.75);margin-bottom:20px}
-    .lv-capa-titulo{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--branco);line-height:1.22}
-    .lv-capa-linha{width:38px;height:1px;background:var(--dourado);margin:20px auto}
-    .lv-capa-marca{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(250,250,248,.4)}
-    .lv-preco{display:flex;align-items:baseline;gap:12px;margin:6px 0 32px}
-    .lv-preco-val{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:600;color:var(--dourado);line-height:1}
-    .lv-preco-nota{font-size:13px;color:rgba(12,12,15,.5)}
-    #cursos{background:var(--preto)}.cursos-inner{max-width:1100px;margin:0 auto;text-align:center}.cursos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:48px auto 0}.cursos-card{background:var(--cinzento);padding:40px 32px;border-left:2px solid transparent;transition:all .3s;text-align:left}.cursos-card:hover{border-left-color:var(--dourado)}.cursos-icon{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:var(--dourado);line-height:1;margin-bottom:16px}.cursos-titulo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--branco);margin-bottom:10px}.cursos-desc{font-size:13px;color:rgba(250,250,248,.5);line-height:1.6;margin-bottom:24px}.btn-cursos{display:inline-block;background:var(--dourado);color:var(--preto);padding:14px 32px;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;text-decoration:none;transition:all .3s}.btn-cursos:hover{background:var(--dourado-claro);transform:translateY(-2px)}.btn-cursos-sec{display:inline-block;background:transparent;color:var(--dourado);border:1px solid var(--dourado);padding:16px 40px;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;font-weight:500;text-decoration:none;transition:all .3s;margin-top:48px}.btn-cursos-sec:hover{background:var(--dourado);color:var(--preto)}
-    #testemunhos{background:var(--branco)}
-    .t-header{text-align:center;max-width:600px;margin:0 auto 60px}
-    .t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto}
-    .t-card{background:var(--creme);padding:40px 32px}
-    .t-texto{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;font-weight:300;line-height:1.6;color:var(--preto);margin-bottom:28px}
-    .t-linha{width:24px;height:1px;background:var(--dourado);margin-bottom:16px}
-    .t-autor{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--preto);font-weight:500}
-    .t-cargo{font-size:12px;color:rgba(12,12,15,.5);margin-top:4px}
-    #contacto{background:var(--preto)}
-    .c-inner{max-width:700px;margin:0 auto;text-align:center}
-    .c-form{display:flex;flex-direction:column;gap:16px;margin-top:48px}
-    .c-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .c-input{background:rgba(250,250,248,.05);border:1px solid rgba(250,250,248,.1);color:var(--branco);padding:16px 20px;font-family:'Inter',sans-serif;font-size:14px;outline:none;transition:border-color .3s;width:100%}
-    .c-input::placeholder{color:rgba(250,250,248,.3)}.c-input:focus{border-color:var(--dourado)}
-    .c-textarea{height:140px;resize:none}
-    .btn-env{background:var(--dourado);color:var(--preto);border:none;padding:18px;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;cursor:pointer;transition:all .3s;font-family:'Inter',sans-serif;width:100%}
-    .btn-env:hover{background:var(--dourado-claro)}
-    footer{background:#06060A;padding:60px 5% 40px}
-    .ft-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:60px;padding-bottom:48px;border-bottom:1px solid rgba(250,250,248,.08)}
-    .ft-nome{font-weight:600;font-size:14px;letter-spacing:3px;color:var(--branco);text-transform:uppercase;margin-bottom:4px}
-    .ft-sub{font-size:10px;letter-spacing:4px;color:var(--dourado);text-transform:uppercase;margin-bottom:20px}
-    .ft-tag{font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:rgba(250,250,248,.4);line-height:1.6}
-    .ft-titulo{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--dourado);margin-bottom:20px;font-weight:500}
-    .ft-links{list-style:none;display:flex;flex-direction:column;gap:12px}
-    .ft-links a{text-decoration:none;color:rgba(250,250,248,.5);font-size:14px;transition:color .2s}
-    .ft-links a:hover{color:var(--branco)}
-    .ft-contact{display:flex;flex-direction:column;gap:12px}
-    .ft-contact-item a{color:rgba(250,250,248,.5);text-decoration:none;font-size:13px;transition:color .2s}
-    .ft-contact-item a:hover{color:var(--dourado)}
-    .ft-bottom{max-width:1100px;margin:32px auto 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
-    .ft-copy{font-size:12px;color:rgba(250,250,248,.25)}
-    @media(max-width:900px){
-      .numeros{grid-template-columns:repeat(2,1fr)}
-      .e-grid,.p-grid,.t-grid,.cursos-grid{grid-template-columns:1fr}
-      .f-inner,.sb-inner,.eb-inner,.lv-inner{grid-template-columns:1fr;gap:48px}
-      .ft-inner{grid-template-columns:1fr;gap:40px}
-      .nav-toggle{display:flex}
-      .nav-links{position:fixed;top:72px;left:0;right:0;background:var(--preto);flex-direction:column;gap:0;padding:0;display:none;border-bottom:1px solid rgba(184,150,46,.2)}
-      .nav-links.open{display:flex}
-      .nav-links li{width:100%;text-align:center;padding:18px 0;border-top:1px solid rgba(250,250,248,.06)}
-      .p-header{flex-direction:column;align-items:flex-start}
-      .c-row{grid-template-columns:1fr}
-      .hero-ctas{flex-direction:column;align-items:center}
-      section{padding:70px 5%}
-      .eb-capa{display:none}
-    }
-    @media(max-width:600px){
-      .numeros{grid-template-columns:1fr}
-      .num-item{border-right:none;border-bottom:1px solid rgba(184,150,46,.12);padding:32px 20px}
-      .num-item:last-child{border-bottom:none}
-      nav{padding:0 4%;height:64px}
-      .nav-logo-text span:first-child{font-size:14px}
-      section{padding:56px 4%}
-      .e-card{padding:36px 28px}
-      .p-card{padding:36px 24px}
-      .t-card{padding:32px 24px}
-      .ft-inner{padding-bottom:40px}
-      .sb-foto{aspect-ratio:4/3}
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Vértice Academy | Liderança Pessoal</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--preto:#0C0C0F;--dourado:#B8962E;--dourado-claro:#D4B86A;--creme:#F5F0E8;--cinzento:#2A2A30;--branco:#FAFAF8}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--branco);color:var(--preto)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--preto);display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:72px;border-bottom:1px solid rgba(184,150,46,0.2)}
+.nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none}
+.nav-logo-text{display:flex;flex-direction:column}
+.nav-logo-text span:first-child{font-weight:600;font-size:16px;letter-spacing:3px;color:var(--branco);text-transform:uppercase}
+.nav-logo-text span:last-child{font-weight:300;font-size:10px;letter-spacing:5px;color:var(--dourado);text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:40px;list-style:none}
+.nav-links a{text-decoration:none;color:var(--branco);font-size:13px;letter-spacing:1.5px;text-transform:uppercase;font-weight:400;opacity:.85;transition:all .2s}
+.nav-links a:hover{opacity:1;color:var(--dourado)}
+.nav-cta{background:transparent;border:1px solid var(--dourado);color:var(--dourado);padding:10px 24px;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:500;cursor:pointer;text-decoration:none;transition:all .3s}
+.nav-cta:hover{background:var(--dourado);color:var(--preto)}
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;background:none;border:none;cursor:pointer;padding:8px}
+.nav-toggle span{display:block;width:24px;height:2px;background:var(--branco);transition:all .3s}
+#inicio{min-height:100vh;background:var(--preto);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 5% 80px;position:relative;overflow:hidden}
+#inicio::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 60% 40%,rgba(184,150,46,.08) 0%,transparent 65%);pointer-events:none}
+.hero-tag{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--dourado);font-weight:400;margin-bottom:32px;display:flex;align-items:center;gap:12px}
+.hero-tag::before,.hero-tag::after{content:'';display:block;width:32px;height:1px;background:var(--dourado);opacity:.5}
+.hero-titulo{font-family:'Cormorant Garamond',serif;font-size:clamp(42px,7vw,88px);font-weight:300;line-height:1.1;color:var(--branco);max-width:900px;margin-bottom:16px}
+.hero-titulo em{font-style:italic;color:var(--dourado)}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,2.5vw,26px);font-weight:300;font-style:italic;color:rgba(250,250,248,.6);margin-bottom:56px;max-width:600px}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+.btn-p{background:var(--dourado);color:var(--preto);padding:16px 40px;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;text-decoration:none;transition:all .3s;display:inline-block}
+.btn-p:hover{background:var(--dourado-claro);transform:translateY(-2px)}
+.btn-s{background:transparent;color:var(--branco);border:1px solid rgba(250,250,248,.3);padding:16px 40px;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;font-weight:400;text-decoration:none;transition:all .3s;display:inline-block}
+.btn-s:hover{border-color:var(--dourado);color:var(--dourado)}
+.numeros{background:var(--cinzento);display:grid;grid-template-columns:repeat(4,1fr)}
+.num-item{text-align:center;padding:48px 20px;border-right:1px solid rgba(184,150,46,.12)}
+.num-item:last-child{border-right:none}
+.num-val{font-family:'Cormorant Garamond',serif;font-size:58px;font-weight:600;color:var(--dourado);line-height:1;margin-bottom:8px}
+.num-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(250,250,248,.5)}
+section{padding:100px 5%}
+.s-tag{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--dourado);font-weight:400;margin-bottom:20px}
+.s-titulo{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,54px);font-weight:300;line-height:1.2;margin-bottom:20px}
+.s-sub{font-size:16px;line-height:1.8;opacity:.65;max-width:540px;font-weight:300}
+#essencia{background:var(--creme)}
+.e-header{text-align:center;max-width:700px;margin:0 auto 70px}
+.e-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:1100px;margin:0 auto}
+.e-card{background:var(--preto);padding:48px 40px;position:relative;overflow:hidden}
+.e-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--dourado)}
+.e-num{font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:300;color:var(--dourado);line-height:1;margin-bottom:24px}
+.e-card-titulo{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--branco);margin-bottom:16px;line-height:1.3}
+.e-card-texto{font-size:14px;line-height:1.8;color:rgba(250,250,248,.55);font-weight:300}
+#programas{background:var(--branco)}
+.p-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:60px;max-width:1100px;margin-left:auto;margin-right:auto;flex-wrap:wrap;gap:24px}
+.p-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto}
+.p-card{border:1px solid rgba(12,12,15,.1);padding:48px 36px;transition:all .3s;background:var(--branco)}
+.p-card:hover{border-color:var(--dourado);transform:translateY(-4px);box-shadow:0 20px 60px rgba(184,150,46,.1)}
+.p-card.dest{background:var(--preto);border-color:var(--dourado)}
+.p-tag{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--dourado);font-weight:500;margin-bottom:20px;display:block}
+.p-titulo{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;line-height:1.3;margin-bottom:16px;color:var(--preto)}
+.p-card.dest .p-titulo{color:var(--branco)}
+.p-texto{font-size:14px;line-height:1.8;color:rgba(12,12,15,.6);margin-bottom:32px;font-weight:300}
+.p-card.dest .p-texto{color:rgba(250,250,248,.6)}
+.p-cta{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--dourado);font-weight:500;text-decoration:none;display:flex;align-items:center;gap:8px;transition:gap .3s}
+.p-cta:hover{gap:14px}.p-cta::after{content:'→'}
+#formacao{background:var(--preto)}
+.f-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.f-lista{list-style:none;margin:40px 0}
+.f-lista li{display:flex;align-items:flex-start;gap:16px;padding:20px 0;border-bottom:1px solid rgba(250,250,248,.08);color:rgba(250,250,248,.75);font-size:15px;line-height:1.6}
+.f-lista li::before{content:'—';color:var(--dourado);flex-shrink:0;margin-top:2px}
+.f-lista li a{color:inherit;text-decoration:none;transition:color .2s}
+.f-lista li a:hover{color:var(--dourado)}
+.f-cards{display:grid;gap:2px}
+.f-card{background:var(--cinzento);padding:32px 36px;border-left:2px solid transparent;transition:all .3s}
+.f-card:hover{border-left-color:var(--dourado)}
+.f-card-titulo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--branco);margin-bottom:8px}
+.f-card-titulo em{font-style:normal;color:var(--dourado);font-weight:600}
+.f-card-desc{font-size:13px;color:rgba(250,250,248,.5);line-height:1.6}
+#sobre{background:var(--creme)}
+.sb-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:center}
+.sb-foto{aspect-ratio:3/4;background:var(--cinzento);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:rgba(250,250,248,.3);font-size:13px;letter-spacing:2px;text-transform:uppercase}
+.sb-foto::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--dourado)}
+.sb-bio{font-size:16px;line-height:1.9;color:rgba(12,12,15,.7);margin:28px 0;font-weight:300}
+.sb-creds{display:flex;flex-direction:column;gap:12px;margin:32px 0}
+.cred{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--preto)}
+.cred::before{content:'';display:block;width:6px;height:6px;background:var(--dourado);flex-shrink:0}
+.sb-cit{border-left:2px solid var(--dourado);padding-left:24px;margin-top:32px;font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;font-weight:300;line-height:1.5;color:var(--preto)}
+#ebook{background:var(--dourado)}
+.eb-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.eb-badge{font-size:10px;letter-spacing:4px;text-transform:uppercase;background:var(--preto);color:var(--dourado);padding:6px 16px;display:inline-block;margin-bottom:24px;font-weight:500}
+.eb-titulo{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:300;line-height:1.2;color:var(--preto);margin-bottom:20px}
+.eb-desc{font-size:16px;line-height:1.8;color:rgba(12,12,15,.75);margin-bottom:36px;font-weight:300}
+.btn-eb{background:var(--preto);color:var(--dourado);padding:18px 48px;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;text-decoration:none;display:inline-block;transition:all .3s}
+.btn-eb:hover{background:#1a1a1f;transform:translateY(-2px)}
+.eb-capa{background:var(--preto);aspect-ratio:2/3;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px;text-align:center;position:relative}
+.eb-capa::before{content:'';position:absolute;top:12px;right:-12px;bottom:-12px;left:12px;background:rgba(12,12,15,.3);z-index:-1}
+.eb-capa-titulo{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--branco);line-height:1.3;margin-bottom:16px}
+.eb-linha{width:40px;height:1px;background:var(--dourado);margin:0 auto 16px}
+.eb-autor{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--dourado);font-weight:400}
+#livro{background:var(--branco)}
+.lv-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:center}
+.lv-capa-wrap{display:flex;justify-content:center}
+.lv-capa{position:relative;width:300px;max-width:100%;aspect-ratio:2/3;background:linear-gradient(165deg,#17171e 0%,#0C0C0F 100%);box-shadow:0 34px 64px rgba(12,12,15,.38);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:44px 34px;text-align:center;border-left:3px solid var(--dourado)}
+.lv-capa::before{content:'';position:absolute;top:18px;left:18px;right:18px;bottom:18px;border:1px solid rgba(184,150,46,.22);pointer-events:none}
+.lv-capa-autor{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(212,184,106,.75);margin-bottom:20px}
+.lv-capa-titulo{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--branco);line-height:1.22}
+.lv-capa-linha{width:38px;height:1px;background:var(--dourado);margin:20px auto}
+.lv-capa-marca{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(250,250,248,.4)}
+.lv-preco{display:flex;align-items:baseline;gap:12px;margin:6px 0 32px}
+.lv-preco-val{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:600;color:var(--dourado);line-height:1}
+.lv-preco-nota{font-size:13px;color:rgba(12,12,15,.5)}
+#cursos{background:var(--preto)}.cursos-inner{max-width:1100px;margin:0 auto;text-align:center}.cursos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:48px auto 0}.cursos-card{background:var(--cinzento);padding:40px 32px;border-left:2px solid transparent;transition:all .3s;text-align:left}.cursos-card:hover{border-left-color:var(--dourado)}.cursos-icon{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:var(--dourado);line-height:1;margin-bottom:16px}.cursos-titulo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--branco);margin-bottom:10px}.cursos-desc{font-size:13px;color:rgba(250,250,248,.5);line-height:1.6;margin-bottom:24px}.btn-cursos{display:inline-block;background:var(--dourado);color:var(--preto);padding:14px 32px;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;text-decoration:none;transition:all .3s}.btn-cursos:hover{background:var(--dourado-claro);transform:translateY(-2px)}.btn-cursos-sec{display:inline-block;background:transparent;color:var(--dourado);border:1px solid var(--dourado);padding:16px 40px;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;font-weight:500;text-decoration:none;transition:all .3s;margin-top:48px}.btn-cursos-sec:hover{background:var(--dourado);color:var(--preto)}
+#testemunhos{background:var(--branco)}
+.t-header{text-align:center;max-width:600px;margin:0 auto 60px}
+.t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto}
+.t-card{background:var(--creme);padding:40px 32px}
+.t-texto{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;font-weight:300;line-height:1.6;color:var(--preto);margin-bottom:28px}
+.t-linha{width:24px;height:1px;background:var(--dourado);margin-bottom:16px}
+.t-autor{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--preto);font-weight:500}
+.t-cargo{font-size:12px;color:rgba(12,12,15,.5);margin-top:4px}
+#contacto{background:var(--preto)}
+.c-inner{max-width:700px;margin:0 auto;text-align:center}
+.c-form{display:flex;flex-direction:column;gap:16px;margin-top:48px}
+.c-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.c-input{background:rgba(250,250,248,.05);border:1px solid rgba(250,250,248,.1);color:var(--branco);padding:16px 20px;font-family:'Inter',sans-serif;font-size:14px;outline:none;transition:border-color .3s;width:100%}
+.c-input::placeholder{color:rgba(250,250,248,.3)}.c-input:focus{border-color:var(--dourado)}
+.c-textarea{height:140px;resize:none}
+.btn-env{background:var(--dourado);color:var(--preto);border:none;padding:18px;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;cursor:pointer;transition:all .3s;font-family:'Inter',sans-serif;width:100%}
+.btn-env:hover{background:var(--dourado-claro)}
+.btn-env:disabled{background:var(--dourado-claro);cursor:default;opacity:.85}
+.c-ok{color:var(--dourado);font-size:15px;line-height:1.6;margin-top:6px}
+.c-nota{font-size:11px;color:rgba(250,250,248,.35);margin-top:2px}
+footer{background:#06060A;padding:60px 5% 40px}
+.ft-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:60px;padding-bottom:48px;border-bottom:1px solid rgba(250,250,248,.08)}
+.ft-nome{font-weight:600;font-size:14px;letter-spacing:3px;color:var(--branco);text-transform:uppercase;margin-bottom:4px}
+.ft-sub{font-size:10px;letter-spacing:4px;color:var(--dourado);text-transform:uppercase;margin-bottom:20px}
+.ft-tag{font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:rgba(250,250,248,.4);line-height:1.6}
+.ft-titulo{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--dourado);margin-bottom:20px;font-weight:500}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:12px}
+.ft-links a{text-decoration:none;color:rgba(250,250,248,.5);font-size:14px;transition:color .2s}
+.ft-links a:hover{color:var(--branco)}
+.ft-contact{display:flex;flex-direction:column;gap:12px}
+.ft-contact-item a{color:rgba(250,250,248,.5);text-decoration:none;font-size:13px;transition:color .2s}
+.ft-contact-item a:hover{color:var(--dourado)}
+.ft-bottom{max-width:1100px;margin:32px auto 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.ft-copy{font-size:12px;color:rgba(250,250,248,.25)}
+@media(max-width:900px){
+.numeros{grid-template-columns:repeat(2,1fr)}
+.e-grid,.p-grid,.t-grid,.cursos-grid{grid-template-columns:1fr}
+.f-inner,.sb-inner,.eb-inner,.lv-inner{grid-template-columns:1fr;gap:48px}
+.ft-inner{grid-template-columns:1fr;gap:40px}
+.nav-toggle{display:flex}
+.nav-links{position:fixed;top:72px;left:0;right:0;background:var(--preto);flex-direction:column;gap:0;padding:0;display:none;border-bottom:1px solid rgba(184,150,46,.2)}
+.nav-links.open{display:flex}
+.nav-links li{width:100%;text-align:center;padding:18px 0;border-top:1px solid rgba(250,250,248,.06)}
+.p-header{flex-direction:column;align-items:flex-start}
+.c-row{grid-template-columns:1fr}
+.hero-ctas{flex-direction:column;align-items:center}
+section{padding:70px 5%}
+.eb-capa{display:none}
+}
+@media(max-width:600px){
+.numeros{grid-template-columns:1fr}
+.num-item{border-right:none;border-bottom:1px solid rgba(184,150,46,.12);padding:32px 20px}
+.num-item:last-child{border-bottom:none}
+nav{padding:0 4%;height:64px}
+.nav-logo-text span:first-child{font-size:14px}
+section{padding:56px 4%}
+.e-card{padding:36px 28px}
+.p-card{padding:36px 24px}
+.t-card{padding:32px 24px}
+.ft-inner{padding-bottom:40px}
+.sb-foto{aspect-ratio:4/3}
+}
 
-    /* Scroll animations */
-    .fade-in{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
-    .fade-in.visible{opacity:1;transform:translateY(0)}
-    .fade-in-left{opacity:0;transform:translateX(-40px);transition:opacity .7s ease,transform .7s ease}
-    .fade-in-left.visible{opacity:1;transform:translateX(0)}
-    .fade-in-right{opacity:0;transform:translateX(40px);transition:opacity .7s ease,transform .7s ease}
-    .fade-in-right.visible{opacity:1;transform:translateX(0)}
-    .stagger-1{transition-delay:.1s}
-    .stagger-2{transition-delay:.2s}
-    .stagger-3{transition-delay:.3s}
-    .stagger-4{transition-delay:.4s}
+/* Scroll animations */
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+.fade-in-left{opacity:0;transform:translateX(-40px);transition:opacity .7s ease,transform .7s ease}
+.fade-in-left.visible{opacity:1;transform:translateX(0)}
+.fade-in-right{opacity:0;transform:translateX(40px);transition:opacity .7s ease,transform .7s ease}
+.fade-in-right.visible{opacity:1;transform:translateX(0)}
+.stagger-1{transition-delay:.1s}
+.stagger-2{transition-delay:.2s}
+.stagger-3{transition-delay:.3s}
+.stagger-4{transition-delay:.4s}
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="#inicio" class="nav-logo">
-    <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-      <line x1="18" y1="4" x2="18" y2="28" stroke="#FAFAF8" stroke-width="1.5"/>
-      <polyline points="10,12 18,4 26,12" fill="none" stroke="#FAFAF8" stroke-width="1.5"/>
-      <line x1="8" y1="28" x2="28" y2="28" stroke="#FAFAF8" stroke-width="1.5"/>
-      <rect x="15.5" y="26.5" width="5" height="5" fill="#B8962E"/>
-    </svg>
-    <div class="nav-logo-text"><span>Vértice</span><span>Academy</span></div>
-  </a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#cursos">Cursos Online</a></li>
-    <li><a href="#livro">Livro</a></li>
-    <li><a href="#sobre">Sobre</a></li>
-    <li><a href="#formacao">Formação</a></li>
-    <li><a href="#contacto">Contacto</a></li>
-  </ul>
-  <a href="#contacto" class="nav-cta">Fala Comigo</a>
-  <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+<a href="#inicio" class="nav-logo">
+<svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+<line x1="18" y1="4" x2="18" y2="28" stroke="#FAFAF8" stroke-width="1.5"/>
+<polyline points="10,12 18,4 26,12" fill="none" stroke="#FAFAF8" stroke-width="1.5"/>
+<line x1="8" y1="28" x2="28" y2="28" stroke="#FAFAF8" stroke-width="1.5"/>
+<rect x="15.5" y="26.5" width="5" height="5" fill="#B8962E"/>
+</svg>
+<div class="nav-logo-text"><span>Vértice</span><span>Academy</span></div>
+</a>
+<ul class="nav-links" id="navLinks">
+<li><a href="#cursos">Cursos Online</a></li>
+<li><a href="#livro">Livro</a></li>
+<li><a href="#sobre">Sobre</a></li>
+<li><a href="#formacao">Formação</a></li>
+<li><a href="#contacto">Contacto</a></li>
+</ul>
+<a href="#contacto" class="nav-cta">Fala Comigo</a>
+<button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
 <section id="inicio">
-  <p class="hero-tag">O Teu Vértice</p>
-  <h1 class="hero-titulo">O momento em que decides responder<br><em>em vez de reagir</em> — esse é o teu vértice.</h1>
-  <p class="hero-sub">Liderança pessoal, inteligência emocional e comunicação. Ferramentas reais para te conheceres, escolheres a tua resposta e liderares a tua vida.</p>
-  <div class="hero-ctas">
-    <a href="#cursos" class="btn-p">Ver os Cursos</a>
-    <a href="#formacao" class="btn-s">Formação para Empresas</a>
-  </div>
+<p class="hero-tag">O Teu Vértice</p>
+<h1 class="hero-titulo">O momento em que decides responder<br><em>em vez de reagir</em> — esse é o teu vértice.</h1>
+<p class="hero-sub">Liderança pessoal, inteligência emocional e comunicação. Ferramentas reais para te conheceres, escolheres a tua resposta e liderares a tua vida.</p>
+<div class="hero-ctas">
+<a href="#cursos" class="btn-p">Ver os Cursos</a>
+<a href="#formacao" class="btn-s">Formação para Empresas</a>
+</div>
 </section>
 
 <div class="numeros">
-  <div class="num-item"><div class="num-val">29+</div><div class="num-label">Anos de Experiência</div></div>
-  <div class="num-item"><div class="num-val">500+</div><div class="num-label">Pessoas Formadas</div></div>
-  <div class="num-item"><div class="num-val">5</div><div class="num-label">Cursos Online</div></div>
-  <div class="num-item"><div class="num-val">PT · ES</div><div class="num-label">Mercado Ibérico</div></div>
+<div class="num-item"><div class="num-val">29+</div><div class="num-label">Anos de Experiência</div></div>
+<div class="num-item"><div class="num-val">500+</div><div class="num-label">Pessoas Formadas</div></div>
+<div class="num-item"><div class="num-val">5</div><div class="num-label">Cursos Online</div></div>
+<div class="num-item"><div class="num-val">PT · ES</div><div class="num-label">Mercado Ibérico</div></div>
 </div>
 
 <section id="essencia">
-  <div class="e-header fade-in">
-    <p class="s-tag">A Nossa Essência</p>
-    <h2 class="s-titulo">A liderança pessoal<br>como ponto de viragem</h2>
-    <p class="s-sub" style="margin:0 auto">Não é o talento que define quem lidera. É a capacidade de se conhecer, de escolher a resposta em vez de ceder à reação.</p>
-  </div>
-  <div class="e-grid">
-    <div class="e-card fade-in stagger-1"><div class="e-num">01</div><h3 class="e-card-titulo">Liderança Pessoal</h3><p class="e-card-texto">O teu ponto de viragem começa dentro de ti. Antes de liderar equipas, projetos ou negócios, aprende a liderar-te a ti próprio com intenção e clareza.</p></div>
-    <div class="e-card fade-in stagger-2"><div class="e-num">02</div><h3 class="e-card-titulo">Autocuidado como Base</h3><p class="e-card-texto">Não há sustentabilidade sem autocuidado. Aprender a nutrir a tua energia, os teus limites e o teu bem-estar é o alicerce de tudo o resto.</p></div>
-    <div class="e-card fade-in stagger-3"><div class="e-num">03</div><h3 class="e-card-titulo">Ferramentas Reais</h3><p class="e-card-texto">Metodologia comportamental aplicada. Não teoria — ferramentas concretas que transformam a forma como pensas, comunicas e te relacionas.</p></div>
-  </div>
+<div class="e-header fade-in">
+<p class="s-tag">A Nossa Essência</p>
+<h2 class="s-titulo">A liderança pessoal<br>como ponto de viragem</h2>
+<p class="s-sub" style="margin:0 auto">Não é o talento que define quem lidera. É a capacidade de se conhecer, de escolher a resposta em vez de ceder à reação.</p>
+</div>
+<div class="e-grid">
+<div class="e-card fade-in stagger-1"><div class="e-num">01</div><h3 class="e-card-titulo">Liderança Pessoal</h3><p class="e-card-texto">O teu ponto de viragem começa dentro de ti. Antes de liderar equipas, projetos ou negócios, aprende a liderar-te a ti próprio com intenção e clareza.</p></div>
+<div class="e-card fade-in stagger-2"><div class="e-num">02</div><h3 class="e-card-titulo">Autocuidado como Base</h3><p class="e-card-texto">Não há sustentabilidade sem autocuidado. Aprender a nutrir a tua energia, os teus limites e o teu bem-estar é o alicerce de tudo o resto.</p></div>
+<div class="e-card fade-in stagger-3"><div class="e-num">03</div><h3 class="e-card-titulo">Ferramentas Reais</h3><p class="e-card-texto">Metodologia comportamental aplicada. Não teoria — ferramentas concretas que transformam a forma como pensas, comunicas e te relacionas.</p></div>
+</div>
 </section>
 
 <section id="sobre">
-  <div class="sb-inner">
-    <div class="sb-foto">
-      <img src="andrea.jpg" alt="Andrea Antunes" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-    </div>
-    <div>
-      <p class="s-tag">Andrea Antunes</p>
-      <h2 class="s-titulo">29 anos a impactar vidas e transformar pessoas</h2>
-      <p class="sb-cit" style="margin-top:24px;margin-bottom:0;font-size:20px">“O maior projeto de cada ser humano é ele próprio.”</p>
-      <p class="sb-bio">Ao longo de quase três décadas, trabalhei com pessoas em momentos de viragem. Aprendi que a mudança real começa dentro de cada um de nós.</p>
-      <p class="sb-bio">A Vértice Academy nasceu da convicção de que a liderança pessoal não é um privilégio de alguns, é uma competência que todos podem desenvolver.</p>
-      <div class="sb-creds">
-        <div class="cred">Licenciatura em Serviço Social</div>
-        <div class="cred">Pós-graduação em Recursos Humanos</div>
-        <div class="cred">Curso de Counselling — Abordagem Centrada na Pessoa (Carl Rogers)</div>
-        <div class="cred">Expert em Bem-estar, Inteligência Emocional e Psicologia Positiva</div>
-        <div class="cred">Formadora certificada IEFP — 25 anos de experiência</div>
-        <div class="cred">Especialista em liderança pessoal e comportamento humano</div>
-      </div>
-      <blockquote class="sb-cit">"O vértice não é o destino, é o momento em que tudo muda de direção."</blockquote>
-    </div>
-  </div>
+<div class="sb-inner">
+<div class="sb-foto">
+<img src="andrea.jpg" alt="Andrea Antunes" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+</div>
+<div>
+<p class="s-tag">Andrea Antunes</p>
+<h2 class="s-titulo">29 anos a impactar vidas e transformar pessoas</h2>
+<p class="sb-cit" style="margin-top:24px;margin-bottom:0;font-size:20px">“O maior projeto de cada ser humano é ele próprio.”</p>
+<p class="sb-bio">Ao longo de quase três décadas, trabalhei com pessoas em momentos de viragem. Aprendi que a mudança real começa dentro de cada um de nós.</p>
+<p class="sb-bio">A Vértice Academy nasceu da convicção de que a liderança pessoal não é um privilégio de alguns, é uma competência que todos podem desenvolver.</p>
+<div class="sb-creds">
+<div class="cred">Licenciatura em Serviço Social</div>
+<div class="cred">Pós-graduação em Recursos Humanos</div>
+<div class="cred">Curso de Counselling — Abordagem Centrada na Pessoa (Carl Rogers)</div>
+<div class="cred">Expert em Bem-estar, Inteligência Emocional e Psicologia Positiva</div>
+<div class="cred">Formadora certificada IEFP — 25 anos de experiência</div>
+<div class="cred">Especialista em liderança pessoal e comportamento humano</div>
+</div>
+<blockquote class="sb-cit">"O vértice não é o destino, é o momento em que tudo muda de direção."</blockquote>
+</div>
+</div>
 </section>
 
 <section id="cursos">
-  <div class="cursos-inner fade-in">
-    <p class="s-tag">Cursos Online</p>
-    <h2 class="s-titulo" style="color:var(--branco)">Aprende ao teu ritmo,<br>onde quiseres</h2>
-    <p class="s-sub" style="color:rgba(250,250,248,.6);margin:0 auto 48px">Cinco cursos assíncronos de liderança pessoal, para fazeres ao teu ritmo, onde quiseres.</p>
-    <div class="cursos-grid">
-      <div class="cursos-card fade-in stagger-1">
-        <div class="cursos-icon">01</div>
-        <h3 class="cursos-titulo">Inteligência Emocional</h3>
-        <p class="cursos-desc">Conhece-te, sente e age com intenção. Gestão emocional aplicada à vida pessoal e profissional.</p>
-        <a href="inteligencia-emocional.html" class="btn-cursos">Saber mais</a>
-      </div>
-      <div class="cursos-card fade-in stagger-2">
-        <div class="cursos-icon">02</div>
-        <h3 class="cursos-titulo">Gestão de Stress</h3>
-        <p class="cursos-desc">Ferramentas para viver com mais equilíbrio e responder em vez de reagir.</p>
-        <a href="gestao-stress.html" class="btn-cursos">Saber mais</a>
-      </div>
-      <div class="cursos-card fade-in stagger-3">
-        <div class="cursos-icon">03</div>
-        <h3 class="cursos-titulo">Gestão de Conflitos</h3>
-        <p class="cursos-desc">Transformar tensão em oportunidade de crescimento e relações mais saudáveis.</p>
-        <a href="gestao-conflitos.html" class="btn-cursos">Saber mais</a>
-      </div>
-      <div class="cursos-card fade-in stagger-4">
-        <div class="cursos-icon">04</div>
-        <h3 class="cursos-titulo">Liderança Pessoal</h3>
-        <p class="cursos-desc">Lidera-te a ti antes de liderares os outros. O ponto de viragem.</p>
-        <a href="lideranca-pessoal.html" class="btn-cursos">Saber mais</a>
-      </div>
-      <div class="cursos-card fade-in stagger-5">
-        <div class="cursos-icon">05</div>
-        <h3 class="cursos-titulo">Comunicação Positiva</h3>
-        <p class="cursos-desc">Conecta, inspira e transforma com as palavras. Comunicação que aproxima.</p>
-        <a href="comunicacao-positiva.html" class="btn-cursos">Saber mais</a>
-      </div>
-    </div>
-    <a href="https://verticeacademy.moodlecloud.com" target="_blank" rel="noopener" class="btn-cursos-sec">Aceder à Plataforma</a>
-  </div>
+<div class="cursos-inner fade-in">
+<p class="s-tag">Cursos Online</p>
+<h2 class="s-titulo" style="color:var(--branco)">Aprende ao teu ritmo,<br>onde quiseres</h2>
+<p class="s-sub" style="color:rgba(250,250,248,.6);margin:0 auto 48px">Cinco cursos assíncronos de liderança pessoal, para fazeres ao teu ritmo, onde quiseres.</p>
+<div class="cursos-grid">
+<div class="cursos-card fade-in stagger-1">
+<div class="cursos-icon">01</div>
+<h3 class="cursos-titulo">Inteligência Emocional</h3>
+<p class="cursos-desc">Conhece-te, sente e age com intenção. Gestão emocional aplicada à vida pessoal e profissional.</p>
+<a href="inteligencia-emocional.html" class="btn-cursos">Saber mais</a>
+</div>
+<div class="cursos-card fade-in stagger-2">
+<div class="cursos-icon">02</div>
+<h3 class="cursos-titulo">Gestão de Stress</h3>
+<p class="cursos-desc">Ferramentas para viver com mais equilíbrio e responder em vez de reagir.</p>
+<a href="gestao-stress.html" class="btn-cursos">Saber mais</a>
+</div>
+<div class="cursos-card fade-in stagger-3">
+<div class="cursos-icon">03</div>
+<h3 class="cursos-titulo">Gestão de Conflitos</h3>
+<p class="cursos-desc">Transformar tensão em oportunidade de crescimento e relações mais saudáveis.</p>
+<a href="gestao-conflitos.html" class="btn-cursos">Saber mais</a>
+</div>
+<div class="cursos-card fade-in stagger-4">
+<div class="cursos-icon">04</div>
+<h3 class="cursos-titulo">Liderança Pessoal</h3>
+<p class="cursos-desc">Lidera-te a ti antes de liderares os outros. O ponto de viragem.</p>
+<a href="lideranca-pessoal.html" class="btn-cursos">Saber mais</a>
+</div>
+<div class="cursos-card fade-in stagger-5">
+<div class="cursos-icon">05</div>
+<h3 class="cursos-titulo">Comunicação Positiva</h3>
+<p class="cursos-desc">Conecta, inspira e transforma com as palavras. Comunicação que aproxima.</p>
+<a href="comunicacao-positiva.html" class="btn-cursos">Saber mais</a>
+</div>
+</div>
+<a href="https://verticeacademy.moodlecloud.com" target="_blank" rel="noopener" class="btn-cursos-sec">Aceder à Plataforma</a>
+</div>
 </section>
 
 <section id="destaque" style="background:var(--creme);color:var(--preto)">
-  <div style="max-width:980px;margin:0 auto;text-align:center">
-    <span style="display:inline-block;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--preto);background:var(--dourado);padding:6px 16px;border-radius:2px;margin-bottom:24px;font-weight:600">Formação Certificada IPDJ &middot; Inscrições Abertas</span>
-    <h2 class="s-titulo">Quem Cuida de Ti,<br>Treinador?</h2>
-    <p class="s-sub" style="margin:18px auto 0;color:rgba(12,12,15,.7)">O programa online para treinadores que dão tudo pelos outros. 30 horas, certificação IPDJ (3 UC's TPTD/TEF-DT) válidas para a renovação da cédula. Início a 1 de julho.</p>
-    <div style="display:flex;gap:28px;flex-wrap:wrap;justify-content:center;margin:32px 0 36px">
-      <span style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(12,12,15,.6)">100% Online</span>
-      <span style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(12,12,15,.6)">30 Horas &middot; 5 Módulos</span>
-      <span style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(12,12,15,.6)">Certificação IPDJ</span>
-    </div>
-    <a href="quem-cuida-de-ti-treinador.html" class="btn-p">Conhecer o Programa</a>
-  </div>
+<div style="max-width:980px;margin:0 auto;text-align:center">
+<span style="display:inline-block;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--preto);background:var(--dourado);padding:6px 16px;border-radius:2px;margin-bottom:24px;font-weight:600">Formação Certificada IPDJ &middot; Inscrições Abertas</span>
+<h2 class="s-titulo">Quem Cuida de Ti,<br>Treinador?</h2>
+<p class="s-sub" style="margin:18px auto 0;color:rgba(12,12,15,.7)">O programa online para treinadores que dão tudo pelos outros. 30 horas, certificação IPDJ (3 UC's TPTD/TEF-DT) válidas para a renovação da cédula. Início a 1 de julho.</p>
+<div style="display:flex;gap:28px;flex-wrap:wrap;justify-content:center;margin:32px 0 36px">
+<span style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(12,12,15,.6)">100% Online</span>
+<span style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(12,12,15,.6)">30 Horas &middot; 5 Módulos</span>
+<span style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(12,12,15,.6)">Certificação IPDJ</span>
+</div>
+<a href="quem-cuida-de-ti-treinador.html" class="btn-p">Conhecer o Programa</a>
+</div>
 </section>
 
 <section id="ebook">
-  <div class="eb-inner">
-    <div>
-      <span class="eb-badge">Primeiro Passo · Grátis</span>
-      <h2 class="eb-titulo">Ainda não sabes por onde começar?</h2>
-      <p class="eb-desc">Começa por aqui, sem custo. Um guia prático e gratuito de liderança pessoal e autocuidado — as primeiras ferramentas para responderes em vez de reagires, na vida pessoal e profissional.</p>
-      <a href="https://vertice-academy-qs5sph.subscribepage.io" target="_blank" rel="noopener" class="btn-eb">Descarregar Guia Grátis</a>
-    </div>
-    <div class="eb-capa">
-      <div class="eb-capa-titulo">O Momento em que Tudo Muda</div>
-      <div class="eb-linha"></div>
-      <div class="eb-autor">Andrea Antunes</div>
-    </div>
-  </div>
+<div class="eb-inner">
+<div>
+<span class="eb-badge">Primeiro Passo · Grátis</span>
+<h2 class="eb-titulo">Ainda não sabes por onde começar?</h2>
+<p class="eb-desc">Começa por aqui, sem custo. Um guia prático e gratuito de liderança pessoal e autocuidado — as primeiras ferramentas para responderes em vez de reagires, na vida pessoal e profissional.</p>
+<a href="https://vertice-academy-qs5sph.subscribepage.io" target="_blank" rel="noopener" class="btn-eb">Descarregar Guia Grátis</a>
+</div>
+<div class="eb-capa">
+<div class="eb-capa-titulo">O Momento em que Tudo Muda</div>
+<div class="eb-linha"></div>
+<div class="eb-autor">Andrea Antunes</div>
+</div>
+</div>
 </section>
 
 <section id="livro">
-  <div class="lv-inner">
-    <div class="lv-capa-wrap fade-in-left">
-      <div class="lv-capa">
-        <svg width="40" height="40" viewBox="0 0 36 36" fill="none" style="margin-bottom:22px">
-          <line x1="18" y1="4" x2="18" y2="28" stroke="#B8962E" stroke-width="1.5"/>
-          <polyline points="10,12 18,4 26,12" fill="none" stroke="#B8962E" stroke-width="1.5"/>
-          <line x1="8" y1="28" x2="28" y2="28" stroke="#B8962E" stroke-width="1.5"/>
-        </svg>
-        <div class="lv-capa-autor">Andrea Antunes</div>
-        <div class="lv-capa-titulo">Da Reação<br>ao Equilíbrio</div>
-        <div class="lv-capa-linha"></div>
-        <div class="lv-capa-marca">Vértice Academy</div>
-      </div>
-    </div>
-    <div class="fade-in-right">
-      <p class="s-tag">O Livro · Próximo Passo</p>
-      <h2 class="s-titulo">Da Reação ao Equilíbrio</h2>
-      <p class="s-sub" style="margin-bottom:24px">Depois do guia, vai mais fundo. O livro que te leva passo a passo do piloto-automático das reações à calma de quem escolhe a sua resposta — com ferramentas de inteligência emocional e autorregulação para o dia a dia, em casa e no trabalho.</p>
-      <div class="lv-preco">
-        <span class="lv-preco-val">€7</span>
-        <span class="lv-preco-nota">· edição digital · download imediato</span>
-      </div>
-      <a href="https://andreamindset04.gumroad.com/l/da-reacao-ao-equilibrio" target="_blank" rel="noopener" class="btn-p">Comprar o Livro</a>
-    </div>
-  </div>
+<div class="lv-inner">
+<div class="lv-capa-wrap fade-in-left">
+<div class="lv-capa">
+<svg width="40" height="40" viewBox="0 0 36 36" fill="none" style="margin-bottom:22px">
+<line x1="18" y1="4" x2="18" y2="28" stroke="#B8962E" stroke-width="1.5"/>
+<polyline points="10,12 18,4 26,12" fill="none" stroke="#B8962E" stroke-width="1.5"/>
+<line x1="8" y1="28" x2="28" y2="28" stroke="#B8962E" stroke-width="1.5"/>
+</svg>
+<div class="lv-capa-autor">Andrea Antunes</div>
+<div class="lv-capa-titulo">Da Reação<br>ao Equilíbrio</div>
+<div class="lv-capa-linha"></div>
+<div class="lv-capa-marca">Vértice Academy</div>
+</div>
+</div>
+<div class="fade-in-right">
+<p class="s-tag">O Livro · Próximo Passo</p>
+<h2 class="s-titulo">Da Reação ao Equilíbrio</h2>
+<p class="s-sub" style="margin-bottom:24px">Depois do guia, vai mais fundo. O livro que te leva passo a passo do piloto-automático das reações à calma de quem escolhe a sua resposta — com ferramentas de inteligência emocional e autorregulação para o dia a dia, em casa e no trabalho.</p>
+<div class="lv-preco">
+<span class="lv-preco-val">€7</span>
+<span class="lv-preco-nota">· edição digital · download imediato</span>
+</div>
+<a href="https://andreamindset04.gumroad.com/l/da-reacao-ao-equilibrio" target="_blank" rel="noopener" class="btn-p">Comprar o Livro</a>
+</div>
+</div>
 </section>
 
 <section id="formacao">
-  <div class="f-inner">
-    <div>
-      <p class="s-tag">Formação à Medida · Empresas</p>
-      <h2 class="s-titulo" style="color:var(--branco)">A tua equipa não precisa<br>de mais informação.<br><em style="font-style:italic;color:var(--dourado)">Precisa de aprender a responder em vez de reagir.</em></h2>
-      <p class="s-sub" style="color:rgba(250,250,248,.6)">Formação in-house para empresas e organizações em liderança pessoal, inteligência emocional e comunicação — desenhada para o contexto real da tua equipa.</p>
-      <ul class="f-lista">
-        <li>Equipas</li>
-        <li>Empresas e organizações</li>
-        <li><a href="quem-cuida-de-ti-treinador.html">Treinadores e técnicos desportivos — formação certificada IPDJ &rarr;</a></li>
-      </ul>
-      <a href="#contacto" class="btn-p">Solicitar Proposta</a>
-    </div>
-    <div class="f-cards">
-      <p style="font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--dourado);margin-bottom:8px">Como Funciona</p>
-      <div class="f-card"><h4 class="f-card-titulo"><em>01.</em> Escolhes os temas</h4><p class="f-card-desc">Combinas os módulos que a tua equipa precisa: liderança pessoal, inteligência emocional, gestão de stress, gestão de conflitos e comunicação positiva.</p></div>
-      <div class="f-card"><h4 class="f-card-titulo"><em>02.</em> Defines a carga horária</h4><p class="f-card-desc">De um workshop de meio dia a um programa de várias sessões. Tu defines a duração e o ritmo que faz sentido para a organização.</p></div>
-      <div class="f-card"><h4 class="f-card-titulo"><em>03.</em> Recebes uma proposta à medida</h4><p class="f-card-desc">Desenho a formação para o vosso contexto real, com metodologia comportamental aplicada e resultados mensuráveis.</p></div>
-    </div>
-  </div>
+<div class="f-inner">
+<div>
+<p class="s-tag">Formação à Medida · Empresas</p>
+<h2 class="s-titulo" style="color:var(--branco)">A tua equipa não precisa<br>de mais informação.<br><em style="font-style:italic;color:var(--dourado)">Precisa de aprender a responder em vez de reagir.</em></h2>
+<p class="s-sub" style="color:rgba(250,250,248,.6)">Formação in-house para empresas e organizações em liderança pessoal, inteligência emocional e comunicação — desenhada para o contexto real da tua equipa.</p>
+<ul class="f-lista">
+<li>Equipas</li>
+<li>Empresas e organizações</li>
+<li><a href="quem-cuida-de-ti-treinador.html">Treinadores e técnicos desportivos — formação certificada IPDJ &rarr;</a></li>
+</ul>
+<a href="#contacto" class="btn-p">Solicitar Proposta</a>
+</div>
+<div class="f-cards">
+<p style="font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--dourado);margin-bottom:8px">Como Funciona</p>
+<div class="f-card"><h4 class="f-card-titulo"><em>01.</em> Escolhes os temas</h4><p class="f-card-desc">Combinas os módulos que a tua equipa precisa: liderança pessoal, inteligência emocional, gestão de stress, gestão de conflitos e comunicação positiva.</p></div>
+<div class="f-card"><h4 class="f-card-titulo"><em>02.</em> Defines a carga horária</h4><p class="f-card-desc">De um workshop de meio dia a um programa de várias sessões. Tu defines a duração e o ritmo que faz sentido para a organização.</p></div>
+<div class="f-card"><h4 class="f-card-titulo"><em>03.</em> Recebes uma proposta à medida</h4><p class="f-card-desc">Desenho a formação para o vosso contexto real, com metodologia comportamental aplicada e resultados mensuráveis.</p></div>
+</div>
+</div>
 </section>
 
 <section id="testemunhos">
-  <div class="t-header fade-in">
-    <p class="s-tag">Testemunhos</p>
-    <h2 class="s-titulo">O que dizem as pessoas</h2>
-  </div>
-  <div class="t-grid">
-    <div class="t-card fade-in stagger-1"><p class="t-texto">"A Andrea Antunes inspira líderes a serem melhores líderes — o que é um desafio consideravelmente mais exigente."</p><div class="t-linha"></div><div class="t-autor">Paulo Martins</div><div class="t-cargo">Formação · Liderar com Intenção</div></div>
-    <div class="t-card fade-in stagger-2"><p class="t-texto">"Alterei completamente o modo como falava aos atletas."</p><div class="t-linha"></div><div class="t-autor">Rui Gabriel Dias da Costa</div><div class="t-cargo">Formação · Comunicação Assertiva</div></div>
-    <div class="t-card fade-in stagger-3"><p class="t-texto">"De todas as formações saio sempre inspirada e com mais confiança. Por mais formadores neste mundo como a Andrea."</p><div class="t-linha"></div><div class="t-autor">Diana Guerra</div><div class="t-cargo">Formação / Workshop</div></div>
-    <div class="t-card fade-in stagger-1"><p class="t-texto">"A minha experiência nas formações foi um verdadeiro ponto de viragem. Voltei a confiar nas minhas capacidades."</p><div class="t-linha"></div><div class="t-autor">Hugo Santos</div><div class="t-cargo">Formação · Empregabilidade</div></div>
-    <div class="t-card fade-in stagger-2"><p class="t-texto">"Deixei de ser alguém que apenas absorve conhecimento para passar a moldar ativamente a minha identidade e o meu trabalho."</p><div class="t-linha"></div><div class="t-autor">Catarina Cristóvão</div><div class="t-cargo">Escritora · Formação</div></div>
-    <div class="t-card fade-in stagger-3"><p class="t-texto">"Ter formação com a Andrea foi inspirador — foi a minha alavanca para hoje ser formadora também."</p><div class="t-linha"></div><div class="t-autor">Nelma Alexandra Dias Pereira</div><div class="t-cargo">Formação</div></div>
-  </div>
-  <div style="text-align:center;margin-top:60px;padding-bottom:20px">
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1yDe---TcVeGOLYGdFUyYVNVXYYo5emLC4X9dalb7-EpeCQ/viewform" target="_blank" rel="noopener" style="display:inline-block;background:transparent;color:var(--dourado);border:1px solid var(--dourado);padding:16px 40px;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;transition:all .3s">Deixa o teu testemunho</a>
-  </div>
+<div class="t-header fade-in">
+<p class="s-tag">Testemunhos</p>
+<h2 class="s-titulo">O que dizem as pessoas</h2>
+</div>
+<div class="t-grid">
+<div class="t-card fade-in stagger-1"><p class="t-texto">"A Andrea Antunes inspira líderes a serem melhores líderes — o que é um desafio consideravelmente mais exigente."</p><div class="t-linha"></div><div class="t-autor">Paulo Martins</div><div class="t-cargo">Formação · Liderar com Intenção</div></div>
+<div class="t-card fade-in stagger-2"><p class="t-texto">"Alterei completamente o modo como falava aos atletas."</p><div class="t-linha"></div><div class="t-autor">Rui Gabriel Dias da Costa</div><div class="t-cargo">Formação · Comunicação Assertiva</div></div>
+<div class="t-card fade-in stagger-3"><p class="t-texto">"De todas as formações saio sempre inspirada e com mais confiança. Por mais formadores neste mundo como a Andrea."</p><div class="t-linha"></div><div class="t-autor">Diana Guerra</div><div class="t-cargo">Formação / Workshop</div></div>
+<div class="t-card fade-in stagger-1"><p class="t-texto">"A minha experiência nas formações foi um verdadeiro ponto de viragem. Voltei a confiar nas minhas capacidades."</p><div class="t-linha"></div><div class="t-autor">Hugo Santos</div><div class="t-cargo">Formação · Empregabilidade</div></div>
+<div class="t-card fade-in stagger-2"><p class="t-texto">"Deixei de ser alguém que apenas absorve conhecimento para passar a moldar ativamente a minha identidade e o meu trabalho."</p><div class="t-linha"></div><div class="t-autor">Catarina Cristóvão</div><div class="t-cargo">Escritora · Formação</div></div>
+<div class="t-card fade-in stagger-3"><p class="t-texto">"Ter formação com a Andrea foi inspirador — foi a minha alavanca para hoje ser formadora também."</p><div class="t-linha"></div><div class="t-autor">Nelma Alexandra Dias Pereira</div><div class="t-cargo">Formação</div></div>
+</div>
+<div style="text-align:center;margin-top:60px;padding-bottom:20px">
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSe1yDe---TcVeGOLYGdFUyYVNVXYYo5emLC4X9dalb7-EpeCQ/viewform" target="_blank" rel="noopener" style="display:inline-block;background:transparent;color:var(--dourado);border:1px solid var(--dourado);padding:16px 40px;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;transition:all .3s">Deixa o teu testemunho</a>
+</div>
 </section>
 
 <section id="contacto">
-  <div class="c-inner fade-in">
-    <p class="s-tag">Contacto</p>
-    <h2 class="s-titulo" style="color:var(--branco)">Pronto para descobrir<br>o teu vértice?</h2>
-    <p class="s-sub" style="color:rgba(250,250,248,.55);margin:0 auto">Fala comigo. Respondo a todas as mensagens pessoalmente.</p>
-    <form class="c-form" id="contactForm">
-      <div class="c-row">
-        <input class="c-input" type="text" name="nome" placeholder="Nome" required>
-        <input class="c-input" type="email" name="email" placeholder="Email" required>
-      </div>
-      <input class="c-input" type="text" name="assunto" placeholder="Assunto">
-      <textarea class="c-input c-textarea" name="mensagem" placeholder="A tua mensagem..." required></textarea>
-      <button class="btn-env" type="submit">Enviar Mensagem</button>
-    </form>
-  </div>
+<div class="c-inner fade-in">
+<p class="s-tag">Contacto</p>
+<h2 class="s-titulo" style="color:var(--branco)">Pronto para descobrir<br>o teu vértice?</h2>
+<p class="s-sub" style="color:rgba(250,250,248,.55);margin:0 auto">Fala comigo. Respondo a todas as mensagens pessoalmente.</p>
+<form class="c-form" id="contactForm" action="https://assets.mailerlite.com/jsonp/2447628/forms/191451895593699053/subscribe" method="post" target="ml_iframe">
+<div class="c-row">
+<input class="c-input" type="text" name="fields[name]" placeholder="Nome" required>
+<input class="c-input" type="email" name="fields[email]" placeholder="Email" required>
+</div>
+<input class="c-input" type="text" name="fields[assunto]" placeholder="Assunto">
+<textarea class="c-input c-textarea" name="fields[mensagem]" placeholder="A tua mensagem..." required></textarea>
+<input type="hidden" name="ml-submit" value="1">
+<input type="hidden" name="anticsrf" value="true">
+<div style="position:absolute;left:-5000px" aria-hidden="true"><input type="text" name="b_2447628_191451895593699053" tabindex="-1" value="" autocomplete="off"></div>
+<button class="btn-env" type="submit" id="contactBtn">Enviar Mensagem</button>
+<p class="c-ok" id="contactOk" style="display:none">Mensagem enviada. Respondo-te pessoalmente em breve. ✦<br><span style="font-size:13px;color:rgba(250,250,248,.5)">Confirma a subscrição no email que acabaste de receber.</span></p>
+<p class="c-nota">Ao enviar aceitas ser contactada pela Vértice Academy.</p>
+</form>
+<iframe name="ml_iframe" style="display:none" tabindex="-1" title="MailerLite"></iframe>
+</div>
 </section>
 
 <footer>
-  <div class="ft-inner">
-    <div>
-      <div class="ft-nome">Vértice</div>
-      <div class="ft-sub">Academy</div>
-      <p class="ft-tag">"O momento em que decides responder em vez de reagir — esse é o teu vértice."</p>
-    </div>
-    <div>
-      <div class="ft-titulo">Navegação</div>
-      <ul class="ft-links">
-        <li><a href="#cursos">Cursos Online</a></li>
-        <li><a href="#livro">Livro</a></li>
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#formacao">Formação</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="ft-titulo">Contacto</div>
-      <div class="ft-contact">
-        <div class="ft-contact-item"><a href="mailto:andrea@verticeacademy.eu">andrea@verticeacademy.eu</a></div>
-        <div class="ft-contact-item"><a href="mailto:formacao@verticeacademy.eu">formacao@verticeacademy.eu</a></div>
-      </div>
-    </div>
-  </div>
-  <div class="ft-bottom">
-    <div class="ft-copy">© 2026 Vértice Academy · Andrea Antunes · ENI</div>
-    <div class="ft-copy">Política de Privacidade · Termos e Condições</div>
-  </div>
+<div class="ft-inner">
+<div>
+<div class="ft-nome">Vértice</div>
+<div class="ft-sub">Academy</div>
+<p class="ft-tag">"O momento em que decides responder em vez de reagir — esse é o teu vértice."</p>
+</div>
+<div>
+<div class="ft-titulo">Navegação</div>
+<ul class="ft-links">
+<li><a href="#cursos">Cursos Online</a></li>
+<li><a href="#livro">Livro</a></li>
+<li><a href="#sobre">Sobre</a></li>
+<li><a href="#formacao">Formação</a></li>
+<li><a href="#contacto">Contacto</a></li>
+</ul>
+</div>
+<div>
+<div class="ft-titulo">Contacto</div>
+<div class="ft-contact">
+<div class="ft-contact-item"><a href="mailto:andrea@verticeacademy.eu">andrea@verticeacademy.eu</a></div>
+<div class="ft-contact-item"><a href="mailto:formacao@verticeacademy.eu">formacao@verticeacademy.eu</a></div>
+</div>
+</div>
+</div>
+<div class="ft-bottom">
+<div class="ft-copy">© 2026 Vértice Academy · Andrea Antunes · ENI</div>
+<div class="ft-copy">Política de Privacidade · Termos e Condições</div>
+</div>
 </footer>
-
 
 <script>
 const _obs = new IntersectionObserver((entries) => {
-  entries.forEach(el => { if(el.isIntersecting){ el.target.classList.add("visible"); } });
+entries.forEach(el => { if(el.isIntersecting){ el.target.classList.add("visible"); } });
 }, {threshold: 0.1});
 document.querySelectorAll(".fade-in,.fade-in-left,.fade-in-right").forEach(el => _obs.observe(el));
 
@@ -458,23 +466,24 @@ document.querySelectorAll(".fade-in,.fade-in-left,.fade-in-right").forEach(el =>
 const _navToggle = document.getElementById("navToggle");
 const _navLinks = document.getElementById("navLinks");
 if(_navToggle && _navLinks){
-  _navToggle.addEventListener("click", () => _navLinks.classList.toggle("open"));
-  _navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => _navLinks.classList.remove("open")));
+_navToggle.addEventListener("click", () => _navLinks.classList.toggle("open"));
+_navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => _navLinks.classList.remove("open")));
 }
 
-// Formulário de contacto -> email direto
+// Formulario de contacto -> MailerLite (mantem o design; submete para um iframe escondido)
 const _cf = document.getElementById("contactForm");
 if(_cf){
-  _cf.addEventListener("submit", function(e){
-    e.preventDefault();
-    const nome = (this.nome.value||"").trim();
-    const email = (this.email.value||"").trim();
-    const assunto = (this.assunto.value||"").trim() || "Contacto pelo site";
-    const mensagem = (this.mensagem.value||"").trim();
-    const subject = encodeURIComponent("[Site] " + assunto + " - " + nome);
-    const body = encodeURIComponent("Nome: " + nome + "\nEmail: " + email + "\n\n" + mensagem);
-    window.location.href = "mailto:andrea@verticeacademy.eu?subject=" + subject + "&body=" + body;
-  });
+_cf.addEventListener("submit", function(e){
+  const hp = _cf.querySelector('input[name^="b_"]');
+  if(hp && hp.value){ e.preventDefault(); return; }
+  const btn = document.getElementById("contactBtn");
+  const ok = document.getElementById("contactOk");
+  setTimeout(function(){
+    if(ok){ ok.style.display = "block"; }
+    if(btn){ btn.textContent = "Enviado ✦"; btn.disabled = true; }
+    try{ _cf.reset(); }catch(_e){}
+  }, 700);
+});
 }
 </script>
 </body>
