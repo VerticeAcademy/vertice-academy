@@ -68,6 +68,15 @@ section{padding:100px 5%}
 .cron-d{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;color:var(--branco);text-align:right}
 .cron-d small{display:block;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:1px;color:rgba(250,250,248,.5);text-transform:uppercase}
 #detalhes{background:var(--creme);color:var(--preto)}
+#testemunhos{background:var(--branco);color:var(--preto)}
+.tm-grid{max-width:1040px;margin:48px auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.tm-card{background:var(--creme);border-left:2px solid var(--dourado);padding:32px 30px;display:flex;flex-direction:column}
+.tm-card.tm-wide{grid-column:1/-1;max-width:760px;margin:0 auto;width:100%}
+.tm-q{font-family:'Cormorant Garamond',serif;font-size:21px;line-height:1.5;font-weight:400;font-style:italic;color:var(--preto);flex:1}
+.tm-n{margin-top:22px;font-size:13px;font-weight:500;letter-spacing:.5px}
+.tm-n small{display:block;font-weight:300;color:rgba(12,12,15,.6);margin-top:3px;font-size:12px;letter-spacing:.3px}
+.tm-note{text-align:center;font-size:12px;color:rgba(12,12,15,.5);margin-top:36px;letter-spacing:.3px}
+
 .det-grid{max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:32px 24px}
 .det-item{text-align:center}
 .det-l{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--dourado);margin-bottom:8px}
@@ -130,6 +139,30 @@ footer{background:#06060A;padding:48px 5%;text-align:center}
       </ul>
     </div>
   </div>
+</section>
+
+<section id="testemunhos">
+  <p class="s-tag">Quem já fez o curso</p>
+  <h2 class="s-title">O que dizem os treinadores<br>da 1.ª edição</h2>
+  <div class="tm-grid">
+    <div class="tm-card tm-wide">
+      <p class="tm-q">&ldquo;Tenho uma escola de kitesurf há mais de 20 anos. Já passei por muita coisa, boa e má, e achava que me conhecia bem. Esta formação obrigou-me a parar e a olhar para mim de uma forma que não estava habituado. Percebi que dava tudo aos meus alunos e instrutores e ficava sempre para o fim, ou nem aparecia. Comecei a reconhecer o que construí em vez de achar que era só a minha obrigação. Aprendi a separar o que é meu do que absorvo dos outros. E percebi que cuidar de mim não é um luxo, é uma condição para continuar a fazer bem o que faço. Recomendo a qualquer treinador que ache que não precisa disto. Provavelmente é exatamente para esse que foi feito.&rdquo;</p>
+      <p class="tm-n">Pedro Figueiredo<small>Escola de kitesurf &middot; 1.ª edição</small></p>
+    </div>
+    <div class="tm-card">
+      <p class="tm-q">&ldquo;Mudou muita coisa: a forma de analisar as situações e de as resolver.&rdquo;</p>
+      <p class="tm-n">Abelo de Jesus<small>Associação do Sul de Desportos de Combate</small></p>
+    </div>
+    <div class="tm-card">
+      <p class="tm-q">&ldquo;Melhores resultados no treino e uma compreensão muito maior da relação entre treinador e atleta.&rdquo;</p>
+      <p class="tm-n">Erick Guerreiro<small>AEEG &middot; Erick Guerreiro Team</small></p>
+    </div>
+    <div class="tm-card">
+      <p class="tm-q">&ldquo;Mudou a minha forma de ser treinador, e de ser pessoa.&rdquo;</p>
+      <p class="tm-n">P. N.<small>Treinador de Kickboxing e Muay Thai</small></p>
+    </div>
+  </div>
+  <p class="tm-note">Testemunhos recolhidos no encerramento da 1.ª edição (agosto de 2026), publicados com autorização.</p>
 </section>
 
 <section id="modulos">
