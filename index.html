@@ -139,6 +139,13 @@ section{padding:100px 5%}
 .c-ok{color:var(--dourado);font-size:15px;line-height:1.6;margin-top:6px}
 .c-nota{font-size:11px;color:rgba(250,250,248,.35);margin-top:2px}
 .c-err{color:#E08A6B;font-size:14px;line-height:1.6;margin-top:6px}
+.c-alt{margin-top:44px;padding-top:36px;border-top:1px solid rgba(184,150,46,.22)}
+.c-alt-tit{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(250,250,248,.45);margin-bottom:22px;font-weight:500}
+.c-alt-bts{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.c-bt{display:inline-flex;align-items:center;gap:10px;padding:15px 30px;border:1px solid var(--dourado);color:var(--dourado);text-decoration:none;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:500;transition:all .3s;background:transparent}
+.c-bt:hover{background:var(--dourado);color:var(--preto)}
+.c-bt svg{width:17px;height:17px;flex-shrink:0}
+@media(max-width:520px){.c-bt{width:100%;justify-content:center}}
 .c-err a{color:var(--dourado)}
 footer{background:#06060A;padding:60px 5% 40px}
 .ft-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:60px;padding-bottom:48px;border-bottom:1px solid rgba(250,250,248,.08)}
@@ -459,6 +466,17 @@ section{padding:56px 4%}
 <p class="c-err" id="contactErr" hidden>Não consegui enviar a tua mensagem. Escreve-me directamente para <a href="mailto:andrea@verticeacademy.eu">andrea@verticeacademy.eu</a> e respondo na mesma.</p>
 <p class="c-nota">Ao enviar aceitas que a Vértice Academy te responda. Não te inscrevemos em lista nenhuma.</p>
 </form>
+<div class="c-alt">
+<p class="c-alt-tit">Ou fala comigo directamente</p>
+<div class="c-alt-bts">
+<a class="c-bt" href="https://wa.me/351918987187?text=Ol%C3%A1%20Andrea%2C%20vim%20do%20site%20da%20V%C3%A9rtice%20Academy%20e%20queria%20saber%20mais." target="_blank" rel="noopener">
+<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47s1.06 2.87 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35zM12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.23 8.23 0 0 1 8.24 8.24c0 4.54-3.7 8.23-8.24 8.23z"/></svg>
+WhatsApp</a>
+<a class="c-bt" href="mailto:andrea@verticeacademy.eu">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="1.5"/><path d="m3 6 9 6.5L21 6"/></svg>
+Email</a>
+</div>
+</div>
 </div>
 </section>
 
