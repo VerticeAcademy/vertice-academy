@@ -138,6 +138,8 @@ section{padding:100px 5%}
 .btn-env:disabled{background:var(--dourado-claro);cursor:default;opacity:.85}
 .c-ok{color:var(--dourado);font-size:15px;line-height:1.6;margin-top:6px}
 .c-nota{font-size:11px;color:rgba(250,250,248,.35);margin-top:2px}
+.c-err{color:#E08A6B;font-size:14px;line-height:1.6;margin-top:6px}
+.c-err a{color:var(--dourado)}
 footer{background:#06060A;padding:60px 5% 40px}
 .ft-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:60px;padding-bottom:48px;border-bottom:1px solid rgba(250,250,248,.08)}
 .ft-nome{font-weight:600;font-size:14px;letter-spacing:3px;color:var(--branco);text-transform:uppercase;margin-bottom:4px}
@@ -444,21 +446,19 @@ section{padding:56px 4%}
 <p class="s-tag">Contacto</p>
 <h2 class="s-titulo" style="color:var(--branco)">Pronto para descobrir<br>o teu vértice?</h2>
 <p class="s-sub" style="color:rgba(250,250,248,.55);margin:0 auto">Fala comigo. Respondo a todas as mensagens pessoalmente.</p>
-<form class="c-form" id="contactForm" action="https://assets.mailerlite.com/jsonp/2447628/forms/191451895593699053/subscribe" method="post" target="ml_iframe">
+<form class="c-form" id="contactForm" novalidate>
 <div class="c-row">
-<input class="c-input" type="text" name="fields[name]" placeholder="Nome" required>
-<input class="c-input" type="email" name="fields[email]" placeholder="Email" required>
+<input class="c-input" type="text" name="nome" placeholder="Nome" required>
+<input class="c-input" type="email" name="email" placeholder="Email" required>
 </div>
-<input class="c-input" type="text" name="fields[assunto]" placeholder="Assunto">
-<textarea class="c-input c-textarea" name="fields[mensagem]" placeholder="A tua mensagem..." required></textarea>
-<input type="hidden" name="ml-submit" value="1">
-<input type="hidden" name="anticsrf" value="true">
-<div style="position:absolute;left:-5000px" aria-hidden="true"><input type="text" name="b_2447628_191451895593699053" tabindex="-1" value="" autocomplete="off"></div>
+<input class="c-input" type="text" name="assunto" placeholder="Assunto">
+<textarea class="c-input c-textarea" name="mensagem" placeholder="A tua mensagem..." required></textarea>
+<div style="position:absolute;left:-5000px" aria-hidden="true"><input type="text" name="botcheck" tabindex="-1" value="" autocomplete="off"></div>
 <button class="btn-env" type="submit" id="contactBtn">Enviar Mensagem</button>
-<p class="c-ok" id="contactOk" style="display:none">Mensagem enviada. Respondo-te pessoalmente em breve. ✦<br><span style="font-size:13px;color:rgba(250,250,248,.5)">Confirma a subscrição no email que acabaste de receber.</span></p>
-<p class="c-nota">Ao enviar aceitas que a Vértice Academy te contacte.</p>
+<p class="c-ok" id="contactOk" hidden>Mensagem recebida. Respondo-te pessoalmente em breve. ✦</p>
+<p class="c-err" id="contactErr" hidden>Não consegui enviar a tua mensagem. Escreve-me directamente para <a href="mailto:andrea@verticeacademy.eu">andrea@verticeacademy.eu</a> e respondo na mesma.</p>
+<p class="c-nota">Ao enviar aceitas que a Vértice Academy te responda. Não te inscrevemos em lista nenhuma.</p>
 </form>
-<iframe name="ml_iframe" style="display:none" tabindex="-1" title="MailerLite"></iframe>
 </div>
 </section>
 
@@ -508,19 +508,58 @@ _navToggle.addEventListener("click", () => _navLinks.classList.toggle("open"));
 _navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => _navLinks.classList.remove("open")));
 }
 
-// Formulario de contacto -> MailerLite (mantem o design; submete para um iframe escondido)
-const _cf = document.getElementById("contactForm");
+// Formulario de contacto -> entrega directa no email (Web3Forms)
+// A chave identifica o destinatario. Trocar aqui se o email de destino mudar.
+var CONTACTO_KEY = "a31fb162-c6b8-4443-b701-c9d86a07116e";
+var _cf = document.getElementById("contactForm");
 if(_cf){
 _cf.addEventListener("submit", function(e){
-  const hp = _cf.querySelector('input[name^="b_"]');
-  if(hp && hp.value){ e.preventDefault(); return; }
-  const btn = document.getElementById("contactBtn");
-  const ok = document.getElementById("contactOk");
-  setTimeout(function(){
-    if(ok){ ok.style.display = "block"; }
-    if(btn){ btn.textContent = "Enviado ✦"; btn.disabled = true; }
-    try{ _cf.reset(); }catch(_e){}
-  }, 700);
+  e.preventDefault();
+  var btn = document.getElementById("contactBtn");
+  var ok  = document.getElementById("contactOk");
+  var err = document.getElementById("contactErr");
+  var f   = _cf;
+
+  if(f.botcheck.value){ return; }                       // armadilha para robots
+  if(!f.nome.value.trim() || !f.email.value.trim() || !f.mensagem.value.trim()){
+    f.reportValidity(); return;
+  }
+
+  ok.hidden = true; err.hidden = true;
+  btn.disabled = true; btn.textContent = "A enviar...";
+
+  var assunto = f.assunto.value.trim() || "Contacto pelo site";
+
+  fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Accept": "application/json" },
+    body: JSON.stringify({
+      access_key: CONTACTO_KEY,
+      subject: "[Site] " + assunto + " - " + f.nome.value.trim(),
+      from_name: "Vertice Academy",
+      nome: f.nome.value.trim(),
+      email: f.email.value.trim(),
+      assunto: assunto,
+      mensagem: f.mensagem.value.trim(),
+      replyto: f.email.value.trim()
+    })
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(d){
+    if(d && d.success){                                  // confirmado pelo servidor
+      ok.hidden = false;
+      btn.textContent = "Enviado \u2726";
+      f.nome.value = ""; f.email.value = ""; f.assunto.value = ""; f.mensagem.value = "";
+    } else {
+      throw new Error(d && d.message ? d.message : "resposta sem sucesso");
+    }
+  })
+  .catch(function(erro){                                 // falhou mesmo, e diz-se
+    console.error("Formulario de contacto:", erro);
+    err.hidden = false;
+    btn.disabled = false;
+    btn.textContent = "Tentar de novo";
+  });
 });
 }
 </script>

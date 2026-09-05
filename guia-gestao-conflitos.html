@@ -101,13 +101,10 @@ footer{background:#06060A;padding:48px 5%;text-align:center;border-top:1px solid
 <div class="form-card">
 <h2>Recebe o teu guia gratuito</h2>
 <p class="fc-sub">Deixa o teu nome e email. O download abre logo a seguir.</p>
-<form class="g-form" id="guiaForm" action="https://assets.mailerlite.com/jsonp/2447628/forms/191467249552328550/subscribe" method="post" target="ml_guia_iframe">
-<input class="g-input" type="text" name="fields[name]" placeholder="O teu nome" required>
-<input class="g-input" type="email" name="fields[email]" placeholder="O teu melhor email" required>
-<input type="hidden" name="fields[guia]" value="Gestão de Conflitos">
-<input type="hidden" name="ml-submit" value="1">
-<input type="hidden" name="anticsrf" value="true">
-<div style="position:absolute;left:-5000px" aria-hidden="true"><input type="text" name="b_2447628_191467249552328550" tabindex="-1" value="" autocomplete="off"></div>
+<form class="g-form" id="guiaForm" data-guia="Gestão de Conflitos" novalidate>
+<input class="g-input" type="text" name="nome" placeholder="O teu nome" required>
+<input class="g-input" type="email" name="email" placeholder="O teu melhor email" required>
+<div style="position:absolute;left:-5000px" aria-hidden="true"><input type="text" name="botcheck" tabindex="-1" value="" autocomplete="off"></div>
 <button class="g-btn" type="submit" id="guiaBtn">Quero o guia gratuito</button>
 <p class="g-nota">Ao enviar aceitas receber o guia e comunicações da Vértice Academy. Sem spam. Podes sair quando quiseres.</p>
 </form>
@@ -115,11 +112,11 @@ footer{background:#06060A;padding:48px 5%;text-align:center;border-top:1px solid
 <div class="check">✦</div>
 <h3>O teu guia está pronto</h3>
 <p>Clica para descarregar. Enviámos-te também um email para confirmares a subscrição.</p>
+<p id="guiaAviso" hidden style="font-size:13px;color:#E08A6B;margin:0 0 14px">Não consegui registar o teu pedido. Se quiseres que te acompanhe, escreve-me para <a href="mailto:andrea@verticeacademy.eu" style="color:inherit;text-decoration:underline">andrea@verticeacademy.eu</a>.</p>
 <a class="g-download" href="guia-gestao-conflitos.pdf" download>Descarregar o guia</a>
 </div>
 </div>
 </section>
-<iframe name="ml_guia_iframe" style="display:none" tabindex="-1" title="MailerLite"></iframe>
 
 <section class="learn">
 <div class="learn-inner">
@@ -151,19 +148,46 @@ footer{background:#06060A;padding:48px 5%;text-align:center;border-top:1px solid
 </footer>
 
 <script>
+var CONTACTO_KEY = "a31fb162-c6b8-4443-b701-c9d86a07116e";
 var _gf = document.getElementById("guiaForm");
 if(_gf){
 _gf.addEventListener("submit", function(e){
-  var hp = _gf.querySelector('input[name^="b_"]');
-  if(hp && hp.value){ e.preventDefault(); return; }
-  var btn = document.getElementById("guiaBtn");
-  if(btn){ btn.textContent = "A preparar..."; btn.disabled = true; }
-  setTimeout(function(){
-    var form = document.getElementById("guiaForm");
-    var ok = document.getElementById("guiaOk");
-    if(form) form.style.display = "none";
-    if(ok) ok.style.display = "block";
-  }, 800);
+  e.preventDefault();
+  var hp = _gf.querySelector('input[name="botcheck"]');
+  if(hp && hp.value){ return; }                          // armadilha para robots
+
+  var nome  = (_gf.querySelector('[name="nome"]').value  || "").trim();
+  var email = (_gf.querySelector('[name="email"]').value || "").trim();
+  var guia  = _gf.getAttribute("data-guia") || "";
+  if(!nome || !email){ _gf.reportValidity(); return; }
+
+  // O guia e entregue de imediato. O registo do contacto corre em paralelo
+  // e nunca faz a pessoa esperar nem impede o download.
+  var ok  = document.getElementById("guiaOk");
+  var av  = document.getElementById("guiaAviso");
+  _gf.style.display = "none";
+  if(ok) ok.style.display = "block";
+
+  fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Accept": "application/json" },
+    body: JSON.stringify({
+      access_key: CONTACTO_KEY,
+      subject: "[Guia] " + guia + " - " + nome,
+      from_name: "Vertice Academy",
+      nome: nome,
+      email: email,
+      guia: guia,
+      origem: window.location.pathname.replace(/^\//,""),
+      replyto: email
+    })
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(d){ if(!(d && d.success)){ throw new Error(d && d.message ? d.message : "resposta sem sucesso"); } })
+  .catch(function(erro){                                 // o guia ja foi entregue; so o registo falhou
+    console.error("Registo do pedido de guia:", erro);
+    if(av) av.hidden = false;
+  });
 });
 }
 </script>
