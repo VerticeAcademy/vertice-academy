@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-PT">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,9 +20,11 @@
   a{color:var(--instante);text-decoration:none}
   a:hover{text-decoration:underline}
   header{background:var(--vazio);padding:20px 6%;display:flex;justify-content:space-between;align-items:center}
-  .logo{color:var(--nevoa);font-weight:700;font-size:1.15rem;letter-spacing:.02em}
-  .logo span{color:var(--luz);font-weight:300}
-  .voltar{color:var(--luz);font-size:.85rem;font-weight:400}
+  .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .logo-t{display:flex;flex-direction:column}
+  .logo-t b{color:var(--nevoa);font-weight:600;font-size:15px;letter-spacing:3px;text-transform:uppercase}
+  .logo-t i{color:var(--luz);font-style:normal;font-weight:300;font-size:9px;letter-spacing:5px;text-transform:uppercase}
+  .voltar{color:var(--luz);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:400}
   .hero{background:var(--vazio);padding:60px 6% 70px;text-align:left}
   .hero .tag{color:var(--luz);font-size:.8rem;letter-spacing:.25em;text-transform:uppercase;font-weight:400}
   .hero h1{color:var(--nevoa);font-weight:700;font-size:clamp(1.8rem,4vw,2.6rem);margin-top:14px;line-height:1.2}
@@ -48,8 +50,8 @@
 <body>
 
 <header>
-  <a class="logo" href="https://verticeacademy.eu">Vértice<span>Academy</span></a>
-  <a class="voltar" href="https://verticeacademy.eu">← Voltar ao site</a>
+  <a class="logo" href="https://verticeacademy.eu"><svg width="32" height="32" viewBox="0 0 36 36" fill="none" aria-hidden="true"><line x1="18" y1="4" x2="18" y2="28" stroke="#FAFAF8" stroke-width="1.5"/><polyline points="10,12 18,4 26,12" fill="none" stroke="#FAFAF8" stroke-width="1.5"/><line x1="8" y1="28" x2="28" y2="28" stroke="#FAFAF8" stroke-width="1.5"/><rect x="15.5" y="26.5" width="5" height="5" fill="#B8962E"/></svg><span class="logo-t"><b>Vértice</b><i>Academy</i></span></a>
+  <a class="voltar" href="https://verticeacademy.eu">Página inicial</a>
 </header>
 
 <section class="hero">
@@ -105,7 +107,7 @@
 </main>
 
 <footer>
-  <p class="fq">"O momento em que decides responder em vez de reagir, esse é o teu vértice."</p>
+  <p class="fq">“O momento em que decides responder em vez de reagir, esse é o teu vértice.”</p>
   <p class="fl"><a href="https://verticeacademy.eu">verticeacademy.eu</a> · <a href="mailto:andrea@verticeacademy.eu">andrea@verticeacademy.eu</a></p>
   <p class="cr">© 2026 Vértice Academy · Andrea Antunes · ENI &nbsp;·&nbsp; <a href="politica-privacidade.html">Política de Privacidade</a> · <a href="termos-condicoes.html">Termos e Condições</a></p>
 </footer>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-PT">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -13,9 +13,10 @@
 body{font-family:'Inter',sans-serif;background:var(--preto);color:var(--branco)}
 a{text-decoration:none}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--preto);display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:72px;border-bottom:1px solid rgba(184,150,46,.2)}
-.nav-logo{display:flex;flex-direction:column}
-.nav-logo span:first-child{font-weight:600;font-size:16px;letter-spacing:3px;color:var(--branco);text-transform:uppercase}
-.nav-logo span:last-child{font-weight:300;font-size:10px;letter-spacing:5px;color:var(--dourado);text-transform:uppercase}
+.nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none}.nav-logo-text{display:flex;flex-direction:column}
+.nav-logo-text span:first-child{font-weight:600;font-size:16px;letter-spacing:3px;color:var(--branco);text-transform:uppercase}
+.nav-logo-text span:last-child{font-weight:300;font-size:10px;letter-spacing:5px;color:var(--dourado);text-transform:uppercase}
+.nav-right{display:flex;align-items:center;gap:24px}.nav-cta{border:1px solid var(--dourado);color:var(--dourado);padding:9px 18px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;text-decoration:none;transition:.3s}.nav-cta:hover{background:var(--dourado);color:var(--preto)}@media(max-width:600px){.nav-cta{display:none}}
 .nav-back{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--branco);opacity:.85;transition:.3s}
 .nav-back:hover{opacity:1;color:var(--dourado)}
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 5% 90px;position:relative;overflow:hidden}
@@ -65,8 +66,8 @@ footer{background:#06060A;padding:48px 5%;text-align:center}
 </head>
 <body>
 <nav>
-  <a href="index.html" class="nav-logo"><span>Vértice</span><span>Academy</span></a>
-  <a href="index.html#cursos" class="nav-back">&larr; Voltar</a>
+  <a href="index.html" class="nav-logo"><svg width="32" height="32" viewBox="0 0 36 36" fill="none" aria-hidden="true"><line x1="18" y1="4" x2="18" y2="28" stroke="#FAFAF8" stroke-width="1.5"/><polyline points="10,12 18,4 26,12" fill="none" stroke="#FAFAF8" stroke-width="1.5"/><line x1="8" y1="28" x2="28" y2="28" stroke="#FAFAF8" stroke-width="1.5"/><rect x="15.5" y="26.5" width="5" height="5" fill="#B8962E"/></svg><div class="nav-logo-text"><span>Vértice</span><span>Academy</span></div></a>
+  <div class="nav-right"><a href="index.html#contacto" class="nav-cta">Fala comigo</a><a href="index.html#cursos" class="nav-back">Página inicial</a></div>
 </nav>
 
 <header class="hero">
@@ -77,9 +78,9 @@ footer{background:#06060A;padding:48px 5%;text-align:center}
     <span>Online &middot; Assíncrona</span>
     <span>5 Módulos</span>
     <span>15 Horas</span>
-    <span>&euro;67</span>
+    <span>67&nbsp;€</span>
   </div>
-  <a href="https://buy.stripe.com/eVqaEX7mVcni53N3Yuak001" target="_blank" rel="noopener" class="btn-inv">Inscrever agora &middot; &euro;67</a>
+  <a href="https://buy.stripe.com/eVqaEX7mVcni53N3Yuak001" target="_blank" rel="noopener" class="btn-inv">Inscrever agora &middot; 67&nbsp;€</a>
 </header>
 
 <section id="objetivo">
@@ -113,14 +114,14 @@ footer{background:#06060A;padding:48px 5%;text-align:center}
 
 <section id="investimento">
   <p class="s-tag">Investimento</p>
-  <div class="inv-preco">&euro;67</div>
+  <div class="inv-preco">67&nbsp;€</div>
   <p class="inv-desc">Acesso completo ao curso: 5 módulos, 15 horas ao teu ritmo, exercícios práticos, escrita reflexiva e plano de desenvolvimento a 90 dias.</p>
   <p class="inv-oferta">Oferta de lançamento: sessão individual de mentoria online (30 min) com Andrea Antunes incluída</p>
   <div class="inv-cta">
-    <a href="https://buy.stripe.com/eVqaEX7mVcni53N3Yuak001" target="_blank" rel="noopener" class="btn-inv">Inscrever agora &middot; &euro;67</a>
+    <a href="https://buy.stripe.com/eVqaEX7mVcni53N3Yuak001" target="_blank" rel="noopener" class="btn-inv">Inscrever agora &middot; 67&nbsp;€</a>
   </div>
   <p class="inv-nota">Pagamento seguro por cartão. Após a compra recebes o teu acesso à plataforma no prazo máximo de 24 horas.</p>
-<p style="text-align:center;max-width:600px;margin:34px auto 0;font-size:14px;line-height:1.9;color:rgba(250,250,248,.55);font-weight:300">Este curso faz parte do <strong style="font-weight:400;color:var(--dourado)">Percurso Completo</strong>. Os cinco cursos por 197&euro; em vez de 335&euro;, com uma sessão individual de 60 minutos incluída. <a href="https://buy.stripe.com/fZu4gzePn0EAbsbcv0ak000" target="_blank" rel="noopener" style="color:var(--dourado);border-bottom:1px solid rgba(184,150,46,.5)">Ver o percurso &rarr;</a></p></section>
+<p style="text-align:center;max-width:600px;margin:34px auto 0;font-size:14px;line-height:1.9;color:rgba(250,250,248,.55);font-weight:300">Este curso faz parte do <strong style="font-weight:400;color:var(--dourado)">Percurso Completo</strong>. Os cinco cursos por 197&nbsp;€ em vez de 335&nbsp;€, com uma sessão individual de 60 minutos incluída. <a href="https://buy.stripe.com/fZu4gzePn0EAbsbcv0ak000" target="_blank" rel="noopener" style="color:var(--dourado);border-bottom:1px solid rgba(184,150,46,.5)">Ver o percurso &rarr;</a></p></section>
 
 <section id="cta">
   <span class="cta-badge">Primeiro Passo</span>

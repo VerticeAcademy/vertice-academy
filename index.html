@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-PT">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -12,6 +12,7 @@
 <meta property="og:description" content="Cursos online, mentoria e formação em liderança pessoal, inteligência emocional e comunicação, com Andrea Antunes. Aprende a responder em vez de reagir."/>
 <meta property="og:url" content="https://verticeacademy.eu/"/>
 <meta name="description" content="Cursos online, mentoria e formação em liderança pessoal, inteligência emocional e comunicação, com Andrea Antunes. Aprende a responder em vez de reagir."/>
+<link rel="canonical" href="https://verticeacademy.eu/"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{--preto:#0C0C0F;--dourado:#B8962E;--dourado-claro:#D4B86A;--creme:#F5F0E8;--cinzento:#2A2A30;--branco:#FAFAF8}
@@ -29,13 +30,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--preto);disp
 .nav-cta:hover{background:var(--dourado);color:var(--preto)}
 .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;background:none;border:none;cursor:pointer;padding:8px}
 .nav-toggle span{display:block;width:24px;height:2px;background:var(--branco);transition:all .3s}
-#inicio{min-height:100vh;background:var(--preto);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 5% 80px;position:relative;overflow:hidden}
+#inicio{min-height:92vh;background:var(--preto);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 5% 80px;position:relative;overflow:hidden}
 #inicio::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 60% 40%,rgba(184,150,46,.08) 0%,transparent 65%);pointer-events:none}
 .hero-tag{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--dourado);font-weight:400;margin-bottom:32px;display:flex;align-items:center;gap:12px}
 .hero-tag::before,.hero-tag::after{content:'';display:block;width:32px;height:1px;background:var(--dourado);opacity:.5}
 .hero-titulo{font-family:'Cormorant Garamond',serif;font-size:clamp(42px,7vw,88px);font-weight:300;line-height:1.1;color:var(--branco);max-width:900px;margin-bottom:16px}
 .hero-titulo em{font-style:italic;color:var(--dourado)}
-.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,2.5vw,26px);font-weight:300;font-style:italic;color:rgba(250,250,248,.6);margin-bottom:56px;max-width:600px}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,2.5vw,26px);font-weight:300;font-style:italic;color:rgba(250,250,248,.75);margin-bottom:56px;max-width:600px}
 .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
 .btn-p{background:var(--dourado);color:var(--preto);padding:16px 40px;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;text-decoration:none;transition:all .3s;display:inline-block}
 .btn-p:hover{background:var(--dourado-claro);transform:translateY(-2px)}
@@ -46,12 +47,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--preto);disp
 .num-item:last-child{border-right:none}
 .num-val{font-family:'Cormorant Garamond',serif;font-size:58px;font-weight:600;color:var(--dourado);line-height:1;margin-bottom:8px}
 .num-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(250,250,248,.5)}
-section{padding:100px 5%}
+section{padding:84px 5%}
 .s-tag{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--dourado);font-weight:400;margin-bottom:20px}
 .s-titulo{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,54px);font-weight:300;line-height:1.2;margin-bottom:20px}
 .s-sub{font-size:16px;line-height:1.8;opacity:.65;max-width:540px;font-weight:300}
 #essencia{background:var(--creme)}
-.e-header{text-align:center;max-width:700px;margin:0 auto 70px}
+.e-header{text-align:center;max-width:700px;margin:0 auto 52px}
 .e-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:1100px;margin:0 auto}
 .e-card{background:var(--preto);padding:48px 40px;position:relative;overflow:hidden}
 .e-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--dourado)}
@@ -75,7 +76,7 @@ section{padding:100px 5%}
 .f-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 .f-lista{list-style:none;margin:40px 0}
 .f-lista li{display:flex;align-items:flex-start;gap:16px;padding:20px 0;border-bottom:1px solid rgba(250,250,248,.08);color:rgba(250,250,248,.75);font-size:15px;line-height:1.6}
-.f-lista li::before{content:'—';color:var(--dourado);flex-shrink:0;margin-top:2px}
+.f-lista li::before{content:'';width:6px;height:6px;background:var(--dourado);flex-shrink:0;margin-top:9px}
 .f-lista li a{color:inherit;text-decoration:none;transition:color .2s}
 .f-lista li a:hover{color:var(--dourado)}
 .f-cards{display:grid;gap:2px}
@@ -119,7 +120,7 @@ section{padding:100px 5%}
 .lv-preco-nota{font-size:13px;color:rgba(12,12,15,.5)}
 #cursos{background:var(--preto)}.cursos-inner{max-width:1100px;margin:0 auto;text-align:center}.cursos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:48px auto 0}.cursos-card{background:var(--cinzento);padding:40px 32px;border-left:2px solid transparent;transition:all .3s;text-align:left}.cursos-card:hover{border-left-color:var(--dourado)}.cursos-icon{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:var(--dourado);line-height:1;margin-bottom:16px}.cursos-titulo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--branco);margin-bottom:10px}.cursos-desc{font-size:13px;color:rgba(250,250,248,.5);line-height:1.6;margin-bottom:24px}.btn-cursos{display:inline-block;background:var(--dourado);color:var(--preto);padding:14px 32px;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;text-decoration:none;transition:all .3s}.btn-cursos:hover{background:var(--dourado-claro);transform:translateY(-2px)}.btn-cursos-sec{display:inline-block;background:transparent;color:var(--dourado);border:1px solid var(--dourado);padding:16px 40px;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;font-weight:500;text-decoration:none;transition:all .3s;margin-top:48px}.btn-cursos-sec:hover{background:var(--dourado);color:var(--preto)}
 #testemunhos{background:var(--branco)}
-.t-header{text-align:center;max-width:600px;margin:0 auto 60px}
+.t-header{text-align:center;max-width:600px;margin:0 auto 44px}
 .t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto}
 .t-card{background:var(--creme);padding:40px 32px}
 .t-texto{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;font-weight:300;line-height:1.6;color:var(--preto);margin-bottom:28px}
@@ -139,21 +140,6 @@ section{padding:100px 5%}
 .c-ok{color:var(--dourado);font-size:15px;line-height:1.6;margin-top:6px}
 .c-nota{font-size:11px;color:rgba(250,250,248,.35);margin-top:2px}
 
-.tcat{max-width:1060px;margin:76px auto 0}
-.tcat-tit{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3vw,34px);font-weight:300;text-align:center;color:var(--preto);margin-bottom:10px}
-.tcat-sub{text-align:center;font-size:15px;line-height:1.7;color:rgba(12,12,15,.6);max-width:620px;margin:0 auto 38px;font-weight:300}
-.tc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;text-align:left}
-.tc-card{display:block;text-decoration:none;background:rgba(12,12,15,.035);border:1px solid rgba(12,12,15,.12);padding:24px;transition:.3s}
-.tc-card *{text-decoration:none}
-.tc-card:hover{border-color:var(--dourado);background:rgba(184,150,46,.07)}
-.tc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:10px}
-.tc-n{font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;color:var(--dourado)}
-.tc-selo{font-size:9px;letter-spacing:1.8px;text-transform:uppercase;padding:4px 10px;border-radius:2px;font-weight:600;white-space:nowrap}
-.tc-ab{background:var(--dourado);color:var(--preto)}
-.tc-av{color:#8A6F1F;border:1px solid rgba(184,150,46,.6)}
-.tc-tit{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:500;line-height:1.3;color:var(--preto);margin-bottom:8px}
-.tc-sub{font-size:13.5px;line-height:1.6;color:rgba(12,12,15,.62);font-weight:300;margin-bottom:16px}
-.tc-foot{font-size:10.5px;letter-spacing:1.3px;text-transform:uppercase;color:rgba(12,12,15,.45);border-top:1px solid rgba(12,12,15,.1);padding-top:13px}
 .c-err{color:#E08A6B;font-size:14px;line-height:1.6;margin-top:6px}
 .c-alt{margin-top:44px;padding-top:36px;border-top:1px solid rgba(184,150,46,.22)}
 .c-alt-tit{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(250,250,248,.45);margin-bottom:22px;font-weight:500}
@@ -207,16 +193,17 @@ section{padding:56px 4%}
 }
 
 /* Scroll animations */
-.fade-in{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.fade-in{opacity:0;transform:translateY(16px);transition:opacity .35s ease,transform .35s ease}
 .fade-in.visible{opacity:1;transform:translateY(0)}
-.fade-in-left{opacity:0;transform:translateX(-40px);transition:opacity .7s ease,transform .7s ease}
+.fade-in-left{opacity:0;transform:translateX(-20px);transition:opacity .35s ease,transform .35s ease}
 .fade-in-left.visible{opacity:1;transform:translateX(0)}
-.fade-in-right{opacity:0;transform:translateX(40px);transition:opacity .7s ease,transform .7s ease}
+.fade-in-right{opacity:0;transform:translateX(20px);transition:opacity .35s ease,transform .7s ease}
 .fade-in-right.visible{opacity:1;transform:translateX(0)}
-.stagger-1{transition-delay:.1s}
-.stagger-2{transition-delay:.2s}
-.stagger-3{transition-delay:.3s}
-.stagger-4{transition-delay:.4s}
+.stagger-1{transition-delay:.05s}
+.stagger-2{transition-delay:.1s}
+.stagger-3{transition-delay:.15s}
+.stagger-4{transition-delay:.2s}
+@media(prefers-reduced-motion:reduce){.fade-in,.fade-in-left,.fade-in-right{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
@@ -289,11 +276,11 @@ section{padding:56px 4%}
 <div class="cred">Licenciatura em Serviço Social</div>
 <div class="cred">Pós-graduação em Recursos Humanos</div>
 <div class="cred">Curso de Counselling em Abordagem Centrada na Pessoa (Carl Rogers)</div>
-<div class="cred">Expert em Bem-estar, Inteligência Emocional e Psicologia Positiva</div>
+<div class="cred">Especialização em Bem-estar, Inteligência Emocional e Psicologia Positiva</div>
 <div class="cred">Formadora certificada IEFP, 25 anos de experiência</div>
 <div class="cred">Especialista em liderança pessoal e comportamento humano</div>
 </div>
-<blockquote class="sb-cit">"O vértice não é o destino, é o momento em que tudo muda de direção."</blockquote>
+<blockquote class="sb-cit">“O vértice não é o destino, é o momento em que tudo muda de direção.”</blockquote>
 </div>
 </div>
 </section>
@@ -339,7 +326,7 @@ section{padding:56px 4%}
 <p style="font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--dourado);margin-bottom:16px">Percurso Completo</p>
 <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,38px);font-weight:300;color:var(--branco);line-height:1.3;margin-bottom:14px">Queres os cinco?</p>
 <p style="font-size:15px;line-height:1.8;color:rgba(250,250,248,.65);font-weight:300;max-width:520px;margin:0 auto 26px">Os cinco cursos, 25 módulos e 75 horas ao teu ritmo, sem prazo para terminar. Sai-te mais barato do que comprar três.</p>
-<p style="margin-bottom:26px"><span style="font-family:'Cormorant Garamond',serif;font-size:46px;color:var(--dourado);line-height:1">197&euro;</span> <span style="font-size:16px;color:rgba(250,250,248,.38);text-decoration:line-through;margin-left:12px;vertical-align:8px">335&euro;</span></p>
+<p style="margin-bottom:26px"><span style="font-family:'Cormorant Garamond',serif;font-size:46px;color:var(--dourado);line-height:1">197&nbsp;€</span> <span style="font-size:16px;color:rgba(250,250,248,.38);text-decoration:line-through;margin-left:12px;vertical-align:8px">335&nbsp;€</span></p>
 <a href="https://buy.stripe.com/fZu4gzePn0EAbsbcv0ak000" target="_blank" rel="noopener" style="background:var(--dourado);color:var(--preto);padding:16px 44px;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;display:inline-block;text-decoration:none">Levar o percurso completo</a>
 </div>
 <a href="https://verticeacademy.moodlecloud.com" target="_blank" rel="noopener" class="btn-cursos-sec">Aceder à Plataforma</a>
@@ -357,7 +344,7 @@ section{padding:56px 4%}
 <span style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(12,12,15,.6)">100% Online</span>
 <span style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(12,12,15,.6)">30 Horas &middot; 5 Módulos</span>
 <span style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(12,12,15,.6)">19 Set a 24 Out</span>
-<span style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(12,12,15,.6)">150 &euro;</span>
+<span style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(12,12,15,.6)">150&nbsp;€</span>
 </div>
 <blockquote style="max-width:640px;margin:0 auto 32px;padding:22px 28px;border-left:2px solid var(--dourado);background:rgba(12,12,15,.04);text-align:left">
 <p style="font-family:'Cormorant Garamond',serif;font-size:21px;line-height:1.5;font-style:italic;color:var(--preto);margin:0">&ldquo;Percebi que dava tudo aos meus alunos e instrutores e ficava sempre para o fim. Recomendo a qualquer treinador que ache que não precisa disto. Provavelmente é exatamente para esse que foi feito.&rdquo;</p>
@@ -366,18 +353,8 @@ section{padding:56px 4%}
 <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
 <a href="quem-cuida-de-ti-treinador.html" class="btn-p">Conhecer o Programa</a>
 </div>
-<div class="tcat">
-<h3 class="tcat-tit">Formação contínua para treinadores</h3>
-<p class="tcat-sub">Seis cursos de 30 horas, 100% online, um para cada realidade de quem treina, com edições marcadas até março de 2027. Este é o primeiro.</p>
-<div class="tc-grid">
-<a class="tc-card" href="inscricao/quem-cuida-de-ti.html"><div class="tc-top"><span class="tc-n">01</span><span class="tc-selo tc-ab">Inscrições abertas</span></div><h3 class="tc-tit">Quem Cuida de Ti, Treinador?</h3><p class="tc-sub">Para quem está a chegar ao limite</p><div class="tc-foot">30 h · 5 módulos · 19 set a 24 out 2026</div></a>
-<a class="tc-card" href="inscricao/lideranca-alto-impacto.html"><div class="tc-top"><span class="tc-n">02</span><span class="tc-selo tc-av">Avise-me</span></div><h3 class="tc-tit">Liderança de Alto Impacto</h3><p class="tc-sub">Para quem quer ser melhor líder</p><div class="tc-foot">30 h · 3 módulos · 14 nov a 12 dez 2026</div></a>
-<a class="tc-card" href="inscricao/treinador-e-os-pais.html"><div class="tc-top"><span class="tc-n">05</span><span class="tc-selo tc-av">Avise-me</span></div><h3 class="tc-tit">O Treinador e os Pais</h3><p class="tc-sub">Para quem está farto de pais</p><div class="tc-foot">30 h · 3 módulos · 9 jan a 6 fev 2027</div></a>
-<a class="tc-card" href="inscricao/atleta-sob-pressao.html"><div class="tc-top"><span class="tc-n">03</span><span class="tc-selo tc-av">Avise-me</span></div><h3 class="tc-tit">O Atleta sob Pressão</h3><p class="tc-sub">Para quem quer resultados na competição</p><div class="tc-foot">30 h · 3 módulos · 23 jan a 20 fev 2027</div></a>
-<a class="tc-card" href="inscricao/proteger-quem-treinamos.html"><div class="tc-top"><span class="tc-n">04</span><span class="tc-selo tc-av">Avise-me</span></div><h3 class="tc-tit">Proteger Quem Treinamos</h3><p class="tc-sub">Para quem assume a responsabilidade</p><div class="tc-foot">30 h · 3 módulos · 6 fev a 6 mar 2027</div></a>
-<a class="tc-card" href="inscricao/treinar-adolescentes.html"><div class="tc-top"><span class="tc-n">06</span><span class="tc-selo tc-av">Avise-me</span></div><h3 class="tc-tit">Treinar Adolescentes</h3><p class="tc-sub">Para quem forma jovens</p><div class="tc-foot">30 h · 3 módulos · 20 fev a 20 mar 2027</div></a>
-</div>
-</div>
+<p class="s-sub" style="margin:56px auto 0;color:rgba(12,12,15,.62);text-align:center">Este é o primeiro de seis cursos de formação contínua para treinadores, com edições marcadas até março de 2027.</p>
+<div style="margin-top:22px"><a href="inscricao/index.html" class="btn-cursos-sec" style="margin-top:0">Ver os seis cursos</a></div>
 </div>
 </section>
 
@@ -417,7 +394,7 @@ section{padding:56px 4%}
 <h2 class="s-titulo">Da Reação ao Equilíbrio</h2>
 <p class="s-sub" style="margin-bottom:24px">Depois do guia, vai mais fundo. O livro que te leva passo a passo do piloto-automático das reações à calma de quem escolhe a sua resposta, com ferramentas de inteligência emocional e autorregulação para o dia a dia, em casa e no trabalho.</p>
 <div class="lv-preco">
-<span class="lv-preco-val">€7</span>
+<span class="lv-preco-val">7&nbsp;€</span>
 <span class="lv-preco-nota">· edição digital · download imediato</span>
 </div>
 <a href="https://buy.stripe.com/aFa7sLgXv5YU0NxamSak006" target="_blank" rel="noopener" class="btn-p">Comprar o Livro</a>
@@ -433,9 +410,9 @@ section{padding:56px 4%}
 <div style="display:flex;gap:2px;flex-wrap:wrap;justify-content:center;margin:44px 0">
 <div style="background:var(--cinzento);padding:26px 34px;min-width:150px"><div style="font-family:'Cormorant Garamond',serif;font-size:34px;color:var(--dourado);line-height:1">6</div><div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(250,250,248,.5);margin-top:6px">Pessoas por turma</div></div>
 <div style="background:var(--cinzento);padding:26px 34px;min-width:150px"><div style="font-family:'Cormorant Garamond',serif;font-size:34px;color:var(--dourado);line-height:1">12</div><div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(250,250,248,.5);margin-top:6px">Sessões ao vivo</div></div>
-<div style="background:var(--cinzento);padding:26px 34px;min-width:150px"><div style="font-family:'Cormorant Garamond',serif;font-size:34px;color:var(--dourado);line-height:1">99&euro;</div><div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(250,250,248,.5);margin-top:6px">Por mês</div></div>
+<div style="background:var(--cinzento);padding:26px 34px;min-width:150px"><div style="font-family:'Cormorant Garamond',serif;font-size:34px;color:var(--dourado);line-height:1">99&nbsp;€</div><div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(250,250,248,.5);margin-top:6px">Por mês</div></div>
 </div>
-<p style="font-size:14px;color:rgba(250,250,248,.6);font-weight:300;margin-bottom:32px">Inclui os cinco cursos Vértice, que valem 335 &euro;, as gravações de todas as sessões e o contacto direto comigo ao longo do percurso.</p>
+<p style="font-size:14px;color:rgba(250,250,248,.6);font-weight:300;margin-bottom:32px">Inclui os cinco cursos Vértice, que valem 335&nbsp;€, as gravações de todas as sessões e o contacto direto comigo ao longo do percurso.</p>
 <a href="mentoria.html" class="btn-p">Conhecer a Mentoria</a>
 </div>
 </section>
@@ -444,7 +421,7 @@ section{padding:56px 4%}
 <div class="f-inner">
 <div>
 <p class="s-tag">Formação à Medida · Empresas</p>
-<h2 class="s-titulo" style="color:var(--branco)">A tua equipa não precisa<br>de mais informação.<br><em style="font-style:italic;color:var(--dourado)">Precisa de aprender a responder em vez de reagir.</em></h2>
+<h2 class="s-titulo" style="color:var(--branco)">A tua equipa não precisa de mais informação.<br><em style="font-style:italic;color:var(--dourado)">Precisa de aprender a responder em vez de reagir.</em></h2>
 <p class="s-sub" style="color:rgba(250,250,248,.6)">Formação in-house para empresas e organizações em liderança pessoal, inteligência emocional e comunicação, desenhada para o contexto real da tua equipa.</p>
 <ul class="f-lista">
 <li>Equipas</li>
@@ -468,12 +445,12 @@ section{padding:56px 4%}
 <h2 class="s-titulo">O que dizem as pessoas</h2>
 </div>
 <div class="t-grid">
-<div class="t-card fade-in stagger-1"><p class="t-texto">"A Andrea Antunes inspira líderes a serem melhores líderes, o que é um desafio consideravelmente mais exigente."</p><div class="t-linha"></div><div class="t-autor">Paulo Martins</div><div class="t-cargo">Formação · Liderar com Intenção</div></div>
-<div class="t-card fade-in stagger-2"><p class="t-texto">"Alterei completamente o modo como falava aos atletas."</p><div class="t-linha"></div><div class="t-autor">Rui Gabriel Dias da Costa</div><div class="t-cargo">Formação · Comunicação Assertiva</div></div>
-<div class="t-card fade-in stagger-3"><p class="t-texto">"De todas as formações saio sempre inspirada e com mais confiança. Por mais formadores neste mundo como a Andrea."</p><div class="t-linha"></div><div class="t-autor">Diana Guerra</div><div class="t-cargo">Formação / Workshop</div></div>
-<div class="t-card fade-in stagger-1"><p class="t-texto">"A minha experiência nas formações foi um verdadeiro ponto de viragem. Voltei a confiar nas minhas capacidades."</p><div class="t-linha"></div><div class="t-autor">Hugo Santos</div><div class="t-cargo">Formação · Empregabilidade</div></div>
-<div class="t-card fade-in stagger-2"><p class="t-texto">"Deixei de ser alguém que apenas absorve conhecimento para passar a moldar ativamente a minha identidade e o meu trabalho."</p><div class="t-linha"></div><div class="t-autor">Catarina Cristóvão</div><div class="t-cargo">Escritora · Formação</div></div>
-<div class="t-card fade-in stagger-3"><p class="t-texto">"Ter formação com a Andrea foi inspirador. Foi a minha alavanca para hoje ser formadora também."</p><div class="t-linha"></div><div class="t-autor">Nelma Alexandra Dias Pereira</div><div class="t-cargo">Formação</div></div>
+<div class="t-card fade-in stagger-1"><p class="t-texto">“A Andrea Antunes inspira líderes a serem melhores líderes, o que é um desafio consideravelmente mais exigente.”</p><div class="t-linha"></div><div class="t-autor">Paulo Martins</div><div class="t-cargo">Formação · Liderar com Intenção</div></div>
+<div class="t-card fade-in stagger-2"><p class="t-texto">“Alterei completamente o modo como falava aos atletas.”</p><div class="t-linha"></div><div class="t-autor">Rui Gabriel Dias da Costa</div><div class="t-cargo">Formação · Comunicação Assertiva</div></div>
+<div class="t-card fade-in stagger-3"><p class="t-texto">“De todas as formações saio sempre inspirada e com mais confiança. Por mais formadores neste mundo como a Andrea.”</p><div class="t-linha"></div><div class="t-autor">Diana Guerra</div><div class="t-cargo">Formação / Workshop</div></div>
+<div class="t-card fade-in stagger-1"><p class="t-texto">“A minha experiência nas formações foi um verdadeiro ponto de viragem. Voltei a confiar nas minhas capacidades.”</p><div class="t-linha"></div><div class="t-autor">Hugo Santos</div><div class="t-cargo">Formação · Empregabilidade</div></div>
+<div class="t-card fade-in stagger-2"><p class="t-texto">“Deixei de ser alguém que apenas absorve conhecimento para passar a moldar ativamente a minha identidade e o meu trabalho.”</p><div class="t-linha"></div><div class="t-autor">Catarina Cristóvão</div><div class="t-cargo">Escritora · Formação</div></div>
+<div class="t-card fade-in stagger-3"><p class="t-texto">“Ter formação com a Andrea foi inspirador. Foi a minha alavanca para hoje ser formadora também.”</p><div class="t-linha"></div><div class="t-autor">Nelma Alexandra Dias Pereira</div><div class="t-cargo">Formação</div></div>
 </div>
 <div style="text-align:center;margin-top:60px;padding-bottom:20px">
 <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1yDe---TcVeGOLYGdFUyYVNVXYYo5emLC4X9dalb7-EpeCQ/viewform" target="_blank" rel="noopener" style="display:inline-block;background:transparent;color:var(--dourado);border:1px solid var(--dourado);padding:16px 40px;font-family:'Inter',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;text-decoration:none;transition:all .3s">Deixa o teu testemunho</a>
@@ -517,7 +494,7 @@ Email</a>
 <div>
 <div class="ft-nome">Vértice</div>
 <div class="ft-sub">Academy</div>
-<p class="ft-tag">"O momento em que decides responder em vez de reagir, esse é o teu vértice."</p>
+<p class="ft-tag">“O momento em que decides responder em vez de reagir, esse é o teu vértice.”</p>
 </div>
 <div>
 <div class="ft-titulo">Navegação</div>
@@ -548,7 +525,7 @@ Email</a>
 <script>
 const _obs = new IntersectionObserver((entries) => {
 entries.forEach(el => { if(el.isIntersecting){ el.target.classList.add("visible"); } });
-}, {threshold: 0.1});
+}, {threshold: 0, rootMargin: "0px 0px -8% 0px"});
 document.querySelectorAll(".fade-in,.fade-in-left,.fade-in-right").forEach(el => _obs.observe(el));
 
 // Menu mobile
