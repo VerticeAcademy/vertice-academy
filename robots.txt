@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+# Os guias em PDF ficam fora do indice de pesquisa. A entrega e feita pela
+# pagina do guia, depois do formulario, para que o contacto fique registado.
+Disallow: /*.pdf$
+
 Sitemap: https://verticeacademy.eu/sitemap.xml
